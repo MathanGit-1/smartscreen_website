@@ -148,6 +148,14 @@ const CandidatesPreview: React.FC = () => {
 
 /* ------------------------------------ APP ----------------------------------- */
 
+type HeroSlide = {
+  label: string;
+  eyebrow: string;
+  line1: string;
+  line2: string;
+  body: string;
+};
+
 const App: React.FC = () => {
   const [activePreview, setActivePreview] = useState<PreviewKey>('jobs');
 
@@ -173,28 +181,28 @@ const App: React.FC = () => {
     }, 120);
   };
 
-  // Hero slideshow data – product site
-  const heroSlides = [
+  // HERO slides – line1 = black, line2 = gradient
+  const heroSlides: HeroSlide[] = [
     {
-      label: 'Unified workspace',
-      eyebrow: 'AI hiring copilot for HR & TA teams',
-      titleMain: 'One AI workspace for jobs,',
-      titleHighlight: 'candidates, and applications.',
-      body: 'SmartScreen connects job descriptions, resumes, and application workflows into a single AI-powered system of record — so your team always knows what is happening on every role.',
+      label: 'From chaos to control',
+      eyebrow: 'Hiring today is messy',
+      line1: 'Drowning in resumes,',
+      line2: 'and Excel trackers for every role?',
+      body: 'SmartScreen pulls JDs, resumes, and status updates from all those places into one AI workspace — with an assistant that can answer “what is happening on this job?” in seconds.',
     },
     {
       label: 'Shortlists in minutes',
-      eyebrow: 'From raw resumes to shortlists',
-      titleMain: 'Turn piles of CVs',
-      titleHighlight: 'into ranked shortlists in minutes.',
-      body: 'Upload JDs and bulk resumes, let SmartScreen parse skills and experience, and get ranked shortlists for every role — ready to share with hiring managers without manual filtering.',
+      eyebrow: 'Too much time on manual screening',
+      line1: 'Still reading CVs one by one',
+      line2: 'just to build a shortlist?',
+      body: 'Upload job descriptions and bulk resumes, let SmartScreen parse skills and experience, and get ranked shortlists per role — so recruiters stop wasting hours on first-level screening.',
     },
     {
-      label: 'Assistant across data',
-      eyebrow: 'AI assistant across your pipeline',
-      titleMain: 'Give every recruiter',
-      titleHighlight: 'an AI copilot that understands your data.',
-      body: 'Ask questions like “who is the best fit for this role?” or “what changed on this job last week?” and get answers powered by live jobs, candidates, and applications — not static reports.',
+      label: 'Assistant across your data',
+      eyebrow: 'Everyone asking you for updates',
+      line1: 'Hiring managers keep asking “any update?”',
+      line2: 'and you have to open 5 tools to reply?',
+      body: 'SmartScreen’s AI assistant sits on top of jobs, candidates, and applications. Ask in plain English — “show best fits for this role”, “who moved stages this week” — and get answers from live data.',
     },
   ];
 
@@ -387,7 +395,12 @@ const App: React.FC = () => {
 
       <main className="relative z-10">
         {/* HERO with subtle image + slideshow */}
-        <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+<section
+  className="relative overflow-hidden pt-16 pb-16
+             md:pt-20 md:pb-20
+             md:h-[620px] lg:h-[680px]
+             md:flex md:items-center"
+>
           {/* Subtle background image inside hero */}
           <div
             className="pointer-events-none absolute inset-0 z-0 opacity-[0.12] mix-blend-soft-light"
@@ -426,7 +439,7 @@ const App: React.FC = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.45, ease: 'easeOut' }}
-                className="space-y-8"
+                className="space-y-6 md:space-y-7"
               >
                 <div className="inline-flex items-center gap-2 rounded-full border border-violet-100 bg-white/70 px-3 py-1 text-[11px] font-medium text-violet-700 shadow-soft">
                   <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
@@ -440,16 +453,35 @@ const App: React.FC = () => {
                   </span>
                 </div>
 
-                <h1 className="text-4xl font-semibold leading-tight tracking-tight text-brand-dark sm:text-5xl md:text-6xl">
-                  {currentHero.titleMain}
-                  <span className="block bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
-                    {currentHero.titleHighlight}
-                  </span>
-                </h1>
+                {/* NEW: two explicit lines so nothing gets clipped */}
+<h1 className="max-w-xl text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-brand-dark leading-snug md:leading-[1.2]">
+  <span className="block">{currentHero.line1}</span>
+  <span
+    className="mt-1 inline-block bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent pb-1.5"
+  >
+    {currentHero.line2}
+  </span>
+</h1>
 
                 <p className="max-w-xl text-base text-slate-700 sm:text-lg">
                   {currentHero.body}
                 </p>
+
+                {/* Pain bullets */}
+                <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                    Resumes scattered across downloads, job portals, and email.
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                    Status updates buried in Excel trackers.
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    SmartScreen gives you one AI workspace + assistant that sees it all.
+                  </li>
+                </ul>
 
                 <div className="flex flex-wrap items-center gap-4">
                   <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent px-6 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-[0_18px_40px_rgba(124,58,237,0.45)]">
@@ -466,7 +498,7 @@ const App: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Slide tabs */}
+                {/* Slide tabs – story chips */}
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
                   {heroSlides.map((slide, idx) => {
                     const isActive = idx === heroIndex;
@@ -508,7 +540,7 @@ const App: React.FC = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Hero mock UI card – no zoom */}
+            {/* Hero mock UI card – emphasise AI assistant */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -520,6 +552,15 @@ const App: React.FC = () => {
 
                 <div className="gradient-border rounded-3xl">
                   <div className="relative rounded-3xl bg-white/90 p-4 shadow-soft backdrop-blur-xl">
+                    {/* Floating AI copilot badge */}
+                    <div className="absolute -top-4 right-6 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1.5 text-[11px] text-slate-100 shadow-lg backdrop-blur-md">
+                      <span className="relative flex h-4 w-4 items-center justify-center">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/40" />
+                        <span className="relative h-2.5 w-2.5 rounded-full bg-gradient-to-tr from-emerald-400 to-brand-neon" />
+                      </span>
+                      <span>AI copilot watching this pipeline</span>
+                    </div>
+
                     {/* Top bar */}
                     <div className="mb-4 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-xs text-slate-500">

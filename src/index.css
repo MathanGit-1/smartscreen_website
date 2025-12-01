@@ -24,3 +24,36 @@ body {
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 }
+
+/* Animated neon blob for assistant hero mock */
+.neon-blob {
+  position: relative;
+  width: 5rem;      /* ~80px */
+  height: 5rem;
+  background:
+    radial-gradient(circle at 30% 20%, #f9fafb 0, transparent 55%),
+    radial-gradient(circle at 80% 80%, #4f46e5 0, transparent 60%),
+    radial-gradient(circle at 10% 90%, #ec4899 0, transparent 60%);
+  box-shadow:
+    0 0 40px rgba(129, 140, 248, 0.95),
+    0 0 80px rgba(236, 72, 153, 0.55);
+  border-radius: 60% 40% 65% 35% / 55% 45% 60% 40%;
+  animation: neon-blob-morph 6s ease-in-out infinite alternate;
+}
+
+/* soft organic squeeze + scale animation */
+@keyframes neon-blob-morph {
+  0% {
+    border-radius: 60% 40% 65% 35% / 55% 45% 60% 40%;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    border-radius: 45% 55% 60% 40% / 40% 60% 45% 55%;
+    transform: scale(1.08) translateY(-4px);
+  }
+  100% {
+    border-radius: 55% 45% 40% 60% / 60% 40% 55% 45%;
+    transform: scale(0.97) translateY(3px);
+  }
+}
+

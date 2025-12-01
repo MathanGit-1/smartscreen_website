@@ -630,25 +630,25 @@ const App: React.FC = () => {
             </div>
 
 
-{/* Hero mock UI card – depends on slide, shared axis with text */}
-<AnimatePresence mode="wait" custom={heroDirection}>
-  <motion.div
-    key={heroIndex}
-    custom={heroDirection}
-    variants={heroCardVariants}
-    initial="enter"
-    animate="center"
-    exit="exit"
-    transition={{ duration: 0.45, ease: "easeOut" }}
-    className="relative mt-4 md:mt-16 lg:mt-20"
-  >
+              {/* Hero mock UI card – depends on slide, shared axis with text */}
+              <AnimatePresence mode="wait" custom={heroDirection}>
+                <motion.div
+                  key={heroIndex}
+                  custom={heroDirection}
+                  variants={heroCardVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="relative mt-4 md:mt-16 lg:mt-20"
+                >
                 <div className="relative">
                   <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
                   <div className="absolute -bottom-10 -right-4 h-24 w-24 rounded-full bg-pink-300/60 blur-3xl animate-pulse-soft" />
 
                   {heroIndex === 0 ? (
                     /* Slide 1 – live pipeline + assistant, glossy card */
-                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.05]">
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.08] lg:scale-[1.15]">
                       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 p-6 shadow-soft backdrop-blur-xl">
                         {/* faint overlay glows */}
                         <div className="pointer-events-none absolute -top-12 left-10 h-24 w-24 rounded-full bg-violet-300/35 blur-3xl" />
@@ -939,7 +939,7 @@ const App: React.FC = () => {
                     </div>
                   ) : (
                     /* Slide 3 – assistant mock, glossy card */
-                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.05]">
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.1]">
                       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 px-6 py-8 shadow-soft">
                         {/* Ambient glows */}
                         <div className="pointer-events-none absolute -top-20 left-6 h-32 w-32 rounded-full bg-pink-300/50 blur-3xl" />

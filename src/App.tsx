@@ -522,11 +522,14 @@ const App: React.FC = () => {
             {/* Hero text – eyebrow + static chips + animated body */}
             <div className="space-y-4 md:space-y-6 md:min-h-[320px]">
               {/* Eyebrow (changes per slide, but not animated) */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-violet-100 bg-white/70 px-3 py-1 text-[11px] font-medium text-violet-700 shadow-soft">
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
-                  ●
-                </span>
-                <span className="uppercase tracking-[0.18em]">
+              <div className="inline-flex items-center gap-2 pl-2 pr-3 py-1 rounded-full
+                  bg-white/70 border border-violet-100 text-[11px] font-medium text-violet-700 
+                  backdrop-blur-sm shadow-soft relative">
+                
+                <span className="absolute left-0 top-0 h-full w-[3px] rounded-l-full 
+                    bg-gradient-to-b from-brand-primary to-brand-accent" />
+
+                <span className="uppercase tracking-[0.18em] ml-1.5">
                   {currentHero.eyebrow}
                 </span>
               </div>

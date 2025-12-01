@@ -229,9 +229,9 @@ const App: React.FC = () => {
     {
       label: "From chaos to control",
       eyebrow: "Hiring today is messy",
-      line1: "Drowning in resumes,",
-      line2: "and Excel trackers for every role?",
-      body: "SmartScreen pulls JDs, resumes, and status updates from all those places into one AI workspace — with an assistant that can answer “what is happening on this job?” in seconds.",
+      line1: "Drowning in resumes.",
+      line2: "And Excel trackers for every role.",
+      body: "SmartScreen pulls every JD, resume, and status update into one AI workspace — so you always know what’s happening on each role in seconds.",
     },
     {
       label: "Shortlists in minutes",
@@ -535,9 +535,31 @@ const App: React.FC = () => {
                   <span className="uppercase tracking-[0.18em]">
                     {currentHero.eyebrow}
                   </span>
-                  <span className="ml-2 rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-600">
-                    Slide {heroIndex + 1} of {heroSlides.length}
-                  </span>
+                </div>
+
+                {/* Slide tabs – story chips (moved up under eyebrow) */}
+                <div className="flex flex-wrap items-center gap-2 text-xs">
+                  {heroSlides.map((slide, idx) => {
+                    const isActive = idx === heroIndex;
+                    return (
+                      <button
+                        key={slide.label}
+                        type="button"
+                        onClick={() => {
+                          if (idx === heroIndex) return;
+                          setHeroDirection(idx > heroIndex ? 1 : -1);
+                          setHeroIndex(idx);
+                        }}
+                        className={`rounded-full border px-3 py-1 transition ${
+                          isActive
+                            ? "border-brand-primary/40 bg-brand-primary/10 text-brand-primary"
+                            : "border-violet-100 bg-white/60 text-slate-500 hover:bg-white"
+                        }`}
+                      >
+                        {slide.label}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 {/* two explicit lines */}
@@ -560,11 +582,11 @@ const App: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                    Status updates buried in Excel trackers.
+                    Status updates buried in Excel sheets.
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    SmartScreen gives you one AI workspace + assistant that sees it all.
+                    No single place that shows the full hiring picture.
                   </li>
                 </ul>
 
@@ -581,31 +603,6 @@ const App: React.FC = () => {
                     </span>
                     Watch 60s overview
                   </button>
-                </div>
-
-                {/* Slide tabs – story chips */}
-                <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                  {heroSlides.map((slide, idx) => {
-                    const isActive = idx === heroIndex;
-                    return (
-                      <button
-                        key={slide.label}
-                        type="button"
-                        onClick={() => {
-                          if (idx === heroIndex) return;
-                          setHeroDirection(idx > heroIndex ? 1 : -1);
-                          setHeroIndex(idx);
-                        }}
-                        className={`rounded-full border px-3 py-1 transition ${
-                          isActive
-                            ? "border-brand-primary/40 bg-brand-primary/10 text-brand-primary"
-                            : "border-violet-100 bg-white/60 text-slate-500 hover:bg-white"
-                        }`}
-                      >
-                        {slide.label}
-                      </button>
-                    );
-                  })}
                 </div>
 
                 <div className="flex flex-wrap gap-4 text-xs text-slate-600">
@@ -1203,7 +1200,7 @@ const App: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setActivePreview("video")}
-                          className="absolute inset-0 flex items:end justify-end bg-gradient-to-t from-black/15 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
+                          className="absolute inset-0 flex items:end justify:end bg-gradient-to-t from-black/15 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
                         >
                           <span className="inline-flex items-center gap-2 rounded-full bg-black/30 px-3 py-1 backdrop-blur-sm">
                             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/90 text-[10px] text-brand-primary">

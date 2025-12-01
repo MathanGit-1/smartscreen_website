@@ -323,8 +323,27 @@ const App: React.FC = () => {
     }),
   };
 
-  const handleHeroMouseEnter = () => setIsHeroHovered(true);   // 🔸 NEW
-  const handleHeroMouseLeave = () => setIsHeroHovered(false);  // 🔸 NEW
+  // 🔹 NEW: shared card variants for right hero panel – same axis as text
+  const heroCardVariants = {
+    enter: (direction: number) => ({
+      opacity: 0,
+      x: direction > 0 ? 60 : -60,
+      scale: 0.96,
+    }),
+    center: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      opacity: 0,
+      x: direction > 0 ? -60 : 60,
+      scale: 0.96,
+    }),
+  };
+
+  const handleHeroMouseEnter = () => setIsHeroHovered(true); // 🔸 NEW
+  const handleHeroMouseLeave = () => setIsHeroHovered(false); // 🔸 NEW
 
   return (
     <div className="min-h-screen bg-brand-light text-brand-dark">
@@ -606,394 +625,382 @@ const App: React.FC = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Hero mock UI card – depends on slide */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <div className="relative">
-                <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
-                <div className="absolute -bottom-10 -right-4 h-24 w-24 rounded-full bg-pink-300/60 blur-3xl animate-pulse-soft" />
+            {/* Hero mock UI card – depends on slide, shared axis with text */}
+            <AnimatePresence mode="wait" custom={heroDirection}>
+              <motion.div
+                key={heroIndex}
+                custom={heroDirection}
+                variants={heroCardVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              >
+                <div className="relative">
+                  <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
+                  <div className="absolute -bottom-10 -right-4 h-24 w-24 rounded-full bg-pink-300/60 blur-3xl animate-pulse-soft" />
 
-                {heroIndex === 0 ? (
-                  /* Slide 1 – live pipeline + assistant, glossy card (bigger + scaled) */
-                  <motion.div
-                    key="slide-1-card"
-                    initial={{ opacity: 0, scale: 0.9, y: 24 }}
-                    animate={{ opacity: 1, scale: 1.25, y: 0 }}
-                    transition={{ duration: 0.55, ease: "easeOut" }}
-                    className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left"
-                  >
-                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 p-6 shadow-soft backdrop-blur-xl">
-                      {/* faint overlay glows */}
-                      <div className="pointer-events-none absolute -top-12 left-10 h-24 w-24 rounded-full bg-violet-300/35 blur-3xl" />
-                      <div className="pointer-events-none absolute -bottom-16 right-4 h-28 w-28 rounded-full bg-pink-300/35 blur-3xl" />
+                  {heroIndex === 0 ? (
+                    /* Slide 1 – live pipeline + assistant, glossy card */
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left">
+                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 p-6 shadow-soft backdrop-blur-xl">
+                        {/* faint overlay glows */}
+                        <div className="pointer-events-none absolute -top-12 left-10 h-24 w-24 rounded-full bg-violet-300/35 blur-3xl" />
+                        <div className="pointer-events-none absolute -bottom-16 right-4 h-28 w-28 rounded-full bg-pink-300/35 blur-3xl" />
 
-                      {/* top bar */}
-                      <div className="relative mb-3 flex items-center justify-between text-[11px] text-slate-500">
-                        <div className="flex items-center gap-2">
-                          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                          <span className="font-medium text-slate-700">
-                            Live pipeline overview
-                          </span>
-                          <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] text-emerald-700">
-                            27 open roles
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1 rounded-full bg-white/70 px-2 py-0.5 shadow-sm">
-                          <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                          <span>Tech</span>
-                          <span className="h-1 w-[1px] bg-violet-100" />
-                          <span className="text-slate-400">Non-tech</span>
-                        </div>
-                      </div>
-
-                      {/* main two-column layout */}
-                      <div className="relative grid gap-4 md:grid-cols-[1.3fr_minmax(0,1fr)]">
-                        {/* Jobs list column */}
-                        <div className="space-y-2 rounded-2xl bg-white/80 p-3.5 ring-1 ring-violet-100">
-                          <div className="mb-1 flex items-center justify-between text-[10px] font-medium text-slate-500">
-                            <span>Role</span>
-                            <div className="flex gap-4">
-                              <span>Location</span>
-                              <span className="text-right">Matches</span>
-                            </div>
+                        {/* top bar */}
+                        <div className="relative mb-3 flex items-center justify-between text-[11px] text-slate-500">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            <span className="font-medium text-slate-700">
+                              Live pipeline overview
+                            </span>
+                            <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] text-emerald-700">
+                              27 open roles
+                            </span>
                           </div>
+                          <div className="flex items-center gap-1 rounded-full bg-white/70 px-2 py-0.5 shadow-sm">
+                            <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                            <span>Tech</span>
+                            <span className="h-1 w-[1px] bg-violet-100" />
+                            <span className="text-slate-400">Non-tech</span>
+                          </div>
+                        </div>
 
-                          {[
-                            "Senior Java Engineer",
-                            "HR Business Partner",
-                            "Frontend Developer",
-                            "Talent Acquisition Lead",
-                          ].map((title, idx) => (
-                            <div
-                              key={title}
-                              className="flex items-center justify-between rounded-xl bg-violet-50/80 px-3 py-2.5 text-[11px] ring-1 ring-violet-100"
-                            >
-                              <div className="space-y-0.5">
-                                <div className="font-medium text-brand-dark">
-                                  {title}
+                        {/* main two-column layout */}
+                        <div className="relative grid gap-4 md:grid-cols-[1.3fr_minmax(0,1fr)]">
+                          {/* Jobs list column */}
+                          <div className="space-y-2 rounded-2xl bg-white/80 p-3.5 ring-1 ring-violet-100">
+                            <div className="mb-1 flex items-center justify-between text-[10px] font-medium text-slate-500">
+                              <span>Role</span>
+                              <div className="flex gap-4">
+                                <span>Location</span>
+                                <span className="text-right">Matches</span>
+                              </div>
+                            </div>
+
+                            {[
+                              "Senior Java Engineer",
+                              "HR Business Partner",
+                              "Frontend Developer",
+                              "Talent Acquisition Lead",
+                            ].map((title, idx) => (
+                              <div
+                                key={title}
+                                className="flex items-center justify-between rounded-xl bg-violet-50/80 px-3 py-2.5 text-[11px] ring-1 ring-violet-100"
+                              >
+                                <div className="space-y-0.5">
+                                  <div className="font-medium text-brand-dark">
+                                    {title}
+                                  </div>
+                                  <div className="flex gap-2 text-[10px] text-slate-500">
+                                    <span>Chennai · Hybrid</span>
+                                    <span>5–8 yrs</span>
+                                  </div>
                                 </div>
-                                <div className="flex gap-2 text-[10px] text-slate-500">
-                                  <span>Chennai · Hybrid</span>
-                                  <span>5–8 yrs</span>
+                                <div className="flex flex-col items-end gap-1">
+                                  <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-700">
+                                    23 matched
+                                  </span>
+                                  <div className="flex items-center gap-1 text-[10px] text-slate-500">
+                                    <span>Fitment</span>
+                                    <div className="h-1.5 w-14 overflow-hidden rounded-full bg-emerald-100">
+                                      <div
+                                        className="h-full rounded-full bg-emerald-500"
+                                        style={{ width: `${72 + idx * 6}%` }}
+                                      />
+                                    </div>
+                                    <span className="font-medium text-emerald-700">
+                                      {72 + idx * 6}%
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="flex flex-col items-end gap-1">
-                                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-700">
-                                  23 matched
+                            ))}
+                          </div>
+
+                          {/* Assistant column */}
+                          <div className="space-y-3 rounded-2xl border border-violet-100 bg-gradient-to-b from-white/95 to-violet-50/90 p-3.5">
+                            <div className="flex items-center justify-between text-[11px] text-slate-500">
+                              <div className="flex items-center gap-2">
+                                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
+                                  AI
                                 </span>
-                                <div className="flex items-center gap-1 text-[10px] text-slate-500">
-                                  <span>Fitment</span>
-                                  <div className="h-1.5 w-14 overflow-hidden rounded-full bg-emerald-100">
-                                    <div
-                                      className="h-full rounded-full bg-emerald-500"
-                                      style={{ width: `${72 + idx * 6}%` }}
-                                    />
-                                  </div>
-                                  <span className="font-medium text-emerald-700">
-                                    {72 + idx * 6}%
+                                <span className="font-medium text-slate-700">
+                                  SmartScreen Assistant
+                                </span>
+                              </div>
+                              <span className="inline-flex items-center gap-1 text-emerald-600">
+                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                                Online
+                              </span>
+                            </div>
+
+                            <div className="space-y-2 text-[11px]">
+                              <div className="rounded-xl bg-white/90 p-2.5 text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
+                                “Show me senior roles in Chennai with hybrid
+                                work, sorted by fitment.”
+                              </div>
+                              <div className="rounded-xl bg-gradient-to-br from-brand-primary/10 via-brand-neon/10 to-brand-accent/10 p-2.5 text-brand-dark shadow-[0_16px_40px_rgba(124,58,237,0.25)]">
+                                <div className="flex items-center justify-between text-[11px]">
+                                  <span className="font-medium">
+                                    Result · 6 roles found
+                                  </span>
+                                  <span className="rounded-full bg-white/40 px-2 py-0.5 text-[10px] text-violet-700">
+                                    Filter: Chennai · Hybrid
                                   </span>
                                 </div>
+                                <ul className="mt-1.5 space-y-0.5 text-[10px] text-slate-800">
+                                  <li>• Senior Java Engineer · 23 candidates</li>
+                                  <li>• Frontend Developer · 18 candidates</li>
+                                  <li>• Talent Acquisition Lead · 11 candidates</li>
+                                </ul>
                               </div>
                             </div>
-                          ))}
-                        </div>
 
-                        {/* Assistant column */}
-                        <div className="space-y-3 rounded-2xl border border-violet-100 bg-gradient-to-b from-white/95 to-violet-50/90 p-3.5">
-                          <div className="flex items-center justify-between text-[11px] text-slate-500">
-                            <div className="flex items-center gap-2">
-                              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
-                                AI
-                              </span>
-                              <span className="font-medium text-slate-700">
-                                SmartScreen Assistant
+                            <div className="mt-1 flex items-center gap-1 rounded-full border border-violet-100 bg-white/80 px-2 py-1.5 text-[11px] text-slate-500">
+                              <span className="text-slate-400">⊕</span>
+                              <span className="truncate">
+                                Ask anything about jobs, filters, or pipeline
+                                health…
                               </span>
                             </div>
-                            <span className="inline-flex items-center gap-1 text-emerald-600">
-                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                              Online
-                            </span>
-                          </div>
-
-                          <div className="space-y-2 text-[11px]">
-                            <div className="rounded-xl bg-white/90 p-2.5 text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
-                              “Show me senior roles in Chennai with hybrid
-                              work, sorted by fitment.”
-                            </div>
-                            <div className="rounded-xl bg-gradient-to-br from-brand-primary/10 via-brand-neon/10 to-brand-accent/10 p-2.5 text-brand-dark shadow-[0_16px_40px_rgba(124,58,237,0.25)]">
-                              <div className="flex items-center justify-between text-[11px]">
-                                <span className="font-medium">
-                                  Result · 6 roles found
-                                </span>
-                                <span className="rounded-full bg-white/40 px-2 py-0.5 text-[10px] text-violet-700">
-                                  Filter: Chennai · Hybrid
-                                </span>
-                              </div>
-                              <ul className="mt-1.5 space-y-0.5 text-[10px] text-slate-800">
-                                <li>• Senior Java Engineer · 23 candidates</li>
-                                <li>• Frontend Developer · 18 candidates</li>
-                                <li>• Talent Acquisition Lead · 11 candidates</li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          <div className="mt-1 flex items-center gap-1 rounded-full border border-violet-100 bg-white/80 px-2 py-1.5 text-[11px] text-slate-500">
-                            <span className="text-slate-400">⊕</span>
-                            <span className="truncate">
-                              Ask anything about jobs, filters, or pipeline
-                              health…
-                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                ) : heroIndex === 1 ? (
-                  /* Slide 2 — glossy premium mock UI, same size as Slide #1 */
-                  <motion.div
-                    key="slide-2-card"
-                    initial={{ opacity: 0, scale: 0.9, y: 32 }}
-                    animate={{ opacity: 1, scale: 1.25, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left"
-                  >
-                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/40 via-violet-50/30 to-pink-50/30 shadow-[0_18px_55px_rgba(124,58,237,0.28)] backdrop-blur-2xl p-6">
-                      {/* Ambient glows — boosted gloss */}
-                      <div className="pointer-events-none absolute -top-16 left-10 h-40 w-40 rounded-full bg-violet-300/50 blur-3xl" />
-                      <div className="pointer-events-none absolute -bottom-16 right-4 h-36 w-36 rounded-full bg-pink-300/50 blur-3xl" />
+                  ) : heroIndex === 1 ? (
+                    /* Slide 2 — glossy premium mock UI */
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left">
+                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/40 via-violet-50/30 to-pink-50/30 shadow-[0_18px_55px_rgba(124,58,237,0.28)] backdrop-blur-2xl p-6">
+                        {/* Ambient glows — boosted gloss */}
+                        <div className="pointer-events-none absolute -top-16 left-10 h-40 w-40 rounded-full bg-violet-300/50 blur-3xl" />
+                        <div className="pointer-events-none absolute -bottom-16 right-4 h-36 w-36 rounded-full bg-pink-300/50 blur-3xl" />
 
-                      {/* Browser chrome */}
-                      <div className="flex items-center justify-between rounded-t-2xl border-b border-violet-100/50 bg-white/40 px-4 py-2 text-[11px] text-slate-600 backdrop-blur-xl">
-                        <div className="flex items-center gap-1.5">
-                          <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                        </div>
+                        {/* Browser chrome */}
+                        <div className="flex items-center justify-between rounded-t-2xl border-b border-violet-100/50 bg-white/40 px-4 py-2 text-[11px] text-slate-600 backdrop-blur-xl">
+                          <div className="flex items-center gap-1.5">
+                            <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                          </div>
 
-                        <div className="flex items-center gap-2 truncate">
-                          <span className="rounded-full bg-white/70 px-2 py-0.5 text-[10px] text-violet-700">
-                            Create application
-                          </span>
-                          <span className="truncate text-[11px] text-slate-600">
-                            Matching candidates · SmartScreen (mock)
+                          <div className="flex items-center gap-2 truncate">
+                            <span className="rounded-full bg-white/70 px-2 py-0.5 text-[10px] text-violet-700">
+                              Create application
+                            </span>
+                            <span className="truncate text-[11px] text-slate-600">
+                              Matching candidates · SmartScreen (mock)
+                            </span>
+                          </div>
+
+                          <span className="rounded-full bg-violet-600/90 px-2 py-0.5 text-[10px] font-medium text-white">
+                            23 matches
                           </span>
                         </div>
 
-                        <span className="rounded-full bg-violet-600/90 px-2 py-0.5 text-[10px] font-medium text-white">
-                          23 matches
-                        </span>
-                      </div>
-
-                      {/* Inner glossy mock UI */}
-                      <div className="relative rounded-b-3xl border border-violet-100/40 bg-gradient-to-br from-violet-50/40 via-white/55 to-pink-50/40 px-4 py-4 shadow-[0_22px_50px_rgba(15,23,42,0.22)] backdrop-blur-xl">
-                        <div className="relative grid gap-3 rounded-2xl bg-white/75 p-3.5 shadow-[0_16px_40px_rgba(15,23,42,0.12)] md:grid-cols-[0.9fr,1.1fr]">
-                          {/* Left – JD + upload summary */}
-                          <div className="flex flex-col gap-3 border-r border-violet-100/70 pr-3">
-                            <div className="flex items-center justify-between text-[11px] text-slate-600">
-                              <span className="font-medium text-slate-800">
-                                Java Developer
-                              </span>
-                              <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
-                                New role
-                              </span>
-                            </div>
-
-                            <div className="space-y-1.5 rounded-xl bg-slate-50/80 p-2.5 text-[10px] text-slate-600">
-                              <div className="flex items-center justify-between">
-                                <span>Chennai · Hybrid · 5–8 yrs</span>
-                                <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-slate-500">
-                                  JD parsed ✓
+                        {/* Inner glossy mock UI */}
+                        <div className="relative rounded-b-3xl border border-violet-100/40 bg-gradient-to-br from-violet-50/40 via-white/55 to-pink-50/40 px-4 py-4 shadow-[0_22px_50px_rgba(15,23,42,0.22)] backdrop-blur-xl">
+                          <div className="relative grid gap-3 rounded-2xl bg-white/75 p-3.5 shadow-[0_16px_40px_rgba(15,23,42,0.12)] md:grid-cols-[0.9fr,1.1fr]">
+                            {/* Left – JD + upload summary */}
+                            <div className="flex flex-col gap-3 border-r border-violet-100/70 pr-3">
+                              <div className="flex items-center justify-between text-[11px] text-slate-600">
+                                <span className="font-medium text-slate-800">
+                                  Java Developer
+                                </span>
+                                <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
+                                  New role
                                 </span>
                               </div>
-                              <ul className="space-y-0.5">
-                                <li>• Core skills: Java, Spring Boot, Microservices</li>
-                                <li>• Nice to have: Kafka, AWS</li>
-                                <li>• Must not: only manual testing profiles</li>
-                              </ul>
-                            </div>
 
-                            <div className="space-y-2 rounded-xl bg-violet-50/70 p-2.5 text-[10px]">
-                              <div className="flex items-center justify-between">
-                                <span className="font-medium text-slate-700">
-                                  Bulk resumes uploaded
-                                </span>
-                                <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-violet-700">
-                                  120 CVs
-                                </span>
-                              </div>
-                              <div className="space-y-1 text-slate-600">
+                              <div className="space-y-1.5 rounded-xl bg-slate-50/80 p-2.5 text-[10px] text-slate-600">
                                 <div className="flex items-center justify-between">
-                                  <span>Parsed & tagged</span>
-                                  <span className="text-emerald-600">96%</span>
+                                  <span>Chennai · Hybrid · 5–8 yrs</span>
+                                  <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-slate-500">
+                                    JD parsed ✓
+                                  </span>
                                 </div>
-                                <div className="h-1.5 w-full overflow-hidden rounded-full bg-emerald-100">
-                                  <div className="h-full w-[96%] rounded-full bg-emerald-500" />
+                                <ul className="space-y-0.5">
+                                  <li>• Core skills: Java, Spring Boot, Microservices</li>
+                                  <li>• Nice to have: Kafka, AWS</li>
+                                  <li>• Must not: only manual testing profiles</li>
+                                </ul>
+                              </div>
+
+                              <div className="space-y-2 rounded-xl bg-violet-50/70 p-2.5 text-[10px]">
+                                <div className="flex items-center justify-between">
+                                  <span className="font-medium text-slate-700">
+                                    Bulk resumes uploaded
+                                  </span>
+                                  <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-violet-700">
+                                    120 CVs
+                                  </span>
                                 </div>
-                                <p className="text-[9px] text-slate-500">
-                                  SmartScreen reads skills, experience, and location from every CV.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Right – AI-ranked shortlist */}
-                          <div className="flex flex-col gap-2">
-                            <div className="flex items-center justify-between text-[11px]">
-                              <div className="flex items-center gap-2">
-                                <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
-                                  AI-ranked shortlist
-                                </span>
-                                <span className="text-slate-500">
-                                  Top 10 of 120 candidates
-                                </span>
-                              </div>
-                              <span className="rounded-full bg-white/80 px-2 py-0.5 text-[9px] text-slate-500">
-                                Filter: skills · experience · location
-                              </span>
-                            </div>
-
-                            <div className="grid grid-cols-[0.9fr,0.4fr,0.4fr] gap-2 rounded-xl bg-slate-50/90 px-2 py-1.5 text-[10px] font-medium text-slate-500">
-                              <span>Candidate</span>
-                              <span className="text-right">Fitment</span>
-                              <span className="text-right">Stage</span>
-                            </div>
-
-                            <div className="space-y-1.5 text-[10px] text-slate-700">
-                              {[
-                                { name: "Priya R", loc: "Chennai · 7 yrs", fit: 94, stage: "Shortlisted" },
-                                { name: "Karthik S", loc: "Remote · 6 yrs", fit: 91, stage: "Shortlisted" },
-                                { name: "Ananya M", loc: "Bangalore · 8 yrs", fit: 88, stage: "Interview" },
-                                { name: "Rahul D", loc: "Chennai · 5 yrs", fit: 84, stage: "Screening" },
-                              ].map((c) => (
-                                <div
-                                  key={c.name}
-                                  className="flex items-center justify-between rounded-xl bg-white/90 px-2.5 py-1.5 ring-1 ring-violet-100"
-                                >
-                                  <div className="flex flex-col">
-                                    <span className="text-[10px] font-medium text-brand-dark">
-                                      {c.name}
-                                    </span>
-                                    <span className="text-[9px] text-slate-500">
-                                      {c.loc}
-                                    </span>
+                                <div className="space-y-1 text-slate-600">
+                                  <div className="flex items-center justify-between">
+                                    <span>Parsed & tagged</span>
+                                    <span className="text-emerald-600">96%</span>
                                   </div>
-                                  <div className="flex items-center gap-2">
-                                    <div className="flex flex-col items-end">
-                                      <span className="text-[10px] font-semibold text-emerald-700">
-                                        {c.fit}% match
+                                  <div className="h-1.5 w-full overflow-hidden rounded-full bg-emerald-100">
+                                    <div className="h-full w-[96%] rounded-full bg-emerald-500" />
+                                  </div>
+                                  <p className="text-[9px] text-slate-500">
+                                    SmartScreen reads skills, experience, and location from every CV.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Right – AI-ranked shortlist */}
+                            <div className="flex flex-col gap-2">
+                              <div className="flex items-center justify-between text-[11px]">
+                                <div className="flex items-center gap-2">
+                                  <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
+                                    AI-ranked shortlist
+                                  </span>
+                                  <span className="text-slate-500">
+                                    Top 10 of 120 candidates
+                                  </span>
+                                </div>
+                                <span className="rounded-full bg-white/80 px-2 py-0.5 text-[9px] text-slate-500">
+                                  Filter: skills · experience · location
+                                </span>
+                              </div>
+
+                              <div className="grid grid-cols-[0.9fr,0.4fr,0.4fr] gap-2 rounded-xl bg-slate-50/90 px-2 py-1.5 text-[10px] font-medium text-slate-500">
+                                <span>Candidate</span>
+                                <span className="text-right">Fitment</span>
+                                <span className="text-right">Stage</span>
+                              </div>
+
+                              <div className="space-y-1.5 text-[10px] text-slate-700">
+                                {[
+                                  { name: "Priya R", loc: "Chennai · 7 yrs", fit: 94, stage: "Shortlisted" },
+                                  { name: "Karthik S", loc: "Remote · 6 yrs", fit: 91, stage: "Shortlisted" },
+                                  { name: "Ananya M", loc: "Bangalore · 8 yrs", fit: 88, stage: "Interview" },
+                                  { name: "Rahul D", loc: "Chennai · 5 yrs", fit: 84, stage: "Screening" },
+                                ].map((c) => (
+                                  <div
+                                    key={c.name}
+                                    className="flex items-center justify-between rounded-xl bg-white/90 px-2.5 py-1.5 ring-1 ring-violet-100"
+                                  >
+                                    <div className="flex flex-col">
+                                      <span className="text-[10px] font-medium text-brand-dark">
+                                        {c.name}
                                       </span>
-                                      <div className="mt-0.5 h-1.5 w-16 overflow-hidden rounded-full bg-emerald-100">
-                                        <div
-                                          className="h-full rounded-full bg-emerald-500"
-                                          style={{ width: `${c.fit}%` }}
-                                        />
-                                      </div>
+                                      <span className="text-[9px] text-slate-500">
+                                        {c.loc}
+                                      </span>
                                     </div>
-                                    <span
-                                      className={`rounded-full px-2 py-0.5 text-[9px] ${
-                                        c.stage === "Shortlisted"
-                                          ? "bg-emerald-50 text-emerald-700"
-                                          : c.stage === "Interview"
-                                          ? "bg-violet-50 text-violet-700"
-                                          : "bg-sky-50 text-sky-700"
-                                      }`}
-                                    >
-                                      {c.stage}
-                                    </span>
+                                    <div className="flex items-center gap-2">
+                                      <div className="flex flex-col items-end">
+                                        <span className="text-[10px] font-semibold text-emerald-700">
+                                          {c.fit}% match
+                                        </span>
+                                        <div className="mt-0.5 h-1.5 w-16 overflow-hidden rounded-full bg-emerald-100">
+                                          <div
+                                            className="h-full rounded-full bg-emerald-500"
+                                            style={{ width: `${c.fit}%` }}
+                                          />
+                                        </div>
+                                      </div>
+                                      <span
+                                        className={`rounded-full px-2 py-0.5 text-[9px] ${
+                                          c.stage === "Shortlisted"
+                                            ? "bg-emerald-50 text-emerald-700"
+                                            : c.stage === "Interview"
+                                            ? "bg-violet-50 text-violet-700"
+                                            : "bg-sky-50 text-sky-700"
+                                        }`}
+                                      >
+                                        {c.stage}
+                                      </span>
+                                    </div>
                                   </div>
-                                </div>
-                              ))}
-                            </div>
+                                ))}
+                              </div>
 
-                            <div className="mt-1 flex items-center justify-between rounded-full bg-gradient-to-r from-violet-600 to-brand-accent px-3 py-1.5 text-[10px] font-medium text-white">
-                              <span>Shortlist ready in under 60 seconds.</span>
-                              <span className="rounded-full bg-black/20 px-2 py-0.5 text-[9px]">
-                                Re-rank · Refine filters · Export
-                              </span>
+                              <div className="mt-1 flex items-center justify-between rounded-full bg-gradient-to-r from-violet-600 to-brand-accent px-3 py-1.5 text-[10px] font-medium text-white">
+                                <span>Shortlist ready in under 60 seconds.</span>
+                                <span className="rounded-full bg-black/20 px-2 py-0.5 text-[9px]">
+                                  Re-rank · Refine filters · Export
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                ) : (
-                  /* Slide 3 – assistant mock, now same glossy card theme + size */
-                  <motion.div
-                    key="slide-3-card"
-                    initial={{ opacity: 0, scale: 0.9, y: 32 }}
-                    animate={{ opacity: 1, scale: 1.28, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="gradient-border rounded-3xl w-full max-w-[760px] md:ml-6 lg:ml-10 origin-left"
-                  >
-                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 px-6 py-8 shadow-soft">
-                      {/* Ambient glows */}
-                      <div className="pointer-events-none absolute -top-20 left-6 h-32 w-32 rounded-full bg-pink-300/50 blur-3xl" />
-                      <div className="pointer-events-none absolute -bottom-20 right-6 h-36 w-36 rounded-full bg-violet-300/50 blur-3xl" />
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.4),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.35),_transparent_55%)] opacity-80" />
+                  ) : (
+                    /* Slide 3 – assistant mock, glossy card */
+                    <div className="gradient-border rounded-3xl w-full max-w-[760px] md:ml-6 lg:ml-10 origin-left">
+                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 px-6 py-8 shadow-soft">
+                        {/* Ambient glows */}
+                        <div className="pointer-events-none absolute -top-20 left-6 h-32 w-32 rounded-full bg-pink-300/50 blur-3xl" />
+                        <div className="pointer-events-none absolute -bottom-20 right-6 h-36 w-36 rounded-full bg-violet-300/50 blur-3xl" />
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,250,252,0.4),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.35),_transparent_55%)] opacity-80" />
 
-                      <div className="relative flex min-h-[260px] flex-col items-center justify-center gap-4 text-center text-slate-900">
-                        {/* Animated neon blob – sits on light card */}
-                        <div className="relative mb-3">
-                          {/* soft haze behind */}
-                          <div className="pointer-events-none absolute inset-[-18px] rounded-full bg-[radial-gradient(circle,_rgba(244,114,182,0.55),_transparent_55%)] blur-3xl opacity-90" />
-                          <div className="neon-blob" />
-                        </div>
+                        <div className="relative flex min-h-[260px] flex-col items-center justify-center gap-4 text-center text-slate-900">
+                          {/* Animated neon blob – sits on light card */}
+                          <div className="relative mb-3">
+                            {/* soft haze behind */}
+                            <div className="pointer-events-none absolute inset-[-18px] rounded-full bg-[radial-gradient(circle,_rgba(244,114,182,0.55),_transparent_55%)] blur-3xl opacity-90" />
+                            <div className="neon-blob" />
+                          </div>
 
-                        {/* Title + subtitle */}
-                        <div className="space-y-1">
-                          <h3 className="text-lg font-semibold tracking-tight text-brand-dark">
-                            SmartScreen Assistant
-                          </h3>
-                          <p className="max-w-md text-xs text-slate-700 sm:text-sm">
-                            Ask about jobs, candidates, or applications in plain
-                            English. The assistant answers from your live
-                            SmartScreen data.
+                          {/* Title + subtitle */}
+                          <div className="space-y-1">
+                            <h3 className="text-lg font-semibold tracking-tight text-brand-dark">
+                              SmartScreen Assistant
+                            </h3>
+                            <p className="max-w-md text-xs text-slate-700 sm:text-sm">
+                              Ask about jobs, candidates, or applications in plain
+                              English. The assistant answers from your live
+                              SmartScreen data.
+                            </p>
+                          </div>
+
+                          {/* Suggested prompts */}
+                          <div className="mt-2 flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs">
+                            <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
+                              Show all open jobs
+                            </button>
+                            <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
+                              Jobs in Chennai
+                            </button>
+                            <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
+                              Who moved stages this week?
+                            </button>
+                          </div>
+
+                          {/* Glassmorphism input bar – same theme colours */}
+                          <div className="mt-6 flex w-full max-w-xl items-center rounded-full border border-violet-100 bg-white/80 px-4 py-2.5 text-left text-[13px] text-slate-700 shadow-[0_16px_40px_rgba(148,163,184,0.55)] backdrop-blur-xl">
+                            <span className="mr-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-100 text-[12px] text-brand-primary">
+                              💬
+                            </span>
+                            <span className="flex-1 truncate">
+                              Ask SmartScreen anything about your jobs or
+                              pipeline…
+                            </span>
+                            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary via-brand-neon to-brand-accent text-[13px] font-semibold text-white shadow-soft">
+                              <span className="-mr-[1px] translate-x-[1px]">
+                                ➤
+                              </span>
+                            </span>
+                          </div>
+
+                          {/* Helper text below */}
+                          <p className="mt-2 text-[11px] text-slate-600">
+                            Also available as a small floating bubble inside the
+                            SmartScreen app.
                           </p>
                         </div>
-
-                        {/* Suggested prompts */}
-                        <div className="mt-2 flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs">
-                          <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
-                            Show all open jobs
-                          </button>
-                          <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
-                            Jobs in Chennai
-                          </button>
-                          <button className="rounded-full border border-violet-100 bg-white/80 px-3 py-1 text-slate-700 hover:bg-white">
-                            Who moved stages this week?
-                          </button>
-                        </div>
-
-                        {/* Glassmorphism input bar – same theme colours */}
-                        <div className="mt-6 flex w-full max-w-xl items-center rounded-full border border-violet-100 bg-white/80 px-4 py-2.5 text-left text-[13px] text-slate-700 shadow-[0_16px_40px_rgba(148,163,184,0.55)] backdrop-blur-xl">
-                          <span className="mr-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-100 text-[12px] text-brand-primary">
-                            💬
-                          </span>
-                          <span className="flex-1 truncate">
-                            Ask SmartScreen anything about your jobs or
-                            pipeline…
-                          </span>
-                          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary via-brand-neon to-brand-accent text-[13px] font-semibold text-white shadow-soft">
-                            <span className="-mr-[1px] translate-x-[1px]">
-                              ➤
-                            </span>
-                          </span>
-                        </div>
-
-                        {/* Helper text below */}
-                        <p className="mt-2 text-[11px] text-slate-600">
-                          Also available as a small floating bubble inside the
-                          SmartScreen app.
-                        </p>
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 

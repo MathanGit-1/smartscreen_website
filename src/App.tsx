@@ -518,21 +518,22 @@ const App: React.FC = () => {
             <span className="text-sm text-violet-700">›</span>
           </button>
 
-                    <div className="container relative z-10 grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-start">
+          <div className="container relative z-10 grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-start">
             {/* Hero text – eyebrow + static chips + animated body */}
             <div className="space-y-4 md:space-y-6 md:min-h-[320px]">
-              {/* Eyebrow (changes per slide, but not animated) */}
-              <div className="inline-flex items-center gap-2 pl-2 pr-3 py-1 rounded-full
-                  bg-white/70 border border-violet-100 text-[11px] font-medium text-violet-700 
-                  backdrop-blur-sm shadow-soft relative">
-                
-                <span className="absolute left-0 top-0 h-full w-[3px] rounded-l-full 
-                    bg-gradient-to-b from-brand-primary to-brand-accent" />
-
-                <span className="uppercase tracking-[0.18em] ml-1.5">
-                  {currentHero.eyebrow}
-                </span>
+              {/* Eyebrow – gradient badge, no icons/rail */}
+              <div className="relative inline-flex items-center">
+                <div
+                  className="inline-flex items-center rounded-full border border-violet-100/80
+                    bg-gradient-to-r from-brand-primary/12 via-brand-neon/14 to-brand-accent/25
+                    px-4 py-1.5 text-[11px] md:text-[12px] font-semibold
+                    uppercase tracking-[0.22em] text-violet-900
+                    shadow-[0_10px_30px_rgba(148,163,184,0.35)] backdrop-blur-sm"
+                >
+                  <span>{currentHero.eyebrow}</span>
+                </div>
               </div>
+
 
               {/* Slide tabs – story chips (STATIC POSITION) */}
               <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -632,19 +633,18 @@ const App: React.FC = () => {
               </AnimatePresence>
             </div>
 
-
-              {/* Hero mock UI card – depends on slide, shared axis with text */}
-              <AnimatePresence mode="wait" custom={heroDirection}>
-                <motion.div
-                  key={heroIndex}
-                  custom={heroDirection}
-                  variants={heroCardVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="relative mt-4 md:mt-16 lg:mt-20"
-                >
+            {/* Hero mock UI card – depends on slide, shared axis with text */}
+            <AnimatePresence mode="wait" custom={heroDirection}>
+              <motion.div
+                key={heroIndex}
+                custom={heroDirection}
+                variants={heroCardVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="relative mt-4 md:mt-16 lg:mt-20"
+              >
                 <div className="relative">
                   <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
                   <div className="absolute -bottom-10 -right-4 h-24 w-24 rounded-full bg-pink-300/60 blur-3xl animate-pulse-soft" />

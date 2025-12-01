@@ -229,11 +229,13 @@ const App: React.FC = () => {
     {
       label: "From chaos to control",
       eyebrow: "Hiring today is messy",
+      // tightened to stay in 2 lines
       line1: "Drowning in resumes.",
-      line2: "And Excel trackers for every role.",
+      line2: "Lost in Excel trackers.",
       body: "SmartScreen pulls every JD, resume, and status update into one AI workspace — so you always know what’s happening on each role in seconds.",
     },
     {
+      // ✅ unchanged – this slide already looks good
       label: "Shortlists in minutes",
       eyebrow: "Too much time on manual screening",
       line1: "Still reading CVs one by one",
@@ -243,8 +245,9 @@ const App: React.FC = () => {
     {
       label: "Assistant across your data",
       eyebrow: "Everyone asking you for updates",
-      line1: "Hiring managers keep asking “any update?”",
-      line2: "and you have to open 5 tools to reply?",
+      // tightened to 2 crisp lines
+      line1: "Stop chasing updates.",
+      line2: "Assistant answers instantly.",
       body: "SmartScreen’s AI assistant sits on top of jobs, candidates, and applications. Ask in plain English — “show best fits for this role”, “who moved stages this week” — and get answers from live data.",
     },
   ];
@@ -483,10 +486,10 @@ const App: React.FC = () => {
         <section
           className="relative overflow-hidden pt-16 pb-16
              md:pt-20 md:pb-20
-             md:h-[620px] lg:h-[680px]
-             md:flex md:items-center"
-          onMouseEnter={handleHeroMouseEnter}  // 🔸 NEW
-          onMouseLeave={handleHeroMouseLeave}  // 🔸 NEW
+             md:h-[720px] lg:h-[780px]
+             md:flex md:items-start"
+          onMouseEnter={handleHeroMouseEnter}
+          onMouseLeave={handleHeroMouseLeave}
         >
           {/* Subtle background image inside hero */}
           <div
@@ -503,7 +506,7 @@ const App: React.FC = () => {
           <button
             type="button"
             onClick={goHeroPrev}
-            className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg:white/80 p-2 shadow-soft hover:bg-violet-50 md:inline-flex bg-white/80"
+            className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-soft hover:bg-violet-50 md:inline-flex"
           >
             <span className="text-sm text-violet-700">‹</span>
           </button>
@@ -515,112 +518,117 @@ const App: React.FC = () => {
             <span className="text-sm text-violet-700">›</span>
           </button>
 
-          <div className="container relative z-10 grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center">
-            {/* Hero text – sliding carousel */}
-            <AnimatePresence mode="wait" custom={heroDirection}>
-              <motion.div
-                key={heroIndex}
-                custom={heroDirection}
-                variants={heroSlideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="space-y-6 md:space-y-7"
-              >
-                <div className="inline-flex items-center gap-2 rounded-full border border-violet-100 bg-white/70 px-3 py-1 text-[11px] font-medium text-violet-700 shadow-soft">
-                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
-                    ●
-                  </span>
-                  <span className="uppercase tracking-[0.18em]">
-                    {currentHero.eyebrow}
-                  </span>
-                </div>
+                    <div className="container relative z-10 grid gap-12 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-start">
+            {/* Hero text – eyebrow + static chips + animated body */}
+            <div className="space-y-4 md:space-y-6 md:min-h-[320px]">
+              {/* Eyebrow (changes per slide, but not animated) */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-violet-100 bg-white/70 px-3 py-1 text-[11px] font-medium text-violet-700 shadow-soft">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
+                  ●
+                </span>
+                <span className="uppercase tracking-[0.18em]">
+                  {currentHero.eyebrow}
+                </span>
+              </div>
 
-                {/* Slide tabs – story chips (moved up under eyebrow) */}
-                <div className="flex flex-wrap items-center gap-2 text-xs">
-                  {heroSlides.map((slide, idx) => {
-                    const isActive = idx === heroIndex;
-                    return (
-                      <button
-                        key={slide.label}
-                        type="button"
-                        onClick={() => {
-                          if (idx === heroIndex) return;
-                          setHeroDirection(idx > heroIndex ? 1 : -1);
-                          setHeroIndex(idx);
-                        }}
-                        className={`rounded-full border px-3 py-1 transition ${
-                          isActive
-                            ? "border-brand-primary/40 bg-brand-primary/10 text-brand-primary"
-                            : "border-violet-100 bg-white/60 text-slate-500 hover:bg-white"
-                        }`}
-                      >
-                        {slide.label}
-                      </button>
-                    );
-                  })}
-                </div>
+              {/* Slide tabs – story chips (STATIC POSITION) */}
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                {heroSlides.map((slide, idx) => {
+                  const isActive = idx === heroIndex;
+                  return (
+                    <button
+                      key={slide.label}
+                      type="button"
+                      onClick={() => {
+                        if (idx === heroIndex) return;
+                        setHeroDirection(idx > heroIndex ? 1 : -1);
+                        setHeroIndex(idx);
+                      }}
+                      className={`rounded-full border px-3 py-1 transition ${
+                        isActive
+                          ? "border-brand-primary/40 bg-brand-primary/10 text-brand-primary"
+                          : "border-violet-100 bg-white/60 text-slate-500 hover:bg-white"
+                      }`}
+                    >
+                      {slide.label}
+                    </button>
+                  );
+                })}
+              </div>
 
-                {/* two explicit lines */}
-                <h1 className="max-w-xl text-3xl font-semibold leading-snug tracking-tight text-brand-dark sm:text-4xl md:text-5xl md:leading-[1.2]">
-                  <span className="block">{currentHero.line1}</span>
-                  <span className="mt-1 inline-block bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text pb-1.5 text-transparent">
-                    {currentHero.line2}
-                  </span>
-                </h1>
-
-                <p className="max-w-xl text-base text-slate-700 sm:text-lg">
-                  {currentHero.body}
-                </p>
-
-                {/* Pain bullets */}
-                <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                    Resumes scattered across downloads, job portals, and email.
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                    Status updates buried in Excel sheets.
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    No single place that shows the full hiring picture.
-                  </li>
-                </ul>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent px-6 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-[0_18px_40px_rgba(124,58,237,0.45)]">
-                    <span className="relative z-10">Get early access</span>
-                    <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
-                      <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-white/0 via-white/40 to-white/0" />
+              {/* Animated part ONLY: heading, body, bullets, CTAs */}
+              <AnimatePresence mode="wait" custom={heroDirection}>
+                <motion.div
+                  key={heroIndex}
+                  custom={heroDirection}
+                  variants={heroSlideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="space-y-6 md:space-y-7"
+                >
+                  {/* two explicit lines */}
+                  <h1 className="max-w-xl text-3xl font-semibold leading-snug tracking-tight text-brand-dark sm:text-4xl md:text-5xl md:leading-[1.2]">
+                    <span className="block">{currentHero.line1}</span>
+                    <span className="mt-1 inline-block bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text pb-1.5 text-transparent">
+                      {currentHero.line2}
                     </span>
-                  </button>
-                  <button className="inline-flex items-center gap-2 text-sm text-slate-700 hover:text-brand-dark">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-200 bg-white/80">
-                      ▶
-                    </span>
-                    Watch 60s overview
-                  </button>
-                </div>
+                  </h1>
 
-                <div className="flex flex-wrap gap-4 text-xs text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    AI JD parsing & skill extraction
+                  <p className="max-w-xl text-base text-slate-700 sm:text-lg">
+                    {currentHero.body}
+                  </p>
+
+                  {/* Pain bullets */}
+                  <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                      Resumes scattered across downloads, job portals, and email.
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
+                      Status updates buried in Excel sheets.
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      No single place that shows the full hiring picture.
+                    </li>
+                  </ul>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent px-6 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-[0_18px_40px_rgba(124,58,237,0.45)]">
+                      <span className="relative z-10">Get early access</span>
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+                        <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-white/0 via-white/40 to-white/0" />
+                      </span>
+                    </button>
+                    <button className="inline-flex items-center gap-2 text-sm text-slate-700 hover:text-brand-dark">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-200 bg-white/80">
+                        ▶
+                      </span>
+                      Watch 60s overview
+                    </button>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    Candidate search & fitment scores
+
+                  <div className="flex flex-wrap gap-4 text-xs text-slate-600">
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      AI JD parsing & skill extraction
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                      Candidate search & fitment scores
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-pink-400" />
+                      AI assistant across your data
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-pink-400" />
-                    AI assistant across your data
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
 
             {/* Hero mock UI card – depends on slide, shared axis with text */}
             <AnimatePresence mode="wait" custom={heroDirection}>
@@ -632,6 +640,7 @@ const App: React.FC = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.45, ease: "easeOut" }}
+                className="self-center md:self-start md:mt-12"   
               >
                 <div className="relative">
                   <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
@@ -639,7 +648,7 @@ const App: React.FC = () => {
 
                   {heroIndex === 0 ? (
                     /* Slide 1 – live pipeline + assistant, glossy card */
-                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left">
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.05]">
                       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 p-6 shadow-soft backdrop-blur-xl">
                         {/* faint overlay glows */}
                         <div className="pointer-events-none absolute -top-12 left-10 h-24 w-24 rounded-full bg-violet-300/35 blur-3xl" />
@@ -768,7 +777,7 @@ const App: React.FC = () => {
                     </div>
                   ) : heroIndex === 1 ? (
                     /* Slide 2 — glossy premium mock UI */
-                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left">
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.05]">
                       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/40 via-violet-50/30 to-pink-50/30 shadow-[0_18px_55px_rgba(124,58,237,0.28)] backdrop-blur-2xl p-6">
                         {/* Ambient glows — boosted gloss */}
                         <div className="pointer-events-none absolute -top-16 left-10 h-40 w-40 rounded-full bg-violet-300/50 blur-3xl" />
@@ -930,7 +939,7 @@ const App: React.FC = () => {
                     </div>
                   ) : (
                     /* Slide 3 – assistant mock, glossy card */
-                    <div className="gradient-border rounded-3xl w-full max-w-[760px] md:ml-6 lg:ml-10 origin-left">
+                    <div className="gradient-border rounded-3xl w-full max-w-[1120px] md:ml-6 lg:ml-10 origin-left md:scale-[1.05]">
                       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/96 via-violet-50/90 to-pink-50/90 px-6 py-8 shadow-soft">
                         {/* Ambient glows */}
                         <div className="pointer-events-none absolute -top-20 left-6 h-32 w-32 rounded-full bg-pink-300/50 blur-3xl" />

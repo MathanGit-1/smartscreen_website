@@ -630,18 +630,18 @@ const App: React.FC = () => {
             </div>
 
 
-            {/* Hero mock UI card – depends on slide, shared axis with text */}
-            <AnimatePresence mode="wait" custom={heroDirection}>
-              <motion.div
-                key={heroIndex}
-                custom={heroDirection}
-                variants={heroCardVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="self-center md:self-start md:mt-12"   
-              >
+{/* Hero mock UI card – depends on slide, shared axis with text */}
+<AnimatePresence mode="wait" custom={heroDirection}>
+  <motion.div
+    key={heroIndex}
+    custom={heroDirection}
+    variants={heroCardVariants}
+    initial="enter"
+    animate="center"
+    exit="exit"
+    transition={{ duration: 0.45, ease: "easeOut" }}
+    className="relative mt-4 md:mt-16 lg:mt-20"
+  >
                 <div className="relative">
                   <div className="absolute -top-10 -left-6 h-32 w-32 rounded-full bg-purple-300/60 blur-3xl animate-pulse-soft" />
                   <div className="absolute -bottom-10 -right-4 h-24 w-24 rounded-full bg-pink-300/60 blur-3xl animate-pulse-soft" />

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // 🔹 NEW: real screenshots
 import heroAssistantResponse from "./screenshots/hero-assistant-response.png";
 import heroMatchingCandidates from "./screenshots/hero-matching-candidates.png";
+import bgImage from "./assets/bg_image.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -491,17 +492,22 @@ const App: React.FC = () => {
           onMouseEnter={handleHeroMouseEnter}
           onMouseLeave={handleHeroMouseLeave}
         >
-          {/* Subtle background image inside hero */}
+        <motion.div
+          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1.1 }}
+          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse" }}
+        >
           <div
-            className="pointer-events-none absolute inset-0 z-0 opacity-[0.12] mix-blend-soft-light"
+            className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage:
-                'url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600")',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundImage: `url(${bgImage})`,
             }}
           />
 
+          {/* Optional overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-white/50" />
+        </motion.div>
           {/* Hero arrows on full hero area */}
           <button
             type="button"

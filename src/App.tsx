@@ -1153,41 +1153,72 @@ const goPrevPreview = () => {
             </div>
           </div>
         </section>
-
+        
 {/* PRODUCT SHOWCASE – 4 alternating sections */}
 <section className="py-20 bg-white">
   <div className="container">
-    <div className="relative mx-auto max-w-7xl">
-      {/* outer glow */}
+    <div className="relative mx-auto max-w-[88rem]">
+      {/* outer glow (slightly lighter) */}
       <div
         className="pointer-events-none absolute -inset-6 rounded-[32px]
-                   bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.26),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.22),transparent_60%)]
-                   opacity-70"
+                   bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.2),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.18),transparent_60%)]
+                   opacity-80"
       />
 
-      {/* main dark band with float-in */}
+      {/* main band */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-[24px]
-                   bg-gradient-to-b from-[#1b2440] via-[#242f52] to-[#2d3b66]
-                   px-8 md:px-14 py-14 md:py-18
-                   shadow-[0_22px_70px_rgba(15,23,42,0.35)]
-                   border border-white/10"
-      >
-        {/* vertical separators (desktop only) */}
+        className="relative overflow-hidden rounded-[40px]
+                  bg-gradient-to-r from-[#252c4b] via-[#2f3a63] to-[#252c4b]
+                  px-8 md:px-14 py-14 md:py-18
+                  shadow-[0_24px_70px_rgba(15,23,42,0.26)]
+                  border border-white/16"
+            >
+        {/* central glow beam */}
         <div
-          className="pointer-events-none absolute inset-y-10 left-1/3 hidden w-px
-                     bg-gradient-to-b from-white/20 via-white/10 to-transparent
-                     opacity-60 md:block"
+          className="pointer-events-none absolute inset-0 -z-10
+                    bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.56),transparent_55%)]
+                    opacity-75 mix-blend-screen"
         />
+
+        {/* soft vertical fade to add depth */}
         <div
-          className="pointer-events-none absolute inset-y-10 left-2/3 hidden w-px
-                     bg-gradient-to-b from-transparent via-white/8 to-transparent
-                     opacity-40 md:block"
+          className="pointer-events-none absolute inset-0 -z-10
+                    bg-[linear-gradient(to_bottom,rgba(15,23,42,0.0),rgba(15,23,42,0.45))]
+                    opacity-55"
         />
+        {/* inner glow wash */}
+        <div
+          className="pointer-events-none absolute inset-0 -z-10
+                     bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.35),transparent_55%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.26),transparent_60%)]
+                     opacity-90"
+        />
+        {/* mesh / net overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 -z-10
+                     bg-[linear-gradient(120deg,rgba(148,163,253,0.23)_1px,transparent_0),linear-gradient(-120deg,rgba(45,212,191,0.18)_1px,transparent_0)]
+                     bg-[length:160px_160px]
+                     opacity-30 mix-blend-screen"
+        />
+
+{/* light premium mesh background */}
+<div
+  className="pointer-events-none absolute inset-0 -z-10
+             bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.55),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(209,213,255,0.45),transparent_65%)]
+             opacity-90"
+/>
+
+{/* super subtle mesh */}
+<div
+  className="pointer-events-none absolute inset-0 -z-10
+             bg-[linear-gradient(120deg,rgba(255,255,255,0.22)_1px,transparent_1px),
+                 linear-gradient(-120deg,rgba(209,213,255,0.25)_1px,transparent_1px)]
+             bg-[length:180px_180px]
+             opacity-25 mix-blend-soft-light"
+/>
 
         <div className="space-y-14 md:space-y-16">
           {/* HEADER */}
@@ -1247,7 +1278,7 @@ const goPrevPreview = () => {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/70
+                         bg-slate-950/60
                          shadow-[0_24px_60px_rgba(0,0,0,0.7)]
                          transition-transform duration-500 ease-out
                          will-change-transform animate-float-slow"
@@ -1284,7 +1315,7 @@ const goPrevPreview = () => {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="order-none gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/70
+                         bg-slate-950/60
                          shadow-[0_24px_60px_rgba(0,0,0,0.7)]
                          transition-transform duration-500 ease-out
                          will-change-transform animate-float-slow md:order-1"
@@ -1375,7 +1406,7 @@ const goPrevPreview = () => {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/70
+                         bg-slate-950/60
                          shadow-[0_24px_60px_rgba(0,0,0,0.7)]
                          transition-transform duration-500 ease-out
                          will-change-transform animate-float-slow"
@@ -1433,7 +1464,7 @@ const goPrevPreview = () => {
               }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="order-none gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/70
+                         bg-slate-950/60
                          shadow-[0_24px_60px_rgba(0,0,0,0.7)]
                          transition-transform duration-500 ease-out
                          will-change-transform animate-float-slow md:order-1"
@@ -1513,7 +1544,6 @@ const goPrevPreview = () => {
     </div>
   </div>
 </section>
-
 
         {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows */}
         <section className="border-t border-violet-100 bg-brand-light/80 py-16 md:py-20">

@@ -1158,54 +1158,38 @@ const goPrevPreview = () => {
 <section className="py-20 bg-white">
   <div className="container">
     <div className="relative mx-auto max-w-7xl">
-
-      {/* ───────────────── Outer Glow (light purple) ───────────────── */}
+      {/* outer glow */}
       <div
-        className="
-          pointer-events-none absolute -inset-6
-          rounded-[32px]
-          bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.26),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.22),transparent_60%)]
-          opacity-70
-        "
+        className="pointer-events-none absolute -inset-6 rounded-[32px]
+                   bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.26),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.22),transparent_60%)]
+                   opacity-70"
       />
 
-      {/* ───────────────── Dark Band Wrapper ───────────────── */}
-      <div
-        className="
-          relative overflow-hidden
-          rounded-[24px]
-          bg-gradient-to-b from-[#1c1440] via-[#241a52] to-[#2c2060]
-          px-8 md:px-14
-          py-14 md:py-18
-          shadow-[0_22px_70px_rgba(15,23,42,0.35)]
-          border border-white/10
-        "
+      {/* main dark band with float-in */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative overflow-hidden rounded-[24px]
+                   bg-gradient-to-b from-[#1b2440] via-[#242f52] to-[#2d3b66]
+                   px-8 md:px-14 py-14 md:py-18
+                   shadow-[0_22px_70px_rgba(15,23,42,0.35)]
+                   border border-white/10"
       >
-
-        {/* ───────────────── Apple-Style Vertical Divider Lines ───────────────── */}
+        {/* vertical separators (desktop only) */}
         <div
-          className="
-            pointer-events-none
-            absolute inset-y-10 left-1/3 hidden w-px
-            bg-gradient-to-b from-white/20 via-white/10 to-transparent
-            opacity-60 md:block
-          "
+          className="pointer-events-none absolute inset-y-10 left-1/3 hidden w-px
+                     bg-gradient-to-b from-white/20 via-white/10 to-transparent
+                     opacity-60 md:block"
         />
         <div
-          className="
-            pointer-events-none
-            absolute inset-y-10 left-2/3 hidden w-px
-            bg-gradient-to-b from-transparent via-white/8 to-transparent
-            opacity-40 md:block
-          "
+          className="pointer-events-none absolute inset-y-10 left-2/3 hidden w-px
+                     bg-gradient-to-b from-transparent via-white/8 to-transparent
+                     opacity-40 md:block"
         />
-
-        {/* ─────────────────────────────────────────────────────────── */}
-        {/* 🔥 YOUR FULL ORIGINAL PRODUCT SHOWCASE CONTENT STARTS HERE */}
-        {/* ─────────────────────────────────────────────────────────── */}
 
         <div className="space-y-14 md:space-y-16">
-
           {/* HEADER */}
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center rounded-full border border-violet-500/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-100">
@@ -1244,12 +1228,30 @@ const goPrevPreview = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                  <span>Always-on copilot — from “who is stuck?” to “who is ready to offer?”.</span>
+                  <span>
+                    Always-on copilot — from “who is stuck?” to “who is ready to offer?”.
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <div className="gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)]">
+            {/* assistant screenshot card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{
+                y: -8,
+                scale: 1.015,
+                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className="gradient-border overflow-hidden rounded-3xl
+                         bg-slate-950/70
+                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                         transition-transform duration-500 ease-out
+                         will-change-transform animate-float-slow"
+            >
               <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
                 <span className="text-[11px]">SmartScreen Assistant · screenshot</span>
                 <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-100">
@@ -1265,12 +1267,28 @@ const goPrevPreview = () => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* 2. Matching – image left, text right */}
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div className="order-none gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)] md:order-1">
+            {/* matching screenshot card */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{
+                y: -8,
+                scale: 1.015,
+                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className="order-none gradient-border overflow-hidden rounded-3xl
+                         bg-slate-950/70
+                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                         transition-transform duration-500 ease-out
+                         will-change-transform animate-float-slow md:order-1"
+            >
               <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
                 <span className="text-[11px]">Matching & shortlist · screenshot</span>
                 <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-100">
@@ -1286,7 +1304,7 @@ const goPrevPreview = () => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="order-none space-y-3 md:order-2 md:space-y-4">
               <div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-100">
@@ -1303,11 +1321,15 @@ const goPrevPreview = () => {
               <ul className="mt-2 space-y-2 text-sm text-slate-200">
                 <li className="flex gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Ranked shortlist per role based on skills, location, and experience.</span>
+                  <span>
+                    Ranked shortlist per role based on skills, location, and experience.
+                  </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                  <span>One view to compare candidates instead of jumping between portals.</span>
+                  <span>
+                    One view to compare candidates instead of jumping between portals.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -1333,12 +1355,31 @@ const goPrevPreview = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-sky-400" />
-                  <span>Search “Java · Chennai · 5–8 yrs” and get a usable shortlist in seconds.</span>
+                  <span>
+                    Search “Java · Chennai · 5–8 yrs” and get a usable shortlist in
+                    seconds.
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <div className="gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)]">
+            {/* candidate DB mock card */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{
+                y: -8,
+                scale: 1.015,
+                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className="gradient-border overflow-hidden rounded-3xl
+                         bg-slate-950/70
+                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                         transition-transform duration-500 ease-out
+                         will-change-transform animate-float-slow"
+            >
               <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
                 <span className="text-[11px]">Candidate database · UI mock</span>
                 <span className="rounded-full bg-slate-500/15 px-2 py-0.5 text-[10px] text-slate-100">
@@ -1347,7 +1388,6 @@ const goPrevPreview = () => {
               </div>
               <div className="p-3">
                 <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-                  
                   <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
                     <div className="mb-3 flex items-center justify-between">
                       <span className="font-medium text-slate-50">Candidate pool</span>
@@ -1374,15 +1414,30 @@ const goPrevPreview = () => {
                       ))}
                     </div>
                   </div>
-
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* 4. Jobs & applications – image left, text right */}
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div className="order-none gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)] md:order-1">
+            {/* jobs pipeline mock */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              whileHover={{
+                y: -8,
+                scale: 1.015,
+                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className="order-none gradient-border overflow-hidden rounded-3xl
+                         bg-slate-950/70
+                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                         transition-transform duration-500 ease-out
+                         will-change-transform animate-float-slow md:order-1"
+            >
               <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
                 <span className="text-[11px]">Jobs & applications · pipeline view</span>
                 <span className="rounded-full bg-brand-primary/20 px-2 py-0.5 text-[10px] text-violet-100">
@@ -1425,7 +1480,7 @@ const goPrevPreview = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="order-none space-y-3 md:order-2 md:space-y-4">
               <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
@@ -1435,9 +1490,9 @@ const goPrevPreview = () => {
                 A pipeline view that keeps every role and stage visible.
               </h3>
               <p className="text-sm text-slate-200 md:text-base">
-                From sourcing to offer, SmartScreen gives you a clear, board-style
-                view of where every candidate sits — and which roles are at risk
-                before it’s too late.
+                From sourcing to offer, SmartScreen gives you a clear, board-style view
+                of where every candidate sits — and which roles are at risk before it’s
+                too late.
               </p>
               <ul className="mt-2 space-y-2 text-sm text-slate-200">
                 <li className="flex gap-2">
@@ -1446,18 +1501,15 @@ const goPrevPreview = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Spot stuck roles and bottlenecks early, not after the quarter ends.</span>
+                  <span>
+                    Spot stuck roles and bottlenecks early, not after the quarter ends.
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
-        {/* ─────────────────────────────────────────────────────────── */}
-        {/* 🔥 YOUR FULL ORIGINAL PRODUCT SHOWCASE CONTENT ENDS HERE */}
-        {/* ─────────────────────────────────────────────────────────── */}
-
-      </div>
+      </motion.div>
     </div>
   </div>
 </section>

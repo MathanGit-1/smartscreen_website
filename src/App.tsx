@@ -40,12 +40,12 @@ const JobsPreview: React.FC = () => {
             SLA on track
           </span>
         </div>
-        <span className="text-[10px] text-slate-500">
+        <span className="text-[10px] text-slate-600">
           Filters: Location · Experience · Status
         </span>
       </div>
 
-      <div className="mb-1 grid grid-cols-[1.5fr,1fr,0.7fr,0.7fr] gap-2 rounded-xl bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-500">
+      <div className="mb-1 grid grid-cols-[1.5fr,1fr,0.7fr,0.7fr] gap-2 rounded-xl bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-600">
         <span>Role</span>
         <span>Location</span>
         <span className="text-right">Candidates</span>
@@ -60,7 +60,7 @@ const JobsPreview: React.FC = () => {
           >
             <div>
               <div className="text-[11px] font-medium text-brand-dark">{row.title}</div>
-              <div className="mt-0.5 flex gap-2 text-[10px] text-slate-500">
+              <div className="mt-0.5 flex gap-2 text-[10px] text-slate-600">
                 <span>{row.loc}</span>
                 <span>5–8 yrs</span>
               </div>
@@ -134,7 +134,7 @@ const CandidatesPreview: React.FC = () => {
         <span className="rounded-full bg-violet-50 px-2 py-1 text-[10px] font-medium text-violet-700">
           Candidate pool · 148
         </span>
-        <span className="text-[10px] text-slate-500">
+        <span className="text-[10px] text-slate-600">
           Filters: Skills · Location · Status
         </span>
       </div>
@@ -156,7 +156,7 @@ const CandidatesPreview: React.FC = () => {
                 <div className="text-[11px] font-medium text-brand-dark">
                   {c.name}
                 </div>
-                <div className="mt-0.5 flex gap-2 text-[10px] text-slate-500">
+                <div className="mt-0.5 flex gap-2 text-[10px] text-slate-600">
                   <span>{c.role}</span>
                   <span>{c.loc}</span>
                 </div>
@@ -400,9 +400,9 @@ const App: React.FC = () => {
               onMouseEnter={handleProductEnter}
               onMouseLeave={handleProductLeave}
             >
-              <button className="flex items-center gap-1 font-medium text-slate-700 hover:text-brand-dark">
+              <button className="flex items-center gap-1 font-medium text-gray-800 hover:text-brand-dark">
                 Features
-                <span className="text-[10px] text-slate-500">▾</span>
+                <span className="text-[10px] text-slate-600">▾</span>
               </button>
 
               <div
@@ -412,7 +412,7 @@ const App: React.FC = () => {
                     : "pointer-events-none translate-y-2 opacity-0"
                 }`}
               >
-                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">
+                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-600">
                   SmartScreen modules
                 </div>
 
@@ -425,7 +425,7 @@ const App: React.FC = () => {
                       <div className="font-medium text-brand-dark">
                         Job management
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-slate-600">
                         Create, track, and prioritise every JD in one place.
                       </div>
                     </div>
@@ -439,7 +439,7 @@ const App: React.FC = () => {
                       <div className="font-medium text-brand-dark">
                         Candidate intelligence
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-slate-600">
                         Bulk upload resumes, auto-tag skills, see fitment.
                       </div>
                     </div>
@@ -453,7 +453,7 @@ const App: React.FC = () => {
                       <div className="font-medium text-brand-dark">
                         Applications & workflows
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-slate-600">
                         Custom stages per client, notes, timeline.
                       </div>
                     </div>
@@ -467,7 +467,7 @@ const App: React.FC = () => {
                       <div className="font-medium text-brand-dark">
                         AI assistant
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-slate-600">
                         Ask anything about jobs, candidates, workflows.
                       </div>
                     </div>
@@ -476,20 +476,20 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <button className="font-medium text-slate-700 hover:text-brand-dark">
+            <button className="font-medium text-gray-800 hover:text-brand-dark">
               Use cases
             </button>
-            <button className="font-medium text-slate-700 hover:text-brand-dark">
+            <button className="font-medium text-gray-800 hover:text-brand-dark">
               Pricing
             </button>
-            <button className="font-medium text-slate-700 hover:text-brand-dark">
+            <button className="font-medium text-gray-800 hover:text-brand-dark">
               Resources
             </button>
           </nav>
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden text-sm font-medium text-slate-700 hover:text-brand-dark md:inline-flex">
+            <button className="hidden text-sm font-medium text-gray-800 hover:text-brand-dark md:inline-flex">
               Sign in
             </button>
             <button className="relative overflow-hidden rounded-full bg-brand-primary px-4 py-1.5 text-xs font-semibold text-white shadow-soft hover:bg-brand-primaryLight md:px-5 md:py-2 md:text-sm">
@@ -555,7 +555,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-
               {/* Slide tabs – story chips (STATIC POSITION) */}
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 {heroSlides.map((slide, idx) => {
@@ -572,7 +571,7 @@ const App: React.FC = () => {
                       className={`rounded-full border px-3 py-1 transition ${
                         isActive
                           ? "border-brand-primary/40 bg-brand-primary/10 text-brand-primary"
-                          : "border-violet-100 bg-white/60 text-slate-500 hover:bg-white"
+                          : "border-violet-100 bg-white/60 text-slate-600 hover:bg-white"
                       }`}
                     >
                       {slide.label}
@@ -601,7 +600,7 @@ const App: React.FC = () => {
                     </span>
                   </h1>
 
-                  <p className="max-w-xl text-base text-slate-700 sm:text-lg">
+                  <p className="max-w-xl text-base text-neutral-800 sm:text-lg">
                     {currentHero.body}
                   </p>
 
@@ -625,7 +624,7 @@ const App: React.FC = () => {
                         <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-white/0 via-white/40 to-white/0" />
                       </span>
                     </button>
-                    <button className="inline-flex items-center gap-2 text-sm text-slate-700 hover:text-brand-dark">
+                    <button className="inline-flex items-center gap-2 text-sm text-gray-800 hover:text-brand-dark">
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-200 bg-white/80">
                         ▶
                       </span>
@@ -661,7 +660,7 @@ const App: React.FC = () => {
                         <div className="pointer-events-none absolute -bottom-16 right-4 h-28 w-28 rounded-full bg-pink-300/35 blur-3xl" />
 
                         {/* top bar */}
-                        <div className="relative mb-3 flex items-center justify-between text-[11px] text-slate-500">
+                        <div className="relative mb-3 flex items-center justify-between text-[11px] text-slate-600">
                           <div className="flex items-center gap-2">
                             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             <span className="font-medium text-slate-700">
@@ -675,7 +674,7 @@ const App: React.FC = () => {
                             <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                             <span>Tech</span>
                             <span className="h-1 w-[1px] bg-violet-100" />
-                            <span className="text-slate-400">Non-tech</span>
+                            <span className="text-slate-600">Non-tech</span>
                           </div>
                         </div>
 
@@ -683,7 +682,7 @@ const App: React.FC = () => {
                         <div className="relative grid gap-4 md:grid-cols-[1.3fr_minmax(0,1fr)]">
                           {/* Jobs list column */}
                           <div className="space-y-2 rounded-2xl bg-white/80 p-3.5 ring-1 ring-violet-100">
-                            <div className="mb-1 flex items-center justify-between text-[10px] font-medium text-slate-500">
+                            <div className="mb-1 flex items-center justify-between text-[10px] font-medium text-slate-600">
                               <span>Role</span>
                               <div className="flex gap-4">
                                 <span>Location</span>
@@ -705,7 +704,7 @@ const App: React.FC = () => {
                                   <div className="font-medium text-brand-dark">
                                     {title}
                                   </div>
-                                  <div className="flex gap-2 text-[10px] text-slate-500">
+                                  <div className="flex gap-2 text-[10px] text-slate-600">
                                     <span>Chennai · Hybrid</span>
                                     <span>5–8 yrs</span>
                                   </div>
@@ -714,7 +713,7 @@ const App: React.FC = () => {
                                   <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] text-emerald-700">
                                     23 matched
                                   </span>
-                                  <div className="flex items-center gap-1 text-[10px] text-slate-500">
+                                  <div className="flex items-center gap-1 text-[10px] text-slate-600">
                                     <span>Fitment</span>
                                     <div className="h-1.5 w-14 overflow-hidden rounded-full bg-emerald-100">
                                       <div
@@ -733,7 +732,7 @@ const App: React.FC = () => {
 
                           {/* Assistant column */}
                           <div className="space-y-3 rounded-2xl border border-violet-100 bg-gradient-to-b from-white/95 to-violet-50/90 p-3.5">
-                            <div className="flex items-center justify-between text-[11px] text-slate-500">
+                            <div className="flex items-center justify-between text-[11px] text-slate-600">
                               <div className="flex items-center gap-2">
                                 <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-brand-primary to-brand-neon text-[10px] text-white">
                                   AI
@@ -770,8 +769,8 @@ const App: React.FC = () => {
                               </div>
                             </div>
 
-                            <div className="mt-1 flex items-center gap-1 rounded-full border border-violet-100 bg-white/80 px-2 py-1.5 text-[11px] text-slate-500">
-                              <span className="text-slate-400">⊕</span>
+                            <div className="mt-1 flex items-center gap-1 rounded-full border border-violet-100 bg-white/80 px-2 py-1.5 text-[11px] text-slate-600">
+                              <span className="text-slate-600">⊕</span>
                               <span className="truncate">
                                 Ask anything about jobs, filters, or pipeline
                                 health…
@@ -828,7 +827,7 @@ const App: React.FC = () => {
                               <div className="space-y-1.5 rounded-xl bg-slate-50/80 p-2.5 text-[10px] text-slate-600">
                                 <div className="flex items-center justify-between">
                                   <span>Chennai · Hybrid · 5–8 yrs</span>
-                                  <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-slate-500">
+                                  <span className="rounded-full bg-white px-2 py-0.5 text-[9px] text-slate-600">
                                     JD parsed ✓
                                   </span>
                                 </div>
@@ -856,7 +855,7 @@ const App: React.FC = () => {
                                   <div className="h-1.5 w-full overflow-hidden rounded-full bg-emerald-100">
                                     <div className="h-full w-[96%] rounded-full bg-emerald-500" />
                                   </div>
-                                  <p className="text-[9px] text-slate-500">
+                                  <p className="text-[9px] text-slate-600">
                                     SmartScreen reads skills, experience, and location from every CV.
                                   </p>
                                 </div>
@@ -870,16 +869,16 @@ const App: React.FC = () => {
                                   <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
                                     AI-ranked shortlist
                                   </span>
-                                  <span className="text-slate-500">
+                                  <span className="text-slate-600">
                                     Top 10 of 120 candidates
                                   </span>
                                 </div>
-                                <span className="rounded-full bg-white/80 px-2 py-0.5 text-[9px] text-slate-500">
+                                <span className="rounded-full bg-white/80 px-2 py-0.5 text-[9px] text-slate-600">
                                   Filter: skills · experience · location
                                 </span>
                               </div>
 
-                              <div className="grid grid-cols-[0.9fr,0.4fr,0.4fr] gap-2 rounded-xl bg-slate-50/90 px-2 py-1.5 text-[10px] font-medium text-slate-500">
+                              <div className="grid grid-cols-[0.9fr,0.4fr,0.4fr] gap-2 rounded-xl bg-slate-50/90 px-2 py-1.5 text-[10px] font-medium text-slate-600">
                                 <span>Candidate</span>
                                 <span className="text-right">Fitment</span>
                                 <span className="text-right">Stage</span>
@@ -900,7 +899,7 @@ const App: React.FC = () => {
                                       <span className="text-[10px] font-medium text-brand-dark">
                                         {c.name}
                                       </span>
-                                      <span className="text-[9px] text-slate-500">
+                                      <span className="text-[9px] text-slate-600">
                                         {c.loc}
                                       </span>
                                     </div>
@@ -1015,146 +1014,146 @@ const App: React.FC = () => {
             </AnimatePresence>
           </div>
         </section>
-{/* FEATURE CARDS */}
-<section className="relative border-t border-violet-100 bg-gradient-to-b from-brand-light via-[#f6f0ff] to-white py-16 md:py-20">
-  {/* very subtle left/right lavender wash */}
-  <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_left,_rgba(129,140,248,0.10),transparent_55%),_radial-gradient(circle_at_right,_rgba(236,72,153,0.10),transparent_55%)]" />
 
-  <div className="container space-y-8 md:space-y-10">
+        {/* FEATURE CARDS */}
+        <section className="relative border-t border-violet-100 bg-gradient-to-b from-brand-light via-[#f6f0ff] to-white py-16 md:py-20">
+          {/* very subtle left/right lavender wash */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_left,_rgba(129,140,248,0.10),transparent_55%),_radial-gradient(circle_at_right,_rgba(236,72,153,0.10),transparent_55%)]" />
 
-    <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-      <div>
-        <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
-          Jobs, candidates, applications —
-          <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
-            {" "}
-            finally connected.
-          </span>
-        </h2>
+          <div className="container space-y-8 md:space-y-10">
 
-        <p className="mt-3 max-w-2xl text-sm text-slate-800 md:text-base">
-          SmartScreen gives hiring teams a single system of record — from JD creation to offer rollout — with AI helping at every step.
-        </p>
-      </div>
-    </div>
+            <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
+                  Jobs, candidates, applications —
+                  <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
+                    {" "}
+                    finally connected.
+                  </span>
+                </h2>
 
-    {/* cards */}
-    <div className="relative">
-      <div className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-4">
+                <p className="mt-3 max-w-2xl text-sm text-neutral-800 md:text-base">
+                  SmartScreen gives hiring teams a single system of record — from JD creation to offer rollout — with AI helping at every step.
+                </p>
+              </div>
+            </div>
 
-        {[
-          {
-            title: "Job management",
-            chip: "Create instant JDs",
-            icon: "📄",
-            iconBg: "from-brand-primary/40 via-brand-neon/35 to-brand-accent/40",
-            points: [
-              "AI-powered JD parsing & clean structure",
-              "Auto-extracted skills, locations & tags",
-              "Priority & SLA tracking per role",
-            ],
-          },
-          {
-            title: "Candidate intelligence",
-            chip: "Candidate fitment",
-            icon: "👥",
-            iconBg: "from-sky-400/40 via-brand-neon/25 to-violet-500/40",
-            points: [
-              "Bulk resume upload with smart parsing",
-              "Skills, locations, tags & status in one view",
-              "Fitment scores on live roles",
-            ],
-          },
-          {
-            title: "Applications & workflows",
-            chip: "Application tracking",
-            icon: "📊",
-            iconBg: "from-emerald-400/40 via-sky-400/35 to-brand-primary/40",
-            points: [
-              "Custom stages per client & role",
-              "Notes, feedback & collaboration in one trail",
-              "Timeline you can search in seconds",
-            ],
-          },
-          {
-            title: "AI assistant",
-            chip: "Ask anything with AI",
-            icon: "🤖",
-            iconBg: "from-brand-primary/40 via-pink-400/40 to-brand-accent/40",
-            points: [
-              "Ask in plain English: jobs, candidates, offers",
-              "Answers powered by your live SmartScreen data",
-              "Shortcuts like “top 10 fits” or “stuck roles”",
-            ],
-          },
-        ].map((card) => (
-          <motion.div
-            key={card.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05, y: -8 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.25 }}
-            className="group relative flex min-h-[230px] flex-col gap-4 overflow-hidden rounded-[26px]
+            {/* cards */}
+            <div className="relative">
+              <div className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-4">
+
+                {[
+                  {
+                    title: "Job management",
+                    chip: "Create instant JDs",
+                    icon: "📄",
+                    iconBg: "from-brand-primary/40 via-brand-neon/35 to-brand-accent/40",
+                    points: [
+                      "AI-powered JD parsing & clean structure",
+                      "Auto-extracted skills, locations & tags",
+                      "Priority & SLA tracking per role",
+                    ],
+                  },
+                  {
+                    title: "Candidate intelligence",
+                    chip: "Candidate fitment",
+                    icon: "👥",
+                    iconBg: "from-sky-400/40 via-brand-neon/25 to-violet-500/40",
+                    points: [
+                      "Bulk resume upload with smart parsing",
+                      "Skills, locations, tags & status in one view",
+                      "Fitment scores on live roles",
+                    ],
+                  },
+                  {
+                    title: "Applications & workflows",
+                    chip: "Application tracking",
+                    icon: "📊",
+                    iconBg: "from-emerald-400/40 via-sky-400/35 to-brand-primary/40",
+                    points: [
+                      "Custom stages per client & role",
+                      "Notes, feedback & collaboration in one trail",
+                      "Timeline you can search in seconds",
+                    ],
+                  },
+                  {
+                    title: "AI assistant",
+                    chip: "Ask anything with AI",
+                    icon: "🤖",
+                    iconBg: "from-brand-primary/40 via-pink-400/40 to-brand-accent/40",
+                    points: [
+                      "Ask in plain English: jobs, candidates, offers",
+                      "Answers powered by your live SmartScreen data",
+                      "Shortcuts like “top 10 fits” or “stuck roles”",
+                    ],
+                  },
+                ].map((card) => (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.05, y: -8 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.25 }}
+                    className="group relative flex min-h-[230px] flex-col gap-4 overflow-hidden rounded-[26px]
                        border border-violet-300/70 shadow-sm 
                        bg-white
                        px-6 py-5 
                        shadow-[0_12px_28px_rgba(15,23,42,0.15)]
                        hover:shadow-[0_25px_45px_rgba(0,0,0,0.18),0_8px_18px_rgba(0,0,0,0.12)]"
-          >
-            {/* top glass highlight */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 via-white/0 to-transparent" />
+                  >
+                    {/* top glass highlight */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 via-white/0 to-transparent" />
 
-            {/* corner glow */}
-            <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-neon/10 to-brand-accent/16 blur-2xl" />
+                    {/* corner glow */}
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-neon/10 to-brand-accent/16 blur-2xl" />
 
-            <div className="relative flex flex-col gap-4">
-              <div className="flex items-center justify-between gap-3">
+                    <div className="relative flex flex-col gap-4">
+                      <div className="flex items-center justify-between gap-3">
 
-                <span
-                  className="relative inline-flex items-center gap-1.5
+                        <span
+                          className="relative inline-flex items-center gap-1.5
                              rounded-full border border-violet-200/80
                              bg-white/90 px-3 py-1
                              text-[11px] font-semibold tracking-[0.04em]
                              uppercase text-violet-800
                              shadow-[0_0_0_1px_rgba(255,255,255,0.9),0_8px_18px_rgba(15,23,42,0.12)]"
-                >
-                  <span
-                    className="h-1.5 w-1.5 rounded-full bg-gradient-to-r
+                        >
+                          <span
+                            className="h-1.5 w-1.5 rounded-full bg-gradient-to-r
                                from-brand-primary via-brand-neon to-brand-accent
                                shadow-[0_0_8px_rgba(236,72,153,0.7)]"
-                  />
-                  <span>{card.chip}</span>
-                </span>
+                          />
+                          <span>{card.chip}</span>
+                        </span>
 
-                <div
-                  className={`flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br ${card.iconBg} text-[18px] shadow-[0_0_18px_rgba(236,72,153,0.45)]`}
-                >
-                  <span>{card.icon}</span>
-                </div>
-              </div>
+                        <div
+                          className={`flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br ${card.iconBg} text-[18px] shadow-[0_0_18px_rgba(236,72,153,0.45)]`}
+                        >
+                          <span>{card.icon}</span>
+                        </div>
+                      </div>
 
-              <h3 className="text-lg font-semibold text-brand-dark">
-                {card.title}
-              </h3>
+                      <h3 className="text-lg font-semibold text-brand-dark">
+                        {card.title}
+                      </h3>
 
-              <ul className="space-y-2 text-sm text-slate-700">
-                {card.points.map((p) => (
-                  <li key={p} className="flex gap-2">
-                    <span className="mt-[6px] flex h-[6px] w-[6px] flex-none rounded-full bg-brand-accent/90" />
-                    <span className="leading-snug">{p}</span>
-                  </li>
+                      <ul className="space-y-2 text-sm text-slate-700">
+                        {card.points.map((p) => (
+                          <li key={p} className="flex gap-2">
+                            <span className="mt-[6px] flex h-[6px] w-[6px] flex-none rounded-full bg-brand-accent/90" />
+                            <span className="leading-snug">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+
+              </div>
             </div>
-          </motion.div>
-        ))}
-
-      </div>
-    </div>
-  </div>
-</section>
-
+          </div>
+        </section>
 
         {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows */}
         <section className="border-t border-violet-100 bg-brand-light/80 py-16 md:py-20">
@@ -1165,7 +1164,7 @@ const App: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
                   See SmartScreen in action.
                 </h2>
-                <p className="text-sm text-slate-600 md:text-base">
+                <p className="text-sm text-neutral-800 md:text-base">
                   A rotating preview of how SmartScreen feels in real use —
                   your jobs board, candidate pool, and a quick workflow demo.
                   You can later plug in real screenshots or a Loom / MP4 of your
@@ -1203,13 +1202,13 @@ const App: React.FC = () => {
                 {/* Glass card with browser chrome + carousel */}
                 <div className="gradient-border relative overflow-hidden rounded-3xl border border-white/60 bg-white/60 shadow-soft backdrop-blur-xl">
                   {/* Browser chrome */}
-                  <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/70 px-4 py-2 text-xs text-slate-500">
+                  <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/70 px-4 py-2 text-xs text-slate-600">
                     <div className="flex items-center gap-1.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
                       <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
                       <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
                     </div>
-                    <div className="truncate text-[11px] text-slate-500">
+                    <div className="truncate text-[11px] text-slate-600">
                       {previewLabelMap[activePreview]} · smartscreen.ai
                     </div>
                     <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
@@ -1315,7 +1314,7 @@ const App: React.FC = () => {
               <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
                 From raw resumes to confident hiring decisions
               </h2>
-              <p className="mt-3 text-sm text-slate-600 md:text-base">
+              <p className="mt-3 text-sm text-neutral-800 md:text-base">
                 Three simple steps — powered by SmartScreen&apos;s AI engine and
                 workflow agent.
               </p>
@@ -1353,7 +1352,7 @@ const App: React.FC = () => {
                   <h3 className="text-lg font-semibold text-brand-dark">
                     {card.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600">{card.desc}</p>
+                  <p className="mt-2 text-sm text-neutral-800">{card.desc}</p>
                   <div className="pointer-events-none absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-gradient-to-tr from-brand-primary/15 to-brand-neon/10 blur-2xl" />
                 </motion.div>
               ))}
@@ -1392,7 +1391,7 @@ const App: React.FC = () => {
               <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
                 Built for real hiring teams, not just “applicants”.
               </h2>
-              <p className="mt-3 text-sm text-slate-600 md:text-base">
+              <p className="mt-3 text-sm text-neutral-800 md:text-base">
                 HR, recruiters, consulting firms, and hiring managers all get
                 what they need — without fighting the tool.
               </p>
@@ -1430,7 +1429,7 @@ const App: React.FC = () => {
                     <h3 className="text-base font-semibold text-brand-dark">
                       {card.title}
                     </h3>
-                    <p className="text-sm text-slate-700">{card.desc}</p>
+                    <p className="text-sm text-neutral-800">{card.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1445,11 +1444,11 @@ const App: React.FC = () => {
               <div className="text-sm font-semibold text-brand-dark">
                 SmartScreen.ai
               </div>
-              <div className="text-xs text-slate-500">
+              <div className="text-xs text-slate-600">
                 The AI-powered recruitment operating system.
               </div>
             </div>
-            <div className="flex flex-wrap gap-4 text-xs text-slate-500">
+            <div className="flex flex-wrap gap-4 text-xs text-slate-600">
               <button>Product</button>
               <button>Pricing</button>
               <button>About</button>

@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 // 🔹 NEW: real screenshots
 import heroAssistantResponse from "./screenshots/hero-assistant-response.png";
 import heroMatchingCandidates from "./screenshots/hero-matching-candidates.png";
-import bgImage from "./assets/bg_image.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -258,6 +257,27 @@ const App: React.FC = () => {
   const [isHeroHovered, setIsHeroHovered] = useState(false); // 🔸 NEW
   const currentHero = heroSlides[heroIndex];
 
+  const heroBullets: string[][] = [
+    // Slide 1 – “Hiring today is messy”
+    [
+      "Resumes scattered across downloads, job portals, and email.",
+      "Status updates buried in Excel sheets and WhatsApp chats.",
+      "No single place that shows what’s happening on each role.",
+    ],
+    // Slide 2 – “Shortlists in minutes”
+    [
+      "Hours lost reading CVs line by line for every new role.",
+      "Hard to compare skills, experience, and location at a glance.",
+      "Strong candidates slip through with no AI-ranked shortlist.",
+    ],
+    // Slide 3 – “Assistant answers instantly”
+    [
+      "Everyone pings you for role, candidate, and offer updates.",
+      "No instant answer when someone asks who moved stages this week.",
+      "Updates spread across ATS, sheets, and chats instead of one assistant.",
+    ],
+  ];
+
   const previewLabelMap: Record<PreviewKey, string> = {
     jobs: "Jobs & openings",
     candidates: "Candidates & fitment",
@@ -487,27 +507,22 @@ const App: React.FC = () => {
         <section
           className="relative overflow-hidden pt-16 pb-16
              md:pt-20 md:pb-20
-             md:h-[720px] lg:h-[780px]
+             md:h-[720px] lg:h-[750px]
              md:flex md:items-start"
           onMouseEnter={handleHeroMouseEnter}
           onMouseLeave={handleHeroMouseLeave}
         >
-        <motion.div
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-          initial={{ scale: 1.05 }}
-          animate={{ scale: 1.1 }}
-          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse" }}
-        >
+          {/* Subtle background image inside hero */}
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="pointer-events-none absolute inset-0 z-0 opacity-[0.12] mix-blend-soft-light"
             style={{
-              backgroundImage: `url(${bgImage})`,
+              backgroundImage:
+                'url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600")',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
 
-          {/* Optional overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-white/50" />
-        </motion.div>
           {/* Hero arrows on full hero area */}
           <button
             type="button"
@@ -590,20 +605,17 @@ const App: React.FC = () => {
                     {currentHero.body}
                   </p>
 
-                  {/* Pain bullets */}
-                  <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                      Resumes scattered across downloads, job portals, and email.
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
-                      Status updates buried in Excel sheets.
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      No single place that shows the full hiring picture.
-                    </li>
+                  {/* Pain bullets – per slide, more prominent */}
+                  <ul className="mt-3 space-y-2 text-[13px] text-slate-700">
+                    {heroBullets[heroIndex].map((text) => (
+                      <li key={text} className="flex items-start gap-3">
+                        <span
+                          className="mt-1 h-2 w-2 rounded-full bg-rose-400
+                                    shadow-[0_0_0_4px_rgba(248,113,113,0.18)]"
+                        />
+                        <span>{text}</span>
+                      </li>
+                    ))}
                   </ul>
 
                   <div className="flex flex-wrap items-center gap-4">
@@ -619,21 +631,6 @@ const App: React.FC = () => {
                       </span>
                       Watch 60s overview
                     </button>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 text-xs text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                      AI JD parsing & skill extraction
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                      Candidate search & fitment scores
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-pink-400" />
-                      AI assistant across your data
-                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>

@@ -325,13 +325,12 @@ const App: React.FC = () => {
     });
   };
 
-  const goPrevPreview = () => {
-    setActivePreview((current) => {
-      const idx = PREVIEWS.indexOf(current);
-      return PREVIEWS[(idx - 1 + PREVIEWS.length) % PREVIEWS.length];
-    });
-  };
-
+const goPrevPreview = () => {
+  setActivePreview((current) => {
+    const idx = PREVIEWS.indexOf(current);
+    return PREVIEWS[(idx - 1 + PREVIEWS.length) % PREVIEWS.length];
+  });
+};
   const heroSlideVariants = {
     enter: (direction: number) => ({
       opacity: 0,
@@ -1154,6 +1153,315 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+
+{/* PRODUCT SHOWCASE – 4 alternating sections */}
+<section className="py-20 bg-white">
+  <div className="container">
+    <div className="relative mx-auto max-w-7xl">
+
+      {/* ───────────────── Outer Glow (light purple) ───────────────── */}
+      <div
+        className="
+          pointer-events-none absolute -inset-6
+          rounded-[32px]
+          bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.26),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.22),transparent_60%)]
+          opacity-70
+        "
+      />
+
+      {/* ───────────────── Dark Band Wrapper ───────────────── */}
+      <div
+        className="
+          relative overflow-hidden
+          rounded-[24px]
+          bg-gradient-to-b from-[#1c1440] via-[#241a52] to-[#2c2060]
+          px-8 md:px-14
+          py-14 md:py-18
+          shadow-[0_22px_70px_rgba(15,23,42,0.35)]
+          border border-white/10
+        "
+      >
+
+        {/* ───────────────── Apple-Style Vertical Divider Lines ───────────────── */}
+        <div
+          className="
+            pointer-events-none
+            absolute inset-y-10 left-1/3 hidden w-px
+            bg-gradient-to-b from-white/20 via-white/10 to-transparent
+            opacity-60 md:block
+          "
+        />
+        <div
+          className="
+            pointer-events-none
+            absolute inset-y-10 left-2/3 hidden w-px
+            bg-gradient-to-b from-transparent via-white/8 to-transparent
+            opacity-40 md:block
+          "
+        />
+
+        {/* ─────────────────────────────────────────────────────────── */}
+        {/* 🔥 YOUR FULL ORIGINAL PRODUCT SHOWCASE CONTENT STARTS HERE */}
+        {/* ─────────────────────────────────────────────────────────── */}
+
+        <div className="space-y-14 md:space-y-16">
+
+          {/* HEADER */}
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center rounded-full border border-violet-500/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-100">
+              Product screens · day-to-day view
+            </div>
+            <h2 className="text-2xl font-semibold text-white md:text-3xl">
+              Product screens that match how hiring teams{" "}
+              <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
+                actually work.
+              </span>
+            </h2>
+            <p className="text-sm text-slate-200 md:text-base">
+              Four core views — assistant, matching, candidate database, and jobs
+              pipeline — shown the way your users will experience SmartScreen day to day.
+            </p>
+          </div>
+
+          {/* 1. AI Assistant – text left, image right */}
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="space-y-3 md:space-y-4">
+              <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
+                AI assistant · Copilot
+              </div>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                Ask SmartScreen anything about your hiring data.
+              </h3>
+              <p className="text-sm text-slate-200 md:text-base">
+                The assistant sits on top of jobs, candidates, and applications. It
+                answers “what changed this week?” or “top 10 fits for this JD” in
+                plain English, with a traceable view of the data behind it.
+              </p>
+              <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                  <span>Natural-language queries across jobs, candidates, and stages.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                  <span>Always-on copilot — from “who is stuck?” to “who is ready to offer?”.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)]">
+              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                <span className="text-[11px]">SmartScreen Assistant · screenshot</span>
+                <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-100">
+                  Live in product
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                  <img
+                    src={heroAssistantResponse}
+                    alt="SmartScreen AI assistant screenshot"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Matching – image left, text right */}
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="order-none gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)] md:order-1">
+              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                <span className="text-[11px]">Matching & shortlist · screenshot</span>
+                <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-100">
+                  AI-ranked
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                  <img
+                    src={heroMatchingCandidates}
+                    alt="SmartScreen matching candidates screenshot"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="order-none space-y-3 md:order-2 md:space-y-4">
+              <div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-100">
+                Matching · Shortlists
+              </div>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                Shortlists ready in minutes, not days of manual screening.
+              </h3>
+              <p className="text-sm text-slate-200 md:text-base">
+                Upload bulk resumes once, map them to a JD, and SmartScreen surfaces
+                the best candidates with fitment scores, experience context, and
+                location relevance baked in.
+              </p>
+              <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>Ranked shortlist per role based on skills, location, and experience.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                  <span>One view to compare candidates instead of jumping between portals.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 3. Candidate database – text left, image right */}
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="space-y-3 md:space-y-4">
+              <div className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-sky-100">
+                Candidate database
+              </div>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                One clean, searchable pool of all your talent.
+              </h3>
+              <p className="text-sm text-slate-200 md:text-base">
+                Every resume you ever upload — parsed, tagged, and searchable in one
+                place. No more “lost CVs” trapped inside email threads or old drives.
+              </p>
+              <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                  <span>Auto-tag skills, seniority, locations, and last-seen activity.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-sky-400" />
+                  <span>Search “Java · Chennai · 5–8 yrs” and get a usable shortlist in seconds.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)]">
+              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                <span className="text-[11px]">Candidate database · UI mock</span>
+                <span className="rounded-full bg-slate-500/15 px-2 py-0.5 text-[10px] text-slate-100">
+                  Coming to product
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                  
+                  <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="font-medium text-slate-50">Candidate pool</span>
+                      <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
+                        Search · Filter
+                      </span>
+                    </div>
+                    <div className="mb-2 h-6 w-3/4 rounded-full bg-slate-800/80" />
+                    <div className="space-y-1.5">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div
+                          key={i}
+                          className="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2 text-[10px] shadow-[0_6px_16px_rgba(0,0,0,0.6)]"
+                        >
+                          <div className="space-y-0.5">
+                            <div className="h-3 w-24 rounded-full bg-slate-600" />
+                            <div className="h-2.5 w-32 rounded-full bg-slate-700" />
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="h-2.5 w-10 rounded-full bg-emerald-500/40" />
+                            <div className="h-2.5 w-12 rounded-full bg-violet-500/40" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. Jobs & applications – image left, text right */}
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="order-none gradient-border overflow-hidden rounded-3xl bg-slate-950/70 shadow-[0_24px_60px_rgba(0,0,0,0.7)] md:order-1">
+              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                <span className="text-[11px]">Jobs & applications · pipeline view</span>
+                <span className="rounded-full bg-brand-primary/20 px-2 py-0.5 text-[10px] text-violet-100">
+                  Pipeline
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                  <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="font-medium text-slate-50">Roles in progress</span>
+                      <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
+                        12 active · 3 on hold
+                      </span>
+                    </div>
+                    <div className="grid h-full grid-cols-4 gap-2">
+                      {["Sourced", "Screening", "Interview", "Offer"].map((stage) => (
+                        <div
+                          key={stage}
+                          className="flex flex-col rounded-2xl bg-slate-900/85 p-2 text-[10px] shadow-[0_8px_20px_rgba(0,0,0,0.6)]"
+                        >
+                          <div className="mb-1 flex items-center justify-between">
+                            <span className="h-3 w-16 rounded-full bg-slate-600" />
+                            <span className="h-2.5 w-6 rounded-full bg-violet-500/40" />
+                          </div>
+                          <div className="space-y-1.5">
+                            {[1, 2, 3].map((x) => (
+                              <div key={x} className="rounded-xl bg-slate-800/90 p-1.5">
+                                <div className="h-2.5 w-20 rounded-full bg-slate-600" />
+                                <div className="mt-1 h-2 w-16 rounded-full bg-slate-700" />
+                              </div>
+                            ))}
+                          </div>
+                          <div className="mt-auto pt-2 text-[9px] text-slate-300">
+                            {stage}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-none space-y-3 md:order-2 md:space-y-4">
+              <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
+                Jobs & applications
+              </div>
+              <h3 className="text-xl font-semibold text-white md:text-2xl">
+                A pipeline view that keeps every role and stage visible.
+              </h3>
+              <p className="text-sm text-slate-200 md:text-base">
+                From sourcing to offer, SmartScreen gives you a clear, board-style
+                view of where every candidate sits — and which roles are at risk
+                before it’s too late.
+              </p>
+              <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                  <span>Visual stages across all active roles in one glance.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span>Spot stuck roles and bottlenecks early, not after the quarter ends.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* ─────────────────────────────────────────────────────────── */}
+        {/* 🔥 YOUR FULL ORIGINAL PRODUCT SHOWCASE CONTENT ENDS HERE */}
+        {/* ─────────────────────────────────────────────────────────── */}
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows */}
         <section className="border-t border-violet-100 bg-brand-light/80 py-16 md:py-20">

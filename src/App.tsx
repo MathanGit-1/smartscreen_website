@@ -1015,10 +1015,11 @@ const App: React.FC = () => {
             </AnimatePresence>
           </div>
         </section>
-
         {/* FEATURE CARDS */}
-        <section className="border-t border-violet-100 bg-white/70 py-16 md:py-20">
-          <div className="container space-y-10">
+        <section className="relative border-t border-violet-100 bg-gradient-to-b from-brand-light via-[#f6f0ff] to-white py-16 md:py-20">
+          {/* very subtle left/right lavender wash */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_left,_rgba(129,140,248,0.10),transparent_55%),_radial-gradient(circle_at_right,_rgba(236,72,153,0.10),transparent_55%)]" />
+          <div className="container space-y-8 md:space-y-10">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
               <div>
                 <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
@@ -1029,70 +1030,114 @@ const App: React.FC = () => {
                   </span>
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm text-slate-600 md:text-base">
-                  SmartScreen gives hiring teams a single system of record —
-                  from JD creation to offer rollout — with AI helping at every
-                  step.
+                  SmartScreen gives hiring teams a single system of record — from JD
+                  creation to offer rollout — with AI helping at every step.
                 </p>
               </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  title: "Job management",
-                  chip: "Start with better JDs",
-                  points: [
-                    "AI-powered JD parsing",
-                    "Auto-extracted skills & tags",
-                    "Priority & SLA tracking",
-                  ],
-                },
-                {
-                  title: "Candidate intelligence",
-                  chip: "Know your pipeline",
-                  points: [
-                    "Bulk resume upload",
-                    "Skills, locations, tags, status",
-                    "Fitment scores in one view",
-                  ],
-                },
-                {
-                  title: "Applications & workflows",
-                  chip: "From screen to offer",
-                  points: [
-                    "Custom stages per client",
-                    "Notes & collaboration",
-                    "Timeline you can search",
-                  ],
-                },
-              ].map((card) => (
+            {/* cards */}
+            <div className="relative">
+
+              <div className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-4">
+                {[
+                  {
+                    title: "Job management",
+                    chip: "Start with better JDs",
+                    icon: "🗂",
+                    iconBg:
+                      "from-brand-primary/35 via-brand-neon/30 to-brand-accent/35",
+                    points: [
+                      "AI-powered JD parsing & clean structure",
+                      "Auto-extracted skills, locations & tags",
+                      "Priority & SLA tracking per role",
+                    ],
+                  },
+                  {
+                    title: "Candidate intelligence",
+                    chip: "Know your pipeline",
+                    icon: "👥",
+                    iconBg: "from-sky-400/40 via-brand-neon/25 to-violet-500/40",
+                    points: [
+                      "Bulk resume upload with smart parsing",
+                      "Skills, locations, tags & status in one view",
+                      "Fitment scores on live roles",
+                    ],
+                  },
+                  {
+                    title: "Applications & workflows",
+                    chip: "From screen to offer",
+                    icon: "🔄",
+                    iconBg:
+                      "from-emerald-400/40 via-teal-400/35 to-brand-primary/35",
+                    points: [
+                      "Custom stages per client & role",
+                      "Notes, feedback & collaboration in one trail",
+                      "Timeline you can search in seconds",
+                    ],
+                  },
+                  {
+                    title: "AI assistant",
+                    chip: "AI on every screen",
+                    icon: "🤖",
+                    iconBg:
+                      "from-brand-primary/40 via-pink-400/40 to-brand-accent/40",
+                    points: [
+                      "Ask in plain English: jobs, candidates, offers",
+                      "Answers powered by your live SmartScreen data",
+                      "Shortcuts like “top 10 fits” or “stuck roles”",
+                    ],
+                  },
+                ].map((card) => (
                 <motion.div
                   key={card.title}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05, y: -8 }}
                   viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative overflow-hidden rounded-3xl border border-violet-100 bg-white/90 p-5 shadow-soft backdrop-blur-xl"
+                  transition={{ duration: 0.25 }}
+                  className="group relative flex min-h-[230px] flex-col gap-4 overflow-hidden rounded-[26px]
+                            border border-white/70 
+                            bg-[#faf5ff]
+                            px-6 py-5 
+                            shadow-[0_12px_28px_rgba(15,23,42,0.15)]
+                            hover:shadow-[0_25px_45px_rgba(0,0,0,0.18),0_8px_18px_rgba(0,0,0,0.12)]"
                 >
-                  <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-brand-primary/15 to-brand-neon/10 blur-2xl" />
-                  <div className="relative flex flex-col gap-4">
-                    <span className="inline-flex w-fit rounded-full bg-violet-50 px-3 py-1 text-[11px] font-medium text-violet-700">
-                      {card.chip}
-                    </span>
-                    <h3 className="text-lg font-semibold text-brand-dark">
-                      {card.title}
-                    </h3>
-                    <ul className="space-y-2 text-sm text-slate-600">
-                      {card.points.map((p) => (
-                        <li key={p} className="flex gap-2">
-                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                          <span>{p}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
+
+                    {/* top glass highlight */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/80 via-white/0 to-transparent" />
+
+                    {/* corner glow */}
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-neon/10 to-brand-accent/16 blur-2xl" />
+
+                    <div className="relative flex flex-col gap-4">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="inline-flex w-fit rounded-full bg-white/80 px-3 py-1 text-[11px] font-medium text-violet-700 shadow-sm">
+                          {card.chip}
+                        </span>
+                        <div
+                          className={`flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br ${card.iconBg} text-[18px] shadow-[0_0_18px_rgba(236,72,153,0.45)]`}
+                        >
+                          <span>{card.icon}</span>
+                        </div>
+                      </div>
+
+                      <h3 className="text-lg font-semibold text-brand-dark">
+                        {card.title}
+                      </h3>
+
+                      <ul className="space-y-2 text-sm text-slate-600">
+                        {card.points.map((p) => (
+                          <li key={p} className="flex gap-2">
+                            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent/90" />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

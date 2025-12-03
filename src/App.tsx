@@ -1830,39 +1830,69 @@ const goPrevPreview = () => {
           desc: "Plain-English questions like “Top candidates who can join in 30 days?” answered instantly.",
         },
       ].map((card, idx) => (
-<motion.div
-  key={card.title}
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.4 }}
-  transition={{ duration: 0.45, delay: idx * 0.08 }}
-  className="group relative overflow-hidden rounded-[26px]
-             border border-white/40
-             bg-[rgba(255,255,255,0.22)]
-             backdrop-blur-2xl
-             px-6 py-6
-             shadow-[0_20px_50px_rgba(0,0,0,0.35)]
-             saturate-150 contrast-125"
->
-  {/* bright inner glow */}
-  <div
-    className="pointer-events-none absolute -right-10 -bottom-10 h-40 w-40 rounded-full
-               bg-gradient-to-br from-pink-400/60 via-purple-400/55 to-blue-300/50
-               blur-2xl opacity-90 group-hover:opacity-100 transition-opacity"
-  />
+      <motion.div
+        key={card.title}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        whileHover={{ y: -10, scale: 1.02, rotate: -0.5 }}
+        transition={{
+          duration: 0.45,
+          delay: idx * 0.08,
+          type: "spring",
+          stiffness: 230,
+          damping: 18,
+        }}
+        className="group relative overflow-hidden rounded-[26px]
+                  bg-gradient-to-br from-white via-white to-[#f7f7f9]
+                  border border-neutral-200/80
+                  shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+                  px-6 py-6
+                  backdrop-blur-xl
+                  transform-gpu will-change-transform"
+      >
 
-  <div className="mb-3 inline-flex items-center rounded-full border border-pink-200/60 bg-pink-100/20 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/90">
-    {card.step}
-  </div>
+        {/* TOP GLOSS REFLECTION */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-10
+                    bg-gradient-to-b from-white/95 to-white/0 opacity-80"
+        />
 
-  <h3 className="text-lg font-semibold text-white drop-shadow-md">
-    {card.title}
-  </h3>
+        {/* REMOVED SHIMMER STRIP */} 
+        {/* (No shimmer here anymore) */}
 
-  <p className="mt-2 text-sm leading-relaxed text-white/85 drop-shadow">
-    {card.desc}
-  </p>
-</motion.div>
+        {/* INNER GLOW */}
+        <div
+          className="pointer-events-none absolute -right-10 -bottom-10 h-36 w-36 rounded-full
+                    bg-gradient-to-br from-pink-400/35 via-purple-400/30 to-blue-300/30
+                    blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"
+        />
+
+        {/* BORDER GLOW */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[26px]
+                    ring-1 ring-white/40 group-hover:ring-white/60 transition-all"
+        />
+
+        {/* STEP BADGE */}
+        <div className="mb-3 inline-flex items-center rounded-full
+                        border border-pink-300/70 bg-pink-50/80
+                        px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em]
+                        text-pink-700">
+          {card.step}
+        </div>
+
+        {/* TITLE */}
+        <h3 className="text-lg font-semibold text-neutral-900">
+          {card.title}
+        </h3>
+
+        {/* DESCRIPTION */}
+        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+          {card.desc}
+        </p>
+      </motion.div>
+
 
       ))}
     </div>

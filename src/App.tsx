@@ -1768,59 +1768,110 @@ const goPrevPreview = () => {
             </motion.div>
           </div>
         </section>
+{/* HOW IT WORKS — DARK NEON, MORE PINK, FLOATING WAVES */}
+<section
+  className="relative border-t border-white/10 py-20 md:py-24 overflow-hidden
+             bg-gradient-to-b from-[#4b164f] via-[#2b1744] to-[#15112c]"
+>
+  {/* LEFT PINK WAVE (floating) */}
+  <div
+    className="pointer-events-none absolute -left-1/3 top-[-20%] h-[160%] w-[80%]
+               rounded-full bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.85),transparent_65%)]
+               opacity-90 blur-3xl animate-float-wave-slow"
+  />
 
-        {/* HOW IT WORKS */}
-        <section className="border-t border-violet-100 bg-brand-light/70 py-16 md:py-20">
-          <div className="container space-y-10">
-            <div className="text-center">
-              <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
-                From raw resumes to confident hiring decisions
-              </h2>
-              <p className="mt-3 text-sm text-neutral-800 md:text-base">
-                Three simple steps — powered by SmartScreen&apos;s AI engine and
-                workflow agent.
-              </p>
-            </div>
+  {/* RIGHT BLUE / PURPLE WAVE (floating) */}
+  <div
+    className="pointer-events-none absolute -right-1/3 bottom-[-25%] h-[160%] w-[80%]
+               rounded-full bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.85),transparent_60%)]
+               opacity-80 blur-3xl animate-float-wave-slower"
+  />
 
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  step: "Step 1",
-                  title: "Upload JDs & resumes",
-                  desc: "Import job descriptions and bulk resumes from your sources. SmartScreen parses skills, experience, and intent automatically.",
-                },
-                {
-                  step: "Step 2",
-                  title: "Match & shortlist with AI",
-                  desc: "See fitment scores, skills overlap, and location preferences in one place — shortlist in minutes, not days.",
-                },
-                {
-                  step: "Step 3",
-                  title: "Run the hiring workflow",
-                  desc: "Move candidates across stages, leave notes, and let the assistant answer “what happened on this role?” on demand.",
-                },
-              ].map((card, idx) => (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="relative overflow-hidden rounded-3xl border border-violet-100 bg-white/90 p-6 shadow-soft"
-                >
-                  <div className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-violet-600">
-                    {card.step}
-                  </div>
-                  <h3 className="text-lg font-semibold text-brand-dark">
-                    {card.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-neutral-800">{card.desc}</p>
-                  <div className="pointer-events-none absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-gradient-to-tr from-brand-primary/15 to-brand-neon/10 blur-2xl" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+  {/* CENTER CYAN GLOW RIBBON */}
+  <div
+    className="pointer-events-none absolute inset-x-[-10%] top-1/2 h-40
+               bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.55),transparent_70%)]
+               opacity-70 blur-3xl"
+  />
+
+  {/* subtle vignette so edges don’t look harsh */}
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.65))]" />
+
+  <div className="container space-y-12 relative z-10">
+    <div className="mx-auto max-w-2xl text-center">
+      <h2 className="text-2xl md:text-3xl font-semibold text-white">
+        From raw resumes to confident hiring decisions
+      </h2>
+      <p className="mt-3 text-sm md:text-base text-pink-100/90">
+        Four simple steps — upload, match, run workflows, and ask the assistant anything.
+      </p>
+    </div>
+
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {[
+        {
+          step: "Step 1",
+          title: "Upload everything",
+          desc: "Drop in JDs and bulk resumes. SmartScreen cleans and structures the data instantly.",
+        },
+        {
+          step: "Step 2",
+          title: "Let AI match & explain",
+          desc: "Fitment scores, skill gaps, experience mapping — all explained with clarity.",
+        },
+        {
+          step: "Step 3",
+          title: "Run your workflow",
+          desc: "Shortlist, track stages, collect feedback, and keep roles moving seamlessly.",
+        },
+        {
+          step: "Step 4",
+          title: "Ask the assistant anything",
+          desc: "Plain-English questions like “Top candidates who can join in 30 days?” answered instantly.",
+        },
+      ].map((card, idx) => (
+<motion.div
+  key={card.title}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{ duration: 0.45, delay: idx * 0.08 }}
+  className="group relative overflow-hidden rounded-[26px]
+             border border-white/40
+             bg-[rgba(255,255,255,0.22)]
+             backdrop-blur-2xl
+             px-6 py-6
+             shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+             saturate-150 contrast-125"
+>
+  {/* bright inner glow */}
+  <div
+    className="pointer-events-none absolute -right-10 -bottom-10 h-40 w-40 rounded-full
+               bg-gradient-to-br from-pink-400/60 via-purple-400/55 to-blue-300/50
+               blur-2xl opacity-90 group-hover:opacity-100 transition-opacity"
+  />
+
+  <div className="mb-3 inline-flex items-center rounded-full border border-pink-200/60 bg-pink-100/20 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/90">
+    {card.step}
+  </div>
+
+  <h3 className="text-lg font-semibold text-white drop-shadow-md">
+    {card.title}
+  </h3>
+
+  <p className="mt-2 text-sm leading-relaxed text-white/85 drop-shadow">
+    {card.desc}
+  </p>
+</motion.div>
+
+      ))}
+    </div>
+  </div>
+
+  {/* soft fade into the next light section */}
+  <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+</section>
+
             
                 {/* FEATURE GRID – 10 core capabilities */}
         <section className="border-t border-violet-100 bg-white py-16 md:py-20">

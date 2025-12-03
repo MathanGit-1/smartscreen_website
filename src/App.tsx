@@ -1545,359 +1545,362 @@ const goPrevPreview = () => {
           </div>
         </section>
 
-        {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows – glass band */}
-        <section
-          className="relative border-t border-violet-100
-                     bg-gradient-to-b from-[#f2ebff] via-[#f6f0ff] to-[#f8f5ff]
-                     py-14 md:py-20"
-        >
-          {/* band glows */}
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-40
-                       bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.35),transparent_60%)]
-                       opacity-80"
-          />
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-44
-                       bg-[radial-gradient(circle_at_bottom,_rgba(244,114,182,0.32),transparent_60%)]
-                       opacity-80"
-          />
-          {/* inner vignette */}
-          <div
-            className="pointer-events-none absolute inset-x-6 inset-y-4
-                       rounded-[44px]
-                       bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.9),transparent_65%)]
-                       opacity-90"
-          />
-
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.55, ease: "easeOut" }}
-              className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px]
-                         border border-white/80 bg-white/35
-                         shadow-[0_32px_80px_rgba(15,23,42,0.28)]
-                         backdrop-blur-2xl px-6 py-8 md:px-10 md:py-10"
-            >
-              {/* inner glows + mesh */}
-              <div
-                className="pointer-events-none absolute -left-24 top-0 h-64 w-64
-                           rounded-full bg-gradient-to-br
-                           from-brand-primary/30 via-brand-neon/24 to-brand-accent/30
-                           blur-3xl opacity-85"
-              />
-              <div
-                className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64
-                           rounded-full bg-gradient-to-br
-                           from-pink-400/28 via-violet-500/28 to-sky-400/28
-                           blur-3xl opacity-85"
-              />
-              <div
-                className="pointer-events-none absolute inset-0
-                           bg-[linear-gradient(120deg,rgba(255,255,255,0.14)_1px,transparent_1px),
-                               linear-gradient(-120deg,rgba(199,210,254,0.22)_1px,transparent_1px)]
-                           bg-[length:200px_200px]
-                           opacity-40 mix-blend-soft-light"
-              />
-
-              <div className="relative grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
-                {/* Text column */}
-                <div className="space-y-4">
-                  <div className="inline-flex items-center rounded-full border border-violet-300/70 bg-violet-50/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-700">
-                    Live product preview
-                  </div>
-                  <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
-                    See SmartScreen in action —{" "}
-                    <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
-                      before you ever sign in.
-                    </span>
-                  </h2>
-                  <p className="text-sm text-neutral-800 md:text-base">
-                    Rotate between your jobs board candidate view, and a quick
-                    workflow demo. Later, you&apos;ll plug in real SmartScreen screenshots
-                    and a Loom walkthrough here.
-                  </p>
-
-                  <ul className="mt-2 space-y-2 text-sm text-slate-700">
-                    <li className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                      <span>
-                        AI-ranked matching view that connects each JD with the best
-                        candidates.
-                      </span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                      <span>
-                        Assistant view where you ask questions on top of jobs,
-                        candidates, and stages.
-                      </span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      <span>
-                        Workflow demo tab where you&apos;ll embed a full end-to-end
-                        product walkthrough.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Media column */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24, scale: 0.98 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="relative"
-                >
-                  {/* Glass card with browser chrome + carousel */}
-                  <div className="gradient-border relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 shadow-soft backdrop-blur-xl">
-                    {/* Browser chrome */}
-                    <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/80 px-4 py-2 text-xs text-slate-600">
-                      <div className="flex items-center gap-1.5">
-                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                      </div>
-                      <div className="truncate text-[11px] text-slate-600">
-                        {previewLabelMap[activePreview]} · smartscreen.ai
-                      </div>
-                      <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
-                        Auto slideshow
-                      </span>
-                    </div>
-
-                    {/* Carousel tabs */}
-                    <div className="flex flex-wrap gap-2 border-b border-violet-100/60 bg-white/60 px-4 pb-2 pt-3 text-xs">
-                      {[
-                        { key: "jobs", label: "Matching candidates" },
-                        { key: "candidates", label: "AI assistant" },
-                        { key: "video", label: "Workflow demo" },
-                      ].map((item) => (
-                        <button
-                          key={item.key}
-                          onClick={() => setActivePreview(item.key as PreviewKey)}
-                          className={`rounded-full px-3 py-1 font-medium transition ${
-                            activePreview === item.key
-                              ? "bg-violet-600 text-white shadow-soft"
-                              : "bg-white/80 text-slate-600 hover:bg-violet-50"
-                          }`}
-                        >
-                          {item.label}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Media area */}
-                    <div className="relative px-4 pb-4 pt-3">
-                      <div
-                        className="relative overflow-hidden rounded-2xl border border-violet-100
-                                   bg-gradient-to-br from-violet-50 via-white to-pink-50
-                                   flex items-center justify-center
-                                   h-[240px] md:h-[300px] lg:h-[340px]"
-                      >
-                        {activePreview === "jobs" && (
-                          <img
-                            src={heroMatchingCandidates}
-                            alt="SmartScreen jobs & matching candidates view"
-                            className="block h-full w-full object-contain"
-                          />
-                        )}
-
-                        {activePreview === "candidates" && (
-                          <img
-                            src={heroAssistantResponse}
-                            alt="SmartScreen AI assistant responding on hiring data"
-                            className="block h-full w-full object-contain"
-                          />
-                        )}
-
-                        {activePreview === "video" && (
-                          <video
-                            className="block h-full w-full object-contain rounded-2xl"
-                            controls
-                            poster="https://www.w3schools.com/html/pic_trulli.jpg"
-                          >
-                            <source
-                              src="https://www.w3schools.com/html/mov_bbb.mp4"
-                              type="video/mp4"
-                            />
-                            Your browser does not support the video tag.
-                          </video>
-                        )}
-
-                        {/* Click overlay to go to video when on images */}
-                        {activePreview !== "video" && (
-                          <button
-                            type="button"
-                            onClick={() => setActivePreview("video")}
-                            className="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-black/20 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
-                          >
-                            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1 backdrop-blur-sm">
-                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/95 text-[10px] text-brand-primary">
-                                ▶
-                              </span>
-                              <span>Click to watch workflow demo</span>
-                            </span>
-                          </button>
-                        )}
-
-                        {/* Left / Right arrows for mini slider */}
-                        <button
-                          type="button"
-                          onClick={goPrevPreview}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
-                        >
-                          <span className="text-xs text-violet-700">‹</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={goNextPreview}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
-                        >
-                          <span className="text-xs text-violet-700">›</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-{/* HOW IT WORKS — DARK NEON, MORE PINK, FLOATING WAVES */}
+{/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows – glass band */}
 <section
-  className="relative border-t border-white/10 py-20 md:py-24 overflow-hidden
-             bg-gradient-to-b from-[#4b164f] via-[#2b1744] to-[#15112c]"
+  className="relative border-t border-violet-100
+             bg-gradient-to-b from-[#f2ebff] via-[#f6f0ff] to-[#f8f5ff]
+             py-14 md:py-20"
 >
-  {/* LEFT PINK WAVE (floating) */}
+  {/* band glows */}
   <div
-    className="pointer-events-none absolute -left-1/3 top-[-20%] h-[160%] w-[80%]
-               rounded-full bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.85),transparent_65%)]
-               opacity-90 blur-3xl animate-float-wave-slow"
+    className="pointer-events-none absolute inset-x-0 top-0 h-40
+               bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.35),transparent_60%)]
+               opacity-80"
+  />
+  <div
+    className="pointer-events-none absolute inset-x-0 bottom-0 h-44
+               bg-[radial-gradient(circle_at_bottom,_rgba(244,114,182,0.32),transparent_60%)]
+               opacity-80"
+  />
+  {/* inner vignette */}
+  <div
+    className="pointer-events-none absolute inset-x-6 inset-y-4
+               rounded-[44px]
+               bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.9),transparent_65%)]
+               opacity-90"
   />
 
-  {/* RIGHT BLUE / PURPLE WAVE (floating) */}
-  <div
-    className="pointer-events-none absolute -right-1/3 bottom-[-25%] h-[160%] w-[80%]
-               rounded-full bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.85),transparent_60%)]
-               opacity-80 blur-3xl animate-float-wave-slower"
-  />
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px]
+                 border border-white/80 bg-white/35
+                 shadow-[0_32px_80px_rgba(15,23,42,0.28)]
+                 backdrop-blur-2xl px-6 py-8 md:px-10 md:py-10"
+    >
+      {/* inner glows + mesh */}
+      <div
+        className="pointer-events-none absolute -left-24 top-0 h-64 w-64
+                   rounded-full bg-gradient-to-br
+                   from-brand-primary/30 via-brand-neon/24 to-brand-accent/30
+                   blur-3xl opacity-85"
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64
+                   rounded-full bg-gradient-to-br
+                   from-pink-400/28 via-violet-500/28 to-sky-400/28
+                   blur-3xl opacity-85"
+      />
+      <div
+        className="pointer-events-none absolute inset-0
+                   bg-[linear-gradient(120deg,rgba(255,255,255,0.14)_1px,transparent_1px),
+                       linear-gradient(-120deg,rgba(199,210,254,0.22)_1px,transparent_1px)]
+                   bg-[length:200px_200px]
+                   opacity-40 mix-blend-soft-light"
+      />
 
-  {/* CENTER CYAN GLOW RIBBON */}
-  <div
-    className="pointer-events-none absolute inset-x-[-10%] top-1/2 h-40
-               bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.55),transparent_70%)]
-               opacity-70 blur-3xl"
-  />
-
-  {/* subtle vignette so edges don’t look harsh */}
-  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.65))]" />
-
-  <div className="container space-y-12 relative z-10">
-    <div className="mx-auto max-w-2xl text-center">
-      <h2 className="text-2xl md:text-3xl font-semibold text-white">
-        From raw resumes to confident hiring decisions
-      </h2>
-      <p className="mt-3 text-sm md:text-base text-pink-100/90">
-        Four simple steps — upload, match, run workflows, and ask the assistant anything.
-      </p>
-    </div>
-
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-      {[
-        {
-          step: "Step 1",
-          title: "Parse your data",
-          desc: "AI cleans and structures JDs and resumes into consistent, usable hiring data.",
-        },
-        {
-          step: "Step 2",
-          title: "Generate fitment",
-          desc: "AI scores every candidate, detects skill gaps, and creates ranked shortlists instantly.",
-        },
-        {
-          step: "Step 3",
-          title: "Run workflows",
-          desc: "Move candidates through stages, track SLAs, and keep evaluations organized.",
-        },
-        {
-          step: "Step 4",
-          title: "Ask insights instantly",
-          desc: "Get answers to questions like “Top Java fits?” or “Who can join in 30 days?”",
-        },
-      ].map((card, idx) => (
-        <motion.div
-          key={card.title}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          whileHover={{ y: -10, scale: 1.02, rotate: -0.5 }}
-          transition={{
-            duration: 0.45,
-            delay: idx * 0.08,
-            type: "spring",
-            stiffness: 230,
-            damping: 18,
-          }}
-          className="group relative overflow-hidden rounded-[26px]
-                     bg-gradient-to-br from-white via-white to-[#f7f7f9]
-                     border border-neutral-200/80
-                     shadow-[0_18px_40px_rgba(0,0,0,0.22)]
-                     px-6 py-6
-                     backdrop-blur-xl
-                     transform-gpu will-change-transform"
-        >
-          {/* TOP GLOSS REFLECTION */}
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 h-10
-                       bg-gradient-to-b from-white/95 to-white/0 opacity-80"
-          />
-
-          {/* INNER GLOW */}
-          <div
-            className="pointer-events-none absolute -right-10 -bottom-10 h-36 w-36 rounded-full
-                       bg-gradient-to-br from-pink-400/35 via-purple-400/30 to-blue-300/30
-                       blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"
-          />
-
-          {/* BORDER GLOW */}
-          <div
-            className="pointer-events-none absolute inset-0 rounded-[26px]
-                       ring-1 ring-white/40 group-hover:ring-white/60 transition-all"
-          />
-
-          {/* STEP BADGE */}
-          <div className="mb-3 inline-flex items-center rounded-full
-                          border border-pink-300/70 bg-pink-50/80
-                          px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em]
-                          text-pink-700">
-            {card.step}
+      <div className="relative grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
+        {/* Text column */}
+        <div className="space-y-4">
+          <div className="inline-flex items-center rounded-full border border-violet-300/70 bg-violet-50/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-700">
+            Live product preview
           </div>
-
-          {/* TITLE */}
-          <h3 className="text-lg font-semibold text-neutral-900">
-            {card.title}
-          </h3>
-
-          {/* DESCRIPTION */}
-          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-            {card.desc}
+          <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
+            See SmartScreen in action —{" "}
+            <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
+              before you ever sign in.
+            </span>
+          </h2>
+          <p className="text-sm text-neutral-800 md:text-base">
+            Rotate between your jobs board candidate view, and a quick workflow
+            demo. Later, you&apos;ll plug in real SmartScreen screenshots and a Loom
+            walkthrough here.
           </p>
-        </motion.div>
-      ))}
-    </div>
-  </div>
 
-  {/* soft fade into the next light section */}
-  <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+          <ul className="mt-2 space-y-2 text-sm text-slate-700">
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary" />
+              <span>
+                AI-ranked matching view that connects each JD with the best
+                candidates.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" />
+              <span>
+                Assistant view where you ask questions on top of jobs, candidates,
+                and stages.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              <span>
+                Workflow demo tab where you&apos;ll embed a full end-to-end product
+                walkthrough.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Media column */}
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative"
+        >
+          {/* Glass card with browser chrome + carousel */}
+          <div className="gradient-border relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 shadow-soft backdrop-blur-xl">
+            {/* Browser chrome */}
+            <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/80 px-4 py-2 text-xs text-slate-600">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+              </div>
+              <div className="truncate text-[11px] text-slate-600">
+                {previewLabelMap[activePreview]} · smartscreen.ai
+              </div>
+              <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
+                Auto slideshow
+              </span>
+            </div>
+
+            {/* Carousel tabs */}
+            <div className="flex flex-wrap gap-2 border-b border-violet-100/60 bg-white/60 px-4 pb-2 pt-3 text-xs">
+              {[
+                { key: "jobs", label: "Matching candidates" },
+                { key: "candidates", label: "AI assistant" },
+                { key: "video", label: "Workflow demo" },
+              ].map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => setActivePreview(item.key as PreviewKey)}
+                  className={`rounded-full px-3 py-1 font-medium transition ${
+                    activePreview === item.key
+                      ? "bg-violet-600 text-white shadow-soft"
+                      : "bg-white/80 text-slate-600 hover:bg-violet-50"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Media area */}
+            <div className="relative px-4 pb-4 pt-3">
+              <div
+                className="relative flex h-[240px] items-center justify-center
+                           rounded-2xl border border-violet-100
+                           bg-gradient-to-br from-violet-50 via-white to-pink-50
+                           md:h-[300px] lg:h-[340px]"
+              >
+                {activePreview === "jobs" && (
+                  <img
+                    src={heroMatchingCandidates}
+                    alt="SmartScreen jobs & matching candidates view"
+                    className="block h-full w-full object-contain"
+                  />
+                )}
+
+                {activePreview === "candidates" && (
+                  <img
+                    src={heroAssistantResponse}
+                    alt="SmartScreen AI assistant responding on hiring data"
+                    className="block h-full w-full object-contain"
+                  />
+                )}
+
+                {activePreview === "video" && (
+                  <video
+                    className="block h-full w-full rounded-2xl object-contain"
+                    controls
+                    poster="https://www.w3schools.com/html/pic_trulli.jpg"
+                  >
+                    <source
+                      src="https://www.w3schools.com/html/mov_bbb.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+
+                {/* Click overlay to go to video when on images */}
+                {activePreview !== "video" && (
+                  <button
+                    type="button"
+                    onClick={() => setActivePreview("video")}
+                    className="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-black/20 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
+                  >
+                    <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1 backdrop-blur-sm">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/95 text-[10px] text-brand-primary">
+                        ▶
+                      </span>
+                      <span>Click to watch workflow demo</span>
+                    </span>
+                  </button>
+                )}
+
+                {/* Left / Right arrows for mini slider */}
+                <button
+                  type="button"
+                  onClick={goPrevPreview}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
+                >
+                  <span className="text-xs text-violet-700">‹</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={goNextPreview}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
+                >
+                  <span className="text-xs text-violet-700">›</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  </div>
 </section>
 
-            
+
+        {/* HOW IT WORKS — DARK NEON, MORE PINK, FLOATING WAVES */}
+        <section
+          className="relative border-t border-white/10
+                    pt-16 md:pt-18 pb-24 md:pb-28
+                    overflow-hidden
+                    bg-gradient-to-b from-[#4b164f] via-[#2b1744] to-[#15112c]"
+        >
+          {/* LEFT PINK WAVE (floating) */}
+          <div
+            className="pointer-events-none absolute -left-1/3 top-[-20%] h-[160%] w-[80%]
+                      rounded-full bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.85),transparent_65%)]
+                      opacity-90 blur-3xl animate-float-wave-slow"
+          />
+
+          {/* RIGHT BLUE / PURPLE WAVE (floating) */}
+          <div
+            className="pointer-events-none absolute -right-1/3 bottom-[-25%] h-[160%] w-[80%]
+                      rounded-full bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.85),transparent_60%)]
+                      opacity-80 blur-3xl animate-float-wave-slower"
+          />
+
+          {/* CENTER CYAN GLOW RIBBON */}
+          <div
+            className="pointer-events-none absolute inset-x-[-10%] top-[45%] h-40
+                      bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.55),transparent_70%)]
+                      opacity-70 blur-3xl"
+          />
+
+          {/* subtle dark vignette over the whole band (keep or remove as you like) */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(0,0,0,0.65))]" />
+
+          <div className="container relative z-10 space-y-12">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold text-white">
+                From raw resumes to confident hiring decisions
+              </h2>
+              <p className="mt-3 text-sm md:text-base text-pink-100/90">
+                Four simple steps — upload, match, run workflows, and ask the assistant anything.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  step: "Step 1",
+                  title: "Parse your data",
+                  desc: "AI cleans and structures JDs and resumes into consistent, usable hiring data.",
+                },
+                {
+                  step: "Step 2",
+                  title: "Generate fitment",
+                  desc: "AI scores every candidate, detects skill gaps, and creates ranked shortlists instantly.",
+                },
+                {
+                  step: "Step 3",
+                  title: "Run workflows",
+                  desc: "Move candidates through stages, track SLAs, and keep evaluations organized.",
+                },
+                {
+                  step: "Step 4",
+                  title: "Ask insights instantly",
+                  desc: "Get answers to questions like “Top Java fits?” or “Who can join in 30 days?”",
+                },
+              ].map((card, idx) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  whileHover={{ y: -10, scale: 1.02, rotate: -0.5 }}
+                  transition={{
+                    duration: 0.45,
+                    delay: idx * 0.08,
+                    type: "spring",
+                    stiffness: 230,
+                    damping: 18,
+                  }}
+                  className="group relative overflow-hidden rounded-[26px]
+                            bg-gradient-to-br from-white via-white to-[#f7f7f9]
+                            border border-neutral-200/80
+                            shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+                            px-6 py-6
+                            backdrop-blur-xl
+                            transform-gpu will-change-transform"
+                >
+                  {/* TOP GLOSS REFLECTION */}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-10
+                              bg-gradient-to-b from-white/95 to-white/0 opacity-80"
+                  />
+
+                  {/* INNER GLOW */}
+                  <div
+                    className="pointer-events-none absolute -right-10 -bottom-10 h-36 w-36 rounded-full
+                              bg-gradient-to-br from-pink-400/35 via-purple-400/30 to-blue-300/30
+                              blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"
+                  />
+
+                  {/* BORDER GLOW */}
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-[26px]
+                              ring-1 ring-white/40 group-hover:ring-white/60 transition-all"
+                  />
+
+                  {/* STEP BADGE */}
+                  <div
+                    className="mb-3 inline-flex items-center rounded-full
+                              border border-pink-300/70 bg-pink-50/80
+                              px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em]
+                              text-pink-700"
+                  >
+                    {card.step}
+                  </div>
+
+                  {/* TITLE */}
+                  <h3 className="text-lg font-semibold text-neutral-900">
+                    {card.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                    {card.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* 👇 removed the bottom vignette / fade strip */}
+        </section>
+
                 {/* FEATURE GRID – 10 core capabilities */}
         <section className="border-t border-violet-100 bg-white py-16 md:py-20">
           <div className="container space-y-10">

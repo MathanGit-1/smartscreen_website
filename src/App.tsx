@@ -1153,397 +1153,397 @@ const goPrevPreview = () => {
             </div>
           </div>
         </section>
-        
-{/* PRODUCT SHOWCASE – 4 alternating sections */}
-<section className="py-20 bg-white">
-  <div className="container">
-    <div className="relative mx-auto max-w-[88rem]">
-      {/* outer glow (slightly lighter) */}
-      <div
-        className="pointer-events-none absolute -inset-6 rounded-[32px]
-                   bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.2),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.18),transparent_60%)]
-                   opacity-80"
-      />
+                
+        {/* PRODUCT SHOWCASE – 4 alternating sections */}
+        <section className="py-20 bg-white">
+          <div className="container">
+            <div className="relative mx-auto max-w-[88rem]">
+              {/* outer glow (slightly lighter) */}
+              <div
+                className="pointer-events-none absolute -inset-6 rounded-[32px]
+                          bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.2),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.18),transparent_60%)]
+                          opacity-80"
+              />
 
-      {/* main band */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative overflow-hidden rounded-[40px]
-                  bg-gradient-to-r from-[#252c4b] via-[#2f3a63] to-[#252c4b]
-                  px-8 md:px-14 py-14 md:py-18
-                  shadow-[0_24px_70px_rgba(15,23,42,0.26)]
-                  border border-white/16"
-            >
-        {/* central glow beam */}
+              {/* main band */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="relative overflow-hidden rounded-[40px]
+                          bg-gradient-to-r from-[#252c4b] via-[#2f3a63] to-[#252c4b]
+                          px-8 md:px-14 py-14 md:py-18
+                          shadow-[0_24px_70px_rgba(15,23,42,0.26)]
+                          border border-white/16"
+                    >
+                {/* central glow beam */}
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10
+                            bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.56),transparent_55%)]
+                            opacity-75 mix-blend-screen"
+                />
+
+                {/* soft vertical fade to add depth */}
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10
+                            bg-[linear-gradient(to_bottom,rgba(15,23,42,0.0),rgba(15,23,42,0.45))]
+                            opacity-55"
+                />
+                {/* inner glow wash */}
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10
+                            bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.35),transparent_55%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.26),transparent_60%)]
+                            opacity-90"
+                />
+                {/* mesh / net overlay */}
+                <div
+                  className="pointer-events-none absolute inset-0 -z-10
+                            bg-[linear-gradient(120deg,rgba(148,163,253,0.23)_1px,transparent_0),linear-gradient(-120deg,rgba(45,212,191,0.18)_1px,transparent_0)]
+                            bg-[length:160px_160px]
+                            opacity-30 mix-blend-screen"
+                />
+
+        {/* light premium mesh background */}
         <div
           className="pointer-events-none absolute inset-0 -z-10
-                    bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.56),transparent_55%)]
-                    opacity-75 mix-blend-screen"
+                    bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.55),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(209,213,255,0.45),transparent_65%)]
+                    opacity-90"
         />
 
-        {/* soft vertical fade to add depth */}
+        {/* super subtle mesh */}
         <div
           className="pointer-events-none absolute inset-0 -z-10
-                    bg-[linear-gradient(to_bottom,rgba(15,23,42,0.0),rgba(15,23,42,0.45))]
-                    opacity-55"
-        />
-        {/* inner glow wash */}
-        <div
-          className="pointer-events-none absolute inset-0 -z-10
-                     bg-[radial-gradient(circle_at_top,_rgba(196,181,253,0.35),transparent_55%),_radial-gradient(circle_at_bottom,_rgba(244,114,182,0.26),transparent_60%)]
-                     opacity-90"
-        />
-        {/* mesh / net overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 -z-10
-                     bg-[linear-gradient(120deg,rgba(148,163,253,0.23)_1px,transparent_0),linear-gradient(-120deg,rgba(45,212,191,0.18)_1px,transparent_0)]
-                     bg-[length:160px_160px]
-                     opacity-30 mix-blend-screen"
+                    bg-[linear-gradient(120deg,rgba(255,255,255,0.22)_1px,transparent_1px),
+                        linear-gradient(-120deg,rgba(209,213,255,0.25)_1px,transparent_1px)]
+                    bg-[length:180px_180px]
+                    opacity-25 mix-blend-soft-light"
         />
 
-{/* light premium mesh background */}
-<div
-  className="pointer-events-none absolute inset-0 -z-10
-             bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.55),transparent_60%),_radial-gradient(circle_at_bottom,_rgba(209,213,255,0.45),transparent_65%)]
-             opacity-90"
-/>
-
-{/* super subtle mesh */}
-<div
-  className="pointer-events-none absolute inset-0 -z-10
-             bg-[linear-gradient(120deg,rgba(255,255,255,0.22)_1px,transparent_1px),
-                 linear-gradient(-120deg,rgba(209,213,255,0.25)_1px,transparent_1px)]
-             bg-[length:180px_180px]
-             opacity-25 mix-blend-soft-light"
-/>
-
-        <div className="space-y-14 md:space-y-16">
-          {/* HEADER */}
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center rounded-full border border-violet-500/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-100">
-              Product screens · day-to-day view
-            </div>
-            <h2 className="text-2xl font-semibold text-white md:text-3xl">
-              Product screens that match how hiring teams{" "}
-              <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
-                actually work.
-              </span>
-            </h2>
-            <p className="text-sm text-slate-200 md:text-base">
-              Four core views — assistant, matching, candidate database, and jobs
-              pipeline — shown the way your users will experience SmartScreen day to day.
-            </p>
-          </div>
-
-          {/* 1. AI Assistant – text left, image right */}
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div className="space-y-3 md:space-y-4">
-              <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
-                AI assistant · Copilot
-              </div>
-              <h3 className="text-xl font-semibold text-white md:text-2xl">
-                Ask SmartScreen anything about your hiring data.
-              </h3>
-              <p className="text-sm text-slate-200 md:text-base">
-                The assistant sits on top of jobs, candidates, and applications. It
-                answers “what changed this week?” or “top 10 fits for this JD” in
-                plain English, with a traceable view of the data behind it.
-              </p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-200">
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                  <span>Natural-language queries across jobs, candidates, and stages.</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                  <span>
-                    Always-on copilot — from “who is stuck?” to “who is ready to offer?”.
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            {/* assistant screenshot card */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              whileHover={{
-                y: -8,
-                scale: 1.015,
-                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
-              }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/60
-                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
-                         transition-transform duration-500 ease-out
-                         will-change-transform animate-float-slow"
-            >
-              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
-                <span className="text-[11px]">SmartScreen Assistant · screenshot</span>
-                <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-100">
-                  Live in product
-                </span>
-              </div>
-              <div className="p-3">
-                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-                  <img
-                    src={heroAssistantResponse}
-                    alt="SmartScreen AI assistant screenshot"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* 2. Matching – image left, text right */}
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            {/* matching screenshot card */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              whileHover={{
-                y: -8,
-                scale: 1.015,
-                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
-              }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="order-none gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/60
-                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
-                         transition-transform duration-500 ease-out
-                         will-change-transform animate-float-slow md:order-1"
-            >
-              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
-                <span className="text-[11px]">Matching & shortlist · screenshot</span>
-                <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-100">
-                  AI-ranked
-                </span>
-              </div>
-              <div className="p-3">
-                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-                  <img
-                    src={heroMatchingCandidates}
-                    alt="SmartScreen matching candidates screenshot"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            <div className="order-none space-y-3 md:order-2 md:space-y-4">
-              <div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-100">
-                Matching · Shortlists
-              </div>
-              <h3 className="text-xl font-semibold text-white md:text-2xl">
-                Shortlists ready in minutes, not days of manual screening.
-              </h3>
-              <p className="text-sm text-slate-200 md:text-base">
-                Upload bulk resumes once, map them to a JD, and SmartScreen surfaces
-                the best candidates with fitment scores, experience context, and
-                location relevance baked in.
-              </p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-200">
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>
-                    Ranked shortlist per role based on skills, location, and experience.
-                  </span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                  <span>
-                    One view to compare candidates instead of jumping between portals.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* 3. Candidate database – text left, image right */}
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            <div className="space-y-3 md:space-y-4">
-              <div className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-sky-100">
-                Candidate database
-              </div>
-              <h3 className="text-xl font-semibold text-white md:text-2xl">
-                One clean, searchable pool of all your talent.
-              </h3>
-              <p className="text-sm text-slate-200 md:text-base">
-                Every resume you ever upload — parsed, tagged, and searchable in one
-                place. No more “lost CVs” trapped inside email threads or old drives.
-              </p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-200">
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                  <span>Auto-tag skills, seniority, locations, and last-seen activity.</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-sky-400" />
-                  <span>
-                    Search “Java · Chennai · 5–8 yrs” and get a usable shortlist in
-                    seconds.
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            {/* candidate DB mock card */}
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              whileHover={{
-                y: -8,
-                scale: 1.015,
-                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
-              }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/60
-                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
-                         transition-transform duration-500 ease-out
-                         will-change-transform animate-float-slow"
-            >
-              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
-                <span className="text-[11px]">Candidate database · UI mock</span>
-                <span className="rounded-full bg-slate-500/15 px-2 py-0.5 text-[10px] text-slate-100">
-                  Coming to product
-                </span>
-              </div>
-              <div className="p-3">
-                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-                  <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
-                    <div className="mb-3 flex items-center justify-between">
-                      <span className="font-medium text-slate-50">Candidate pool</span>
-                      <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
-                        Search · Filter
-                      </span>
+                <div className="space-y-14 md:space-y-16">
+                  {/* HEADER */}
+                  <div className="max-w-3xl space-y-3">
+                    <div className="inline-flex items-center rounded-full border border-violet-500/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-100">
+                      Product screens · day-to-day view
                     </div>
-                    <div className="mb-2 h-6 w-3/4 rounded-full bg-slate-800/80" />
-                    <div className="space-y-1.5">
-                      {[1, 2, 3, 4].map((i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2 text-[10px] shadow-[0_6px_16px_rgba(0,0,0,0.6)]"
-                        >
-                          <div className="space-y-0.5">
-                            <div className="h-3 w-24 rounded-full bg-slate-600" />
-                            <div className="h-2.5 w-32 rounded-full bg-slate-700" />
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <div className="h-2.5 w-10 rounded-full bg-emerald-500/40" />
-                            <div className="h-2.5 w-12 rounded-full bg-violet-500/40" />
+                    <h2 className="text-2xl font-semibold text-white md:text-3xl">
+                      Product screens that match how hiring teams{" "}
+                      <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
+                        actually work.
+                      </span>
+                    </h2>
+                    <p className="text-sm text-slate-200 md:text-base">
+                      Four core views — assistant, matching, candidate database, and jobs
+                      pipeline — shown the way your users will experience SmartScreen day to day.
+                    </p>
+                  </div>
+
+                  {/* 1. AI Assistant – text left, image right */}
+                  <div className="grid gap-10 md:grid-cols-2 md:items-center">
+                    <div className="space-y-3 md:space-y-4">
+                      <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
+                        AI assistant · Copilot
+                      </div>
+                      <h3 className="text-xl font-semibold text-white md:text-2xl">
+                        Ask SmartScreen anything about your hiring data.
+                      </h3>
+                      <p className="text-sm text-slate-200 md:text-base">
+                        The assistant sits on top of jobs, candidates, and applications. It
+                        answers “what changed this week?” or “top 10 fits for this JD” in
+                        plain English, with a traceable view of the data behind it.
+                      </p>
+                      <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                          <span>Natural-language queries across jobs, candidates, and stages.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                          <span>
+                            Always-on copilot — from “who is stuck?” to “who is ready to offer?”.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* assistant screenshot card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.015,
+                        boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+                      }}
+                      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                      className="gradient-border overflow-hidden rounded-3xl
+                                bg-slate-950/60
+                                shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                                transition-transform duration-500 ease-out
+                                will-change-transform animate-float-slow"
+                    >
+                      <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                        <span className="text-[11px]">SmartScreen Assistant · screenshot</span>
+                        <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] text-violet-100">
+                          Live in product
+                        </span>
+                      </div>
+                      <div className="p-3">
+                        <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                          <img
+                            src={heroAssistantResponse}
+                            alt="SmartScreen AI assistant screenshot"
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* 2. Matching – image left, text right */}
+                  <div className="grid gap-10 md:grid-cols-2 md:items-center">
+                    {/* matching screenshot card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 28 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.015,
+                        boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+                      }}
+                      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                      className="order-none gradient-border overflow-hidden rounded-3xl
+                                bg-slate-950/60
+                                shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                                transition-transform duration-500 ease-out
+                                will-change-transform animate-float-slow md:order-1"
+                    >
+                      <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                        <span className="text-[11px]">Matching & shortlist · screenshot</span>
+                        <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] text-emerald-100">
+                          AI-ranked
+                        </span>
+                      </div>
+                      <div className="p-3">
+                        <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                          <img
+                            src={heroMatchingCandidates}
+                            alt="SmartScreen matching candidates screenshot"
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <div className="order-none space-y-3 md:order-2 md:space-y-4">
+                      <div className="inline-flex items-center rounded-full border border-emerald-400/40 bg-emerald-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-100">
+                        Matching · Shortlists
+                      </div>
+                      <h3 className="text-xl font-semibold text-white md:text-2xl">
+                        Shortlists ready in minutes, not days of manual screening.
+                      </h3>
+                      <p className="text-sm text-slate-200 md:text-base">
+                        Upload bulk resumes once, map them to a JD, and SmartScreen surfaces
+                        the best candidates with fitment scores, experience context, and
+                        location relevance baked in.
+                      </p>
+                      <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                          <span>
+                            Ranked shortlist per role based on skills, location, and experience.
+                          </span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                          <span>
+                            One view to compare candidates instead of jumping between portals.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* 3. Candidate database – text left, image right */}
+                  <div className="grid gap-10 md:grid-cols-2 md:items-center">
+                    <div className="space-y-3 md:space-y-4">
+                      <div className="inline-flex items-center rounded-full border border-sky-400/40 bg-sky-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-sky-100">
+                        Candidate database
+                      </div>
+                      <h3 className="text-xl font-semibold text-white md:text-2xl">
+                        One clean, searchable pool of all your talent.
+                      </h3>
+                      <p className="text-sm text-slate-200 md:text-base">
+                        Every resume you ever upload — parsed, tagged, and searchable in one
+                        place. No more “lost CVs” trapped inside email threads or old drives.
+                      </p>
+                      <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                          <span>Auto-tag skills, seniority, locations, and last-seen activity.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-sky-400" />
+                          <span>
+                            Search “Java · Chennai · 5–8 yrs” and get a usable shortlist in
+                            seconds.
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* candidate DB mock card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 32 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.015,
+                        boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+                      }}
+                      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                      className="gradient-border overflow-hidden rounded-3xl
+                                bg-slate-950/60
+                                shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                                transition-transform duration-500 ease-out
+                                will-change-transform animate-float-slow"
+                    >
+                      <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                        <span className="text-[11px]">Candidate database · UI mock</span>
+                        <span className="rounded-full bg-slate-500/15 px-2 py-0.5 text-[10px] text-slate-100">
+                          Coming to product
+                        </span>
+                      </div>
+                      <div className="p-3">
+                        <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                          <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
+                            <div className="mb-3 flex items-center justify-between">
+                              <span className="font-medium text-slate-50">Candidate pool</span>
+                              <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
+                                Search · Filter
+                              </span>
+                            </div>
+                            <div className="mb-2 h-6 w-3/4 rounded-full bg-slate-800/80" />
+                            <div className="space-y-1.5">
+                              {[1, 2, 3, 4].map((i) => (
+                                <div
+                                  key={i}
+                                  className="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2 text-[10px] shadow-[0_6px_16px_rgba(0,0,0,0.6)]"
+                                >
+                                  <div className="space-y-0.5">
+                                    <div className="h-3 w-24 rounded-full bg-slate-600" />
+                                    <div className="h-2.5 w-32 rounded-full bg-slate-700" />
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <div className="h-2.5 w-10 rounded-full bg-emerald-500/40" />
+                                    <div className="h-2.5 w-12 rounded-full bg-violet-500/40" />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      ))}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* 4. Jobs & applications – image left, text right */}
+                  <div className="grid gap-10 md:grid-cols-2 md:items-center">
+                    {/* jobs pipeline mock */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 32 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      whileHover={{
+                        y: -8,
+                        scale: 1.015,
+                        boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
+                      }}
+                      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                      className="order-none gradient-border overflow-hidden rounded-3xl
+                                bg-slate-950/60
+                                shadow-[0_24px_60px_rgba(0,0,0,0.7)]
+                                transition-transform duration-500 ease-out
+                                will-change-transform animate-float-slow md:order-1"
+                    >
+                      <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
+                        <span className="text-[11px]">Jobs & applications · pipeline view</span>
+                        <span className="rounded-full bg-brand-primary/20 px-2 py-0.5 text-[10px] text-violet-100">
+                          Pipeline
+                        </span>
+                      </div>
+                      <div className="p-3">
+                        <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+                          <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
+                            <div className="mb-3 flex items-center justify-between">
+                              <span className="font-medium text-slate-50">Roles in progress</span>
+                              <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
+                                12 active · 3 on hold
+                              </span>
+                            </div>
+                            <div className="grid h-full grid-cols-4 gap-2">
+                              {["Sourced", "Screening", "Interview", "Offer"].map((stage) => (
+                                <div
+                                  key={stage}
+                                  className="flex flex-col rounded-2xl bg-slate-900/85 p-2 text-[10px] shadow-[0_8px_20px_rgba(0,0,0,0.6)]"
+                                >
+                                  <div className="mb-1 flex items-center justify-between">
+                                    <span className="h-3 w-16 rounded-full bg-slate-600" />
+                                    <span className="h-2.5 w-6 rounded-full bg-violet-500/40" />
+                                  </div>
+                                  <div className="space-y-1.5">
+                                    {[1, 2, 3].map((x) => (
+                                      <div key={x} className="rounded-xl bg-slate-800/90 p-1.5">
+                                        <div className="h-2.5 w-20 rounded-full bg-slate-600" />
+                                        <div className="mt-1 h-2 w-16 rounded-full bg-slate-700" />
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <div className="mt-auto pt-2 text-[9px] text-slate-300">
+                                    {stage}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    <div className="order-none space-y-3 md:order-2 md:space-y-4">
+                      <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
+                        Jobs & applications
+                      </div>
+                      <h3 className="text-xl font-semibold text-white md:text-2xl">
+                        A pipeline view that keeps every role and stage visible.
+                      </h3>
+                      <p className="text-sm text-slate-200 md:text-base">
+                        From sourcing to offer, SmartScreen gives you a clear, board-style view
+                        of where every candidate sits — and which roles are at risk before it’s
+                        too late.
+                      </p>
+                      <ul className="mt-2 space-y-2 text-sm text-slate-200">
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                          <span>Visual stages across all active roles in one glance.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                          <span>
+                            Spot stuck roles and bottlenecks early, not after the quarter ends.
+                          </span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* 4. Jobs & applications – image left, text right */}
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
-            {/* jobs pipeline mock */}
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              whileHover={{
-                y: -8,
-                scale: 1.015,
-                boxShadow: "0 32px 90px rgba(0,0,0,0.8)",
-              }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className="order-none gradient-border overflow-hidden rounded-3xl
-                         bg-slate-950/60
-                         shadow-[0_24px_60px_rgba(0,0,0,0.7)]
-                         transition-transform duration-500 ease-out
-                         will-change-transform animate-float-slow md:order-1"
-            >
-              <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 py-2 text-xs text-slate-300">
-                <span className="text-[11px]">Jobs & applications · pipeline view</span>
-                <span className="rounded-full bg-brand-primary/20 px-2 py-0.5 text-[10px] text-violet-100">
-                  Pipeline
-                </span>
-              </div>
-              <div className="p-3">
-                <div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
-                  <div className="absolute inset-0 p-4 text-[11px] text-slate-200">
-                    <div className="mb-3 flex items-center justify-between">
-                      <span className="font-medium text-slate-50">Roles in progress</span>
-                      <span className="rounded-full bg-slate-900/70 px-2 py-0.5 text-[10px] text-slate-200">
-                        12 active · 3 on hold
-                      </span>
-                    </div>
-                    <div className="grid h-full grid-cols-4 gap-2">
-                      {["Sourced", "Screening", "Interview", "Offer"].map((stage) => (
-                        <div
-                          key={stage}
-                          className="flex flex-col rounded-2xl bg-slate-900/85 p-2 text-[10px] shadow-[0_8px_20px_rgba(0,0,0,0.6)]"
-                        >
-                          <div className="mb-1 flex items-center justify-between">
-                            <span className="h-3 w-16 rounded-full bg-slate-600" />
-                            <span className="h-2.5 w-6 rounded-full bg-violet-500/40" />
-                          </div>
-                          <div className="space-y-1.5">
-                            {[1, 2, 3].map((x) => (
-                              <div key={x} className="rounded-xl bg-slate-800/90 p-1.5">
-                                <div className="h-2.5 w-20 rounded-full bg-slate-600" />
-                                <div className="mt-1 h-2 w-16 rounded-full bg-slate-700" />
-                              </div>
-                            ))}
-                          </div>
-                          <div className="mt-auto pt-2 text-[9px] text-slate-300">
-                            {stage}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <div className="order-none space-y-3 md:order-2 md:space-y-4">
-              <div className="inline-flex items-center rounded-full border border-violet-400/40 bg-violet-900/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-violet-100">
-                Jobs & applications
-              </div>
-              <h3 className="text-xl font-semibold text-white md:text-2xl">
-                A pipeline view that keeps every role and stage visible.
-              </h3>
-              <p className="text-sm text-slate-200 md:text-base">
-                From sourcing to offer, SmartScreen gives you a clear, board-style view
-                of where every candidate sits — and which roles are at risk before it’s
-                too late.
-              </p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-200">
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                  <span>Visual stages across all active roles in one glance.</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>
-                    Spot stuck roles and bottlenecks early, not after the quarter ends.
-                  </span>
-                </li>
-              </ul>
+              </motion.div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-</section>
+        </section>
 
         {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows – glass band */}
         <section
@@ -1768,6 +1768,7 @@ const goPrevPreview = () => {
             </motion.div>
           </div>
         </section>
+
 {/* HOW IT WORKS — DARK NEON, MORE PINK, FLOATING WAVES */}
 <section
   className="relative border-t border-white/10 py-20 md:py-24 overflow-hidden
@@ -1811,89 +1812,83 @@ const goPrevPreview = () => {
       {[
         {
           step: "Step 1",
-          title: "Upload everything",
-          desc: "Drop in JDs and bulk resumes. SmartScreen cleans and structures the data instantly.",
+          title: "Parse your data",
+          desc: "AI cleans and structures JDs and resumes into consistent, usable hiring data.",
         },
         {
           step: "Step 2",
-          title: "Let AI match & explain",
-          desc: "Fitment scores, skill gaps, experience mapping — all explained with clarity.",
+          title: "Generate fitment",
+          desc: "AI scores every candidate, detects skill gaps, and creates ranked shortlists instantly.",
         },
         {
           step: "Step 3",
-          title: "Run your workflow",
-          desc: "Shortlist, track stages, collect feedback, and keep roles moving seamlessly.",
+          title: "Run workflows",
+          desc: "Move candidates through stages, track SLAs, and keep evaluations organized.",
         },
         {
           step: "Step 4",
-          title: "Ask the assistant anything",
-          desc: "Plain-English questions like “Top candidates who can join in 30 days?” answered instantly.",
+          title: "Ask insights instantly",
+          desc: "Get answers to questions like “Top Java fits?” or “Who can join in 30 days?”",
         },
       ].map((card, idx) => (
-      <motion.div
-        key={card.title}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        whileHover={{ y: -10, scale: 1.02, rotate: -0.5 }}
-        transition={{
-          duration: 0.45,
-          delay: idx * 0.08,
-          type: "spring",
-          stiffness: 230,
-          damping: 18,
-        }}
-        className="group relative overflow-hidden rounded-[26px]
-                  bg-gradient-to-br from-white via-white to-[#f7f7f9]
-                  border border-neutral-200/80
-                  shadow-[0_18px_40px_rgba(0,0,0,0.22)]
-                  px-6 py-6
-                  backdrop-blur-xl
-                  transform-gpu will-change-transform"
-      >
+        <motion.div
+          key={card.title}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          whileHover={{ y: -10, scale: 1.02, rotate: -0.5 }}
+          transition={{
+            duration: 0.45,
+            delay: idx * 0.08,
+            type: "spring",
+            stiffness: 230,
+            damping: 18,
+          }}
+          className="group relative overflow-hidden rounded-[26px]
+                     bg-gradient-to-br from-white via-white to-[#f7f7f9]
+                     border border-neutral-200/80
+                     shadow-[0_18px_40px_rgba(0,0,0,0.22)]
+                     px-6 py-6
+                     backdrop-blur-xl
+                     transform-gpu will-change-transform"
+        >
+          {/* TOP GLOSS REFLECTION */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-10
+                       bg-gradient-to-b from-white/95 to-white/0 opacity-80"
+          />
 
-        {/* TOP GLOSS REFLECTION */}
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-10
-                    bg-gradient-to-b from-white/95 to-white/0 opacity-80"
-        />
+          {/* INNER GLOW */}
+          <div
+            className="pointer-events-none absolute -right-10 -bottom-10 h-36 w-36 rounded-full
+                       bg-gradient-to-br from-pink-400/35 via-purple-400/30 to-blue-300/30
+                       blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"
+          />
 
-        {/* REMOVED SHIMMER STRIP */} 
-        {/* (No shimmer here anymore) */}
+          {/* BORDER GLOW */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-[26px]
+                       ring-1 ring-white/40 group-hover:ring-white/60 transition-all"
+          />
 
-        {/* INNER GLOW */}
-        <div
-          className="pointer-events-none absolute -right-10 -bottom-10 h-36 w-36 rounded-full
-                    bg-gradient-to-br from-pink-400/35 via-purple-400/30 to-blue-300/30
-                    blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"
-        />
+          {/* STEP BADGE */}
+          <div className="mb-3 inline-flex items-center rounded-full
+                          border border-pink-300/70 bg-pink-50/80
+                          px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em]
+                          text-pink-700">
+            {card.step}
+          </div>
 
-        {/* BORDER GLOW */}
-        <div
-          className="pointer-events-none absolute inset-0 rounded-[26px]
-                    ring-1 ring-white/40 group-hover:ring-white/60 transition-all"
-        />
+          {/* TITLE */}
+          <h3 className="text-lg font-semibold text-neutral-900">
+            {card.title}
+          </h3>
 
-        {/* STEP BADGE */}
-        <div className="mb-3 inline-flex items-center rounded-full
-                        border border-pink-300/70 bg-pink-50/80
-                        px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em]
-                        text-pink-700">
-          {card.step}
-        </div>
-
-        {/* TITLE */}
-        <h3 className="text-lg font-semibold text-neutral-900">
-          {card.title}
-        </h3>
-
-        {/* DESCRIPTION */}
-        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-          {card.desc}
-        </p>
-      </motion.div>
-
-
+          {/* DESCRIPTION */}
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+            {card.desc}
+          </p>
+        </motion.div>
       ))}
     </div>
   </div>

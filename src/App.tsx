@@ -1545,155 +1545,227 @@ const goPrevPreview = () => {
   </div>
 </section>
 
-        {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows */}
-        <section className="border-t border-violet-100 bg-brand-light/80 py-16 md:py-20">
-          <div className="container space-y-10">
-            <div className="grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
-              {/* Text column */}
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
-                  See SmartScreen in action.
-                </h2>
-                <p className="text-sm text-neutral-800 md:text-base">
-                  A rotating preview of how SmartScreen feels in real use —
-                  your jobs board, candidate pool, and a quick workflow demo.
-                  You can later plug in real screenshots or a Loom / MP4 of your
-                  app.
-                </p>
-                <ul className="mt-2 space-y-2 text-sm text-slate-700">
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                    Jobs board view with fitment, locations, and SLA status.
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" />
-                    Candidate view showing stages, scores, and pipeline health.
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    Workflow demo tab where you will later embed your real
-                    video.
-                  </li>
-                </ul>
-              </div>
+        {/* PRODUCT PREVIEW / CAROUSEL + VIDEO with arrows – glass band */}
+        <section
+          className="relative border-t border-violet-100
+                     bg-gradient-to-b from-[#f2ebff] via-[#f6f0ff] to-[#f8f5ff]
+                     py-14 md:py-20"
+        >
+          {/* band glows */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-40
+                       bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.35),transparent_60%)]
+                       opacity-80"
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-44
+                       bg-[radial-gradient(circle_at_bottom,_rgba(244,114,182,0.32),transparent_60%)]
+                       opacity-80"
+          />
+          {/* inner vignette */}
+          <div
+            className="pointer-events-none absolute inset-x-6 inset-y-4
+                       rounded-[44px]
+                       bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.9),transparent_65%)]
+                       opacity-90"
+          />
 
-              {/* Media column */}
-              <motion.div
-                initial={{ opacity: 0, y: 24, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="relative animate-float-slow"
-              >
-                {/* Glows */}
-                <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-purple-300/40 blur-3xl" />
-                <div className="absolute -right-10 -bottom-10 h-32 w-32 rounded-full bg-pink-300/40 blur-3xl" />
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+              className="relative mx-auto max-w-6xl overflow-hidden rounded-[32px]
+                         border border-white/80 bg-white/35
+                         shadow-[0_32px_80px_rgba(15,23,42,0.28)]
+                         backdrop-blur-2xl px-6 py-8 md:px-10 md:py-10"
+            >
+              {/* inner glows + mesh */}
+              <div
+                className="pointer-events-none absolute -left-24 top-0 h-64 w-64
+                           rounded-full bg-gradient-to-br
+                           from-brand-primary/30 via-brand-neon/24 to-brand-accent/30
+                           blur-3xl opacity-85"
+              />
+              <div
+                className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64
+                           rounded-full bg-gradient-to-br
+                           from-pink-400/28 via-violet-500/28 to-sky-400/28
+                           blur-3xl opacity-85"
+              />
+              <div
+                className="pointer-events-none absolute inset-0
+                           bg-[linear-gradient(120deg,rgba(255,255,255,0.14)_1px,transparent_1px),
+                               linear-gradient(-120deg,rgba(199,210,254,0.22)_1px,transparent_1px)]
+                           bg-[length:200px_200px]
+                           opacity-40 mix-blend-soft-light"
+              />
 
-                {/* Glass card with browser chrome + carousel */}
-                <div className="gradient-border relative overflow-hidden rounded-3xl border border-white/60 bg-white/60 shadow-soft backdrop-blur-xl">
-                  {/* Browser chrome */}
-                  <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/70 px-4 py-2 text-xs text-slate-600">
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                    </div>
-                    <div className="truncate text-[11px] text-slate-600">
-                      {previewLabelMap[activePreview]} · smartscreen.ai
-                    </div>
-                    <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
-                      Auto slideshow
+              <div className="relative grid gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
+                {/* Text column */}
+                <div className="space-y-4">
+                  <div className="inline-flex items-center rounded-full border border-violet-300/70 bg-violet-50/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-700">
+                    Live product preview
+                  </div>
+                  <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
+                    See SmartScreen in action —{" "}
+                    <span className="bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent bg-clip-text text-transparent">
+                      before you ever sign in.
                     </span>
-                  </div>
+                  </h2>
+                  <p className="text-sm text-neutral-800 md:text-base">
+                    Rotate between your jobs board candidate view, and a quick
+                    workflow demo. Later, you&apos;ll plug in real SmartScreen screenshots
+                    and a Loom walkthrough here.
+                  </p>
 
-                  {/* Carousel tabs */}
-                  <div className="flex flex-wrap gap-2 border-b border-violet-100/60 bg-white/40 px-4 pb-2 pt-3 text-xs">
-                    {[
-                      { key: "jobs", label: "Jobs board" },
-                      { key: "candidates", label: "Candidates view" },
-                      { key: "video", label: "Workflow demo" },
-                    ].map((item) => (
-                      <button
-                        key={item.key}
-                        onClick={() => setActivePreview(item.key as PreviewKey)}
-                        className={`rounded-full px-3 py-1 font-medium transition ${
-                          activePreview === item.key
-                            ? "bg-violet-600 text-white shadow-soft"
-                            : "bg-white/70 text-slate-600 hover:bg-violet-50"
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-700">
+                    <li className="flex gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary" />
+                      <span>
+                        AI-ranked matching view that connects each JD with the best
+                        candidates.
+                      </span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-accent" />
+                      <span>
+                        Assistant view where you ask questions on top of jobs,
+                        candidates, and stages.
+                      </span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span>
+                        Workflow demo tab where you&apos;ll embed a full end-to-end
+                        product walkthrough.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
 
-                  {/* Media area */}
-                  <div className="relative px-4 pb-4 pt-3">
-                    <div className="relative aspect-video overflow-hidden rounded-2xl border border-violet-100 bg-gradient-to-br from-violet-50 via-white to-pink-50">
-                      {activePreview === "jobs" && (
-                        <img
-                          src={heroMatchingCandidates}
-                          alt="SmartScreen jobs & matching candidates view"
-                          className="h-full w-full object-cover"
-                        />
-                      )}
-                      {activePreview === "candidates" && (
-                        <img
-                          src={heroAssistantResponse}
-                          alt="SmartScreen AI assistant responding on hiring data"
-                          className="h-full w-full object-cover"
-                        />
-                      )}
-                      {activePreview === "video" && (
-                        <video
-                          className="h-full w-full rounded-2xl object-cover"
-                          controls
-                          poster="https://www.w3schools.com/html/pic_trulli.jpg"
+                {/* Media column */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative"
+                >
+                  {/* Glass card with browser chrome + carousel */}
+                  <div className="gradient-border relative overflow-hidden rounded-3xl border border-white/70 bg-white/70 shadow-soft backdrop-blur-xl">
+                    {/* Browser chrome */}
+                    <div className="flex items-center justify-between border-b border-violet-100/60 bg-white/80 px-4 py-2 text-xs text-slate-600">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                      </div>
+                      <div className="truncate text-[11px] text-slate-600">
+                        {previewLabelMap[activePreview]} · smartscreen.ai
+                      </div>
+                      <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[10px] text-violet-700">
+                        Auto slideshow
+                      </span>
+                    </div>
+
+                    {/* Carousel tabs */}
+                    <div className="flex flex-wrap gap-2 border-b border-violet-100/60 bg-white/60 px-4 pb-2 pt-3 text-xs">
+                      {[
+                        { key: "jobs", label: "Matching candidates" },
+                        { key: "candidates", label: "AI assistant" },
+                        { key: "video", label: "Workflow demo" },
+                      ].map((item) => (
+                        <button
+                          key={item.key}
+                          onClick={() => setActivePreview(item.key as PreviewKey)}
+                          className={`rounded-full px-3 py-1 font-medium transition ${
+                            activePreview === item.key
+                              ? "bg-violet-600 text-white shadow-soft"
+                              : "bg-white/80 text-slate-600 hover:bg-violet-50"
+                          }`}
                         >
-                          <source
-                            src="https://www.w3schools.com/html/mov_bbb.mp4"
-                            type="video/mp4"
-                          />
-                          Your browser does not support the video tag.
-                        </video>
-                      )}
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
 
-                      {/* Click overlay to go to video when on images */}
-                      {activePreview !== "video" && (
+                    {/* Media area */}
+                    <div className="relative px-4 pb-4 pt-3">
+                      <div
+                        className="relative overflow-hidden rounded-2xl border border-violet-100
+                                   bg-gradient-to-br from-violet-50 via-white to-pink-50
+                                   flex items-center justify-center
+                                   h-[240px] md:h-[300px] lg:h-[340px]"
+                      >
+                        {activePreview === "jobs" && (
+                          <img
+                            src={heroMatchingCandidates}
+                            alt="SmartScreen jobs & matching candidates view"
+                            className="block h-full w-full object-contain"
+                          />
+                        )}
+
+                        {activePreview === "candidates" && (
+                          <img
+                            src={heroAssistantResponse}
+                            alt="SmartScreen AI assistant responding on hiring data"
+                            className="block h-full w-full object-contain"
+                          />
+                        )}
+
+                        {activePreview === "video" && (
+                          <video
+                            className="block h-full w-full object-contain rounded-2xl"
+                            controls
+                            poster="https://www.w3schools.com/html/pic_trulli.jpg"
+                          >
+                            <source
+                              src="https://www.w3schools.com/html/mov_bbb.mp4"
+                              type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                        )}
+
+                        {/* Click overlay to go to video when on images */}
+                        {activePreview !== "video" && (
+                          <button
+                            type="button"
+                            onClick={() => setActivePreview("video")}
+                            className="absolute inset-0 flex items-end justify-end bg-gradient-to-t from-black/20 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
+                          >
+                            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3 py-1 backdrop-blur-sm">
+                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/95 text-[10px] text-brand-primary">
+                                ▶
+                              </span>
+                              <span>Click to watch workflow demo</span>
+                            </span>
+                          </button>
+                        )}
+
+                        {/* Left / Right arrows for mini slider */}
                         <button
                           type="button"
-                          onClick={() => setActivePreview("video")}
-                          className="absolute inset-0 flex items:end justify:end bg-gradient-to-t from-black/15 via-black/0 to-transparent px-3 pb-3 text-[11px] text-white"
+                          onClick={goPrevPreview}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
                         >
-                          <span className="inline-flex items-center gap-2 rounded-full bg-black/30 px-3 py-1 backdrop-blur-sm">
-                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/90 text-[10px] text-brand-primary">
-                              ▶
-                            </span>
-                            <span>Click to watch workflow demo</span>
-                          </span>
+                          <span className="text-xs text-violet-700">‹</span>
                         </button>
-                      )}
-
-                      {/* Left / Right arrows for this mini slider */}
-                      <button
-                        type="button"
-                        onClick={goPrevPreview}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-soft hover:bg-violet-50"
-                      >
-                        <span className="text-xs text-violet-700">‹</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={goNextPreview}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-soft hover:bg-violet-50"
-                      >
-                        <span className="text-xs text-violet-700">›</span>
-                      </button>
+                        <button
+                          type="button"
+                          onClick={goNextPreview}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/85 p-2 shadow-soft hover:bg-violet-50"
+                        >
+                          <span className="text-xs text-violet-700">›</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </div>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -1747,6 +1819,100 @@ const goPrevPreview = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+            
+                {/* FEATURE GRID – 10 core capabilities */}
+        <section className="border-t border-violet-100 bg-white py-16 md:py-20">
+          <div className="container space-y-10">
+            {/* Header */}
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
+                Everything you need in one hiring workspace.
+              </h2>
+              <p className="mt-3 text-sm text-neutral-800 md:text-base">
+                SmartScreen replaces scattered tools with one clean system — for JDs,
+                resumes, shortlists, and workflows — designed specifically for
+                modern hiring teams.
+              </p>
+            </div>
+
+            {/* Grid */}
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  label: "AI JD parsing",
+                  desc: "Drop in a job description and get a clean, structured JD with skills, location, and experience extracted automatically.",
+                },
+                {
+                  label: "Bulk resume upload",
+                  desc: "Upload resumes in bulk from portals or drives. SmartScreen parses PDFs/DOCs and builds a searchable candidate pool.",
+                },
+                {
+                  label: "Fitment scores per role",
+                  desc: "See AI-calculated fitment scores for every candidate against each JD, based on skills, location, and experience.",
+                },
+                {
+                  label: "Candidate 360° view",
+                  desc: "One profile per candidate with skills, tags, preferred locations, history across roles, and last-contacted details.",
+                },
+                {
+                  label: "Jobs board with SLA",
+                  desc: "Prioritised list of open roles with SLA, status, age, and risk indicators — so nothing silently goes off-track.",
+                },
+                {
+                  label: "Custom stages per client",
+                  desc: "Design workflows that match each client’s process — screening, interview panels, offers — without messy spreadsheets.",
+                },
+                {
+                  label: "Powerful search & filters",
+                  desc: "Search by skills, location, experience, status, or tags. Build usable shortlists in seconds instead of digging in portals.",
+                },
+                {
+                  label: "Notes & collaboration",
+                  desc: "Keep feedback, comments, and history inside the candidate and role — not spread across WhatsApp and email threads.",
+                },
+                {
+                  label: "AI assistant on your data",
+                  desc: "Ask questions like “top 10 fits for this role” or “who moved stages this week?” and get answers from live SmartScreen data.",
+                },
+                {
+                  label: "Multi-client & exports",
+                  desc: "Serve multiple clients from one workspace with clean separation, and export shortlists or pipelines to XLS/CSV when needed.",
+                },
+              ].map((feature, idx) => (
+                <motion.div
+                  key={feature.label}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.35, delay: idx * 0.03 }}
+                  className="group relative overflow-hidden rounded-3xl border border-violet-100 bg-gradient-to-br from-white via-violet-50/40 to-white px-5 py-5 shadow-[0_10px_26px_rgba(15,23,42,0.12)]"
+                >
+                  {/* subtle corner glow */}
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-20 w-20 rounded-full bg-gradient-to-br from-brand-primary/12 via-brand-neon/12 to-brand-accent/18 blur-2xl opacity-80 group-hover:opacity-100" />
+
+                  <div className="relative space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-primary/20 via-brand-neon/20 to-brand-accent/25 text-[13px] text-brand-primary">
+                        <span>✓</span>
+                      </div>
+                      <span className="text-xs font-medium uppercase tracking-[0.16em] text-violet-600">
+                        Feature {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    <h3 className="text-sm font-semibold text-brand-dark md:text-[15px]">
+                      {feature.label}
+                    </h3>
+                    <p className="text-xs text-neutral-800 md:text-[13px] leading-relaxed">
+                      {feature.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
           </div>
         </section>
 

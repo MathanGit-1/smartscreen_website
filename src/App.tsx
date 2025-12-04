@@ -1900,16 +1900,15 @@ const goPrevPreview = () => {
 
           {/* 👇 removed the bottom vignette / fade strip */}
         </section>
-
-                {/* FEATURE GRID – 10 core capabilities */}
+        {/* FEATURE GRID – clean version */}
         <section className="border-t border-violet-100 bg-white py-16 md:py-20">
           <div className="container space-y-10">
             {/* Header */}
-            <div className="max-w-3xl">
+            <div className="max-w-3xl space-y-3">
               <h2 className="text-2xl font-semibold text-brand-dark md:text-3xl">
                 Everything you need in one hiring workspace.
               </h2>
-              <p className="mt-3 text-sm text-neutral-800 md:text-base">
+              <p className="text-sm text-neutral-800 md:text-base">
                 SmartScreen replaces scattered tools with one clean system — for JDs,
                 resumes, shortlists, and workflows — designed specifically for
                 modern hiring teams.
@@ -1917,7 +1916,7 @@ const goPrevPreview = () => {
             </div>
 
             {/* Grid */}
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-y-7 gap-x-6 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
                   label: "AI JD parsing",
@@ -1929,7 +1928,7 @@ const goPrevPreview = () => {
                 },
                 {
                   label: "Fitment scores per role",
-                  desc: "See AI-calculated fitment scores for every candidate against each JD, based on skills, location, and experience.",
+                  desc: "See AI-calculated fitment scores for every candidate against each JD based on skills, location, and experience.",
                 },
                 {
                   label: "Candidate 360° view",
@@ -1937,7 +1936,7 @@ const goPrevPreview = () => {
                 },
                 {
                   label: "Jobs board with SLA",
-                  desc: "Prioritised list of open roles with SLA, status, age, and risk indicators — so nothing silently goes off-track.",
+                  desc: "Prioritised list of open roles with SLA, status, age, and risk indicators across clients — with clean separation and exportable pipelines.",
                 },
                 {
                   label: "Custom stages per client",
@@ -1953,11 +1952,7 @@ const goPrevPreview = () => {
                 },
                 {
                   label: "AI assistant on your data",
-                  desc: "Ask questions like “top 10 fits for this role” or “who moved stages this week?” and get answers from live SmartScreen data.",
-                },
-                {
-                  label: "Multi-client & exports",
-                  desc: "Serve multiple clients from one workspace with clean separation, and export shortlists or pipelines to XLS/CSV when needed.",
+                  desc: "Ask things like “top 10 fits for this role” or “who moved stages this week?” and get answers from live SmartScreen data.",
                 },
               ].map((feature, idx) => (
                 <motion.div
@@ -1966,34 +1961,38 @@ const goPrevPreview = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.35, delay: idx * 0.03 }}
-                  className="group relative overflow-hidden rounded-3xl border border-violet-100 bg-gradient-to-br from-white via-violet-50/40 to-white px-5 py-5 shadow-[0_10px_26px_rgba(15,23,42,0.12)]"
+                  className="
+                    group relative overflow-hidden rounded-3xl
+                    border border-violet-200/60
+                    bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.23),rgba(37,99,235,0.19)_45%,rgba(255,255,255,0.92)_85%)]
+                    backdrop-blur-[2px]
+                    px-6 py-8
+                    shadow-[0_18px_40px_rgba(17,25,40,0.16),_inset_0_0_0_1px_rgba(255,255,255,0.65)]
+                    transition-all duration-200
+                    hover:shadow-[0_26px_60px_rgba(17,25,40,0.24),_inset_0_0_0_1px_rgba(255,255,255,0.8)]
+                    hover:brightness-[1.04]
+                  "
                 >
                   {/* subtle corner glow */}
-                  <div className="pointer-events-none absolute -right-10 -top-10 h-20 w-20 rounded-full bg-gradient-to-br from-brand-primary/12 via-brand-neon/12 to-brand-accent/18 blur-2xl opacity-80 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-20 w-20 rounded-full bg-gradient-to-br from-indigo-400/25 via-violet-500/25 to-fuchsia-500/25 blur-2xl opacity-70 group-hover:opacity-100" />
 
-                  <div className="relative space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-primary/20 via-brand-neon/20 to-brand-accent/25 text-[13px] text-brand-primary">
-                        <span>✓</span>
-                      </div>
-                      <span className="text-xs font-medium uppercase tracking-[0.16em] text-violet-600">
-                        Feature {String(idx + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-
-                    <h3 className="text-sm font-semibold text-brand-dark md:text-[15px]">
+                  <div className="relative space-y-4">
+                    {/* Title */}
+                    <h3 className="text-base font-bold text-[#111127] md:text-[17px]">
                       {feature.label}
                     </h3>
-                    <p className="text-xs text-neutral-800 md:text-[13px] leading-relaxed">
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed text-[#1F1D35]/90 font-medium">
                       {feature.desc}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-
           </div>
         </section>
+
 
         {/* MID CTA */}
         <section className="border-y border-violet-100 bg-gradient-to-r from-brand-primaryLight via-brand-neon to-brand-accent py-14">

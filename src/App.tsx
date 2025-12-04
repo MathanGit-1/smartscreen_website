@@ -1,6 +1,7 @@
 // src/App.tsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import GetEarlyAccessSection from "./GetEarlyAccessSection";
 
 // 🔹 NEW: real screenshots
 import heroAssistantResponse from "./screenshots/hero-assistant-response.png";
@@ -491,7 +492,14 @@ const goPrevPreview = () => {
             <button className="hidden text-sm font-medium text-gray-800 hover:text-brand-dark md:inline-flex">
               Sign in
             </button>
-            <button className="relative overflow-hidden rounded-full bg-brand-primary px-4 py-1.5 text-xs font-semibold text-white shadow-soft hover:bg-brand-primaryLight md:px-5 md:py-2 md:text-sm">
+            <button
+              onClick={() =>
+                document.getElementById("early-access")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+              className="relative overflow-hidden rounded-full bg-brand-primary px-4 py-1.5 text-xs font-semibold text-white shadow-soft hover:bg-brand-primaryLight md:px-5 md:py-2 md:text-sm"
+            >
               <span className="relative z-10">Get early access</span>
               <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
                 <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-white/0 via-white/40 to-white/0" />
@@ -617,7 +625,14 @@ const goPrevPreview = () => {
                   </ul>
 
                   <div className="flex flex-wrap items-center gap-4">
-                    <button className="relative overflow-hidden rounded-full bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent px-6 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-[0_18px_40px_rgba(124,58,237,0.45)]">
+                    <button
+                      onClick={() =>
+                        document.getElementById("early-access")?.scrollIntoView({
+                          behavior: "smooth",
+                        })
+                      }
+                      className="relative overflow-hidden rounded-full bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent px-6 py-2.5 text-sm font-semibold text-white shadow-soft hover:shadow-[0_18px_40px_rgba(124,58,237,0.45)]"
+                    >
                       <span className="relative z-10">Get early access</span>
                       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
                         <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-white/0 via-white/40 to-white/0" />
@@ -2007,14 +2022,21 @@ const goPrevPreview = () => {
                 data.
               </p>
             </div>
-            <button className="relative overflow-hidden rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-brand-primary shadow-soft hover:bg-violet-50">
-              <span className="relative z-10">
-                Join the early access list
-              </span>
-              <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
-                <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-brand-primary/0 via-brand-primary/20 to-brand-primary/0" />
-              </span>
-            </button>
+              <button
+                onClick={() =>
+                  document.getElementById("early-access")?.scrollIntoView({
+                    behavior: "smooth",
+                  })
+                }
+                className="relative overflow-hidden rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-brand-primary shadow-soft hover:bg-violet-50"
+              >
+                <span className="relative z-10">
+                  Join the early access list
+                </span>
+                <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+                  <span className="animate-sheen absolute inset-y-0 w-1/2 bg-gradient-to-r from-brand-primary/0 via-brand-primary/20 to-brand-primary/0" />
+                </span>
+              </button>
           </div>
         </section>
 
@@ -2070,7 +2092,7 @@ const goPrevPreview = () => {
             </div>
           </div>
         </section>
-
+                 <GetEarlyAccessSection />   {/* ADD HERE */}
         {/* FOOTER */}
         <footer className="border-t border-violet-100 bg-white py-10 text-sm text-slate-500">
           <div className="container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

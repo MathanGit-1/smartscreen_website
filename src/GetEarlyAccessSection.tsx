@@ -6,6 +6,10 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
+// ⬇️ point this to your FastAPI base URL
+const API_BASE_URL =
+  import.meta.env.VITE_SMARTSCREEN_API_BASE_URL || "http://localhost:8000";
+
 export default function GetEarlyAccessSection() {
   const [form, setForm] = useState({
     name: "",
@@ -19,6 +23,8 @@ export default function GetEarlyAccessSection() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const useCaseOptions = [
     "JD Parsing",
@@ -44,12 +50,84 @@ export default function GetEarlyAccessSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
 
-    // Later you will replace this with a real API call
-    console.log("FORM DATA:", form);
-    setSubmitted(true);
+    // simple client-side guard
+    if (
+      !form.name ||
+      !form.email ||
+      !form.company ||
+      !form.role ||
+      !form.hiringVolume ||
+      !form.consent
+    ) {
+      setError("Please fill all required fields.");
+      return;
+    }
+
+    // optional: quick email format check on the client
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    const payload = {
+      full_name: form.name.trim(),
+      work_email: form.email.trim(),
+      company_name: form.company.trim(),
+      role_title: form.role.trim(),
+      monthly_hiring_volume: form.hiringVolume,
+      use_cases: form.useCases,
+      message: form.message.trim() || null,
+      consent: form.consent,
+    };
+
+    try {
+      setIsSubmitting(true);
+
+      const res = await fetch(`${API_BASE_URL}/marketing/early-access`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => null);
+        console.error("Early access submit failed:", errBody || res.statusText);
+
+        // If backend says work_email invalid, show a clear message
+        const detail = (errBody as any)?.detail;
+        if (Array.isArray(detail)) {
+          const emailError = detail.find(
+            (d: any) =>
+              Array.isArray(d.loc) &&
+              d.loc.includes("work_email") &&
+              String(d.msg).toLowerCase().includes("email")
+          );
+          if (emailError) {
+            setError("Please enter a valid email address.");
+            return;
+          }
+        }
+
+        setError("Something went wrong while submitting. Please try again.");
+        return;
+      }
+
+      const data = await res.json();
+      console.log("Early access lead created:", data);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Network error:", err);
+      setError("Unable to connect to the server. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -241,13 +319,19 @@ export default function GetEarlyAccessSection() {
                     </span>
                   </div>
 
+                  {/* ERROR MESSAGE */}
+                  {error && (
+                    <p className="text-sm text-red-600">{error}</p>
+                  )}
+
                   {/* SUBMIT */}
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full rounded-xl bg-purple-600 text-white py-3
-                               font-medium hover:bg-purple-700 transition"
+                               font-medium hover:bg-purple-700 transition disabled:opacity-60"
                   >
-                    Request Early Access
+                    {isSubmitting ? "Submitting..." : "Request Early Access"}
                   </button>
                 </form>
               ) : (

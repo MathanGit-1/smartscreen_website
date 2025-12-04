@@ -1999,7 +1999,7 @@ const goPrevPreview = () => {
           <div className="container flex flex-col items-center justify-between gap-6 text-center text-white md:flex-row md:text-left">
             <div className="space-y-2">
               <h2 className="text-2xl font-semibold md:text-3xl">
-                Stop wrestling with spreadsheets and scattered tools.
+                Move beyond spreadsheets and scattered tools.
               </h2>
               <p className="max-w-xl text-sm text-violet-100/95 md:text-base">
                 Give your hiring team one place to run jobs, candidates, and
@@ -2035,7 +2035,7 @@ const goPrevPreview = () => {
               {[
                 {
                   title: "HR & talent leaders",
-                  desc: "Get a live view of every role, pipeline, and stakeholder in one place. No more chasing updates on WhatsApp.",
+                  desc: "Get a live view of every role, pipeline, and stakeholder in one place. No more chasing updates on emails or messages.",
                 },
                 {
                   title: "Recruiters",

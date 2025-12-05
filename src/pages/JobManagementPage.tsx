@@ -1,6 +1,7 @@
 // src/pages/JobManagementPage.tsx
 import React from "react";
 import { motion } from "framer-motion";
+import GetEarlyAccessSection from "../GetEarlyAccessSection";
 // TODO: point this to your actual job list or create-job screenshot
 import jobManagementHeroImage from "../screenshots/job-management-hero.png"; // TODO: point to your actual illustration
 
@@ -162,12 +163,8 @@ const JobManagementPage: React.FC = () => {
         </div>
       </section>
 
-
-
       {/* WHY TEAMS SWITCH + HOW IT WORKS */}
-      <section className="relative border-b border-violet-100 bg-gradient-to-b from-[#f8f4ff] via-[#fbf7ff] to-white py-16 md:py-20">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.25),transparent_60%)] opacity-80" />
-
+      <section className="relative border-b border-violet-100 bg-white py-16 md:py-20">
         <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 lg:px-0">
           {/* Section heading */}
           <motion.div
@@ -178,13 +175,13 @@ const JobManagementPage: React.FC = () => {
           >
             <motion.h2
               variants={fadeUp}
-              className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-500"
+              className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-500"
             >
               Why teams switch to SmartScreen
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              className="mt-3 text-2xl font-semibold tracking-tight text-slate-900"
+              className="mt-3 text-3xl font-semibold tracking-tight text-slate-900"
             >
               Job details move from scattered notes to one structured workspace.
             </motion.p>
@@ -205,16 +202,18 @@ const JobManagementPage: React.FC = () => {
               <div className="mb-3 inline-flex items-center rounded-full bg-rose-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-rose-500">
                 Before SmartScreen
               </div>
-              <p className="mb-3 text-[13px] font-medium text-slate-900">
+              <p className="mb-3 text-[14px] font-semibold text-slate-900">
                 Job details scattered, no single source of truth.
               </p>
-              <ul className="space-y-1.5 text-[13px] text-slate-600">
+              <ul className="space-y-1.5 text-[14px] text-slate-600">
                 <li>• JDs live in email threads, Docs and shared folders.</li>
                 <li>
                   • Recruiters track role status in private Excel sheets or
                   WhatsApp notes.
                 </li>
-                <li>• No consistent fields — every recruiter has their own format.</li>
+                <li>
+                  • No consistent fields — every recruiter has their own format.
+                </li>
               </ul>
             </motion.div>
 
@@ -226,10 +225,10 @@ const JobManagementPage: React.FC = () => {
               <div className="mb-3 inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-600">
                 With SmartScreen Job Management
               </div>
-              <p className="mb-3 text-[13px] font-medium text-slate-900">
+              <p className="mb-3 text-[14px] font-semibold text-slate-900">
                 Every role is structured, trackable and easy to search.
               </p>
-              <ul className="space-y-1.5 text-[13px] text-slate-600">
+              <ul className="space-y-1.5 text-[14px] text-slate-600">
                 <li>
                   • All JDs sit in one AI-structured workspace with standard
                   fields.
@@ -253,7 +252,7 @@ const JobManagementPage: React.FC = () => {
             animate="visible"
             className="mx-auto w-full max-w-3xl rounded-3xl bg-gradient-to-r from-violet-600/10 via-fuchsia-500/10 to-emerald-400/10 p-[1px] shadow-soft"
           >
-            <div className="flex flex-col items-center justify-between gap-4 rounded-[22px] bg-white/90 px-5 py-4 text-[12px] text-slate-700 md:flex-row md:px-7">
+            <div className="flex flex-col items-center justify-between gap-4 rounded-[22px] bg-white/90 px-5 py-4 text-[13px] text-slate-700 md:flex-row md:px-7">
               <div className="flex items-center gap-2">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-[13px] text-white">
                   📄
@@ -266,18 +265,20 @@ const JobManagementPage: React.FC = () => {
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 text-[13px] text-white">
                   🤖
                 </span>
-                <span className="font-medium text-slate-900">AI parses &amp; maps fields</span>
+                <span className="font-medium text-slate-900">
+                  AI parses &amp; maps fields
+                </span>
               </div>
               <span className="hidden text-slate-400 md:inline">➜</span>
 
-            <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-[13px] text-white">
-                🎯
-            </span>
-            <span className="font-medium text-slate-900">
-                Ready for candidate matching
-            </span>
-            </div>
+              <div className="flex items-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-[13px] text-white">
+                  🎯
+                </span>
+                <span className="font-medium text-slate-900">
+                  Ready for candidate matching
+                </span>
+              </div>
             </div>
           </motion.div>
 
@@ -288,10 +289,7 @@ const JobManagementPage: React.FC = () => {
             animate="visible"
             className="space-y-6"
           >
-            <motion.div
-              variants={fadeUp}
-              className="text-center"
-            >
+            <motion.div variants={fadeUp} className="text-center">
               <h3 className="text-[13px] font-semibold uppercase tracking-[0.2em] text-violet-500">
                 How Job Management works in SmartScreen
               </h3>
@@ -310,10 +308,10 @@ const JobManagementPage: React.FC = () => {
                 <div className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-violet-600 text-xs font-semibold text-white">
                   1
                 </div>
-                <h4 className="mb-1 text-[13px] font-semibold text-slate-900">
+                <h4 className="mb-1 text-[14px] font-semibold text-slate-900">
                   Drop the JD
                 </h4>
-                <p className="text-[12px] text-slate-600">
+                <p className="text-[13px] text-slate-600">
                   Upload a JD file or paste the description. SmartScreen
                   captures title, client, location and more.
                 </p>
@@ -324,10 +322,10 @@ const JobManagementPage: React.FC = () => {
                 <div className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white">
                   2
                 </div>
-                <h4 className="mb-1 text-[13px] font-semibold text-slate-900">
+                <h4 className="mb-1 text-[14px] font-semibold text-slate-900">
                   AI pre-fills fields
                 </h4>
-                <p className="text-[12px] text-slate-600">
+                <p className="text-[13px] text-slate-600">
                   Job type, department, skills and tags auto-filled — you keep
                   full control before saving.
                 </p>
@@ -338,28 +336,28 @@ const JobManagementPage: React.FC = () => {
                 <div className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500 text-xs font-semibold text-white">
                   3
                 </div>
-                <h4 className="mb-1 text-[13px] font-semibold text-slate-900">
+                <h4 className="mb-1 text-[14px] font-semibold text-slate-900">
                   Set priority &amp; openings
                 </h4>
-                <p className="text-[12px] text-slate-600">
+                <p className="text-[13px] text-slate-600">
                   Mark how urgent the role is, how many openings you have, and
                   who owns the hiring.
                 </p>
               </div>
 
-                {/* Step 4 */}
-                <div className="group flex flex-col rounded-3xl bg-white/95 p-4 text-sm shadow-soft ring-1 ring-violet-100 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
+              {/* Step 4 */}
+              <div className="group flex flex-col rounded-3xl bg-white/95 p-4 text-sm shadow-soft ring-1 ring-violet-100 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg">
                 <div className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-white">
-                    4
+                  4
                 </div>
-                <h4 className="mb-1 text-[13px] font-semibold text-slate-900">
-                    Ready for candidate matching
+                <h4 className="mb-1 text-[14px] font-semibold text-slate-900">
+                  Ready for candidate matching
                 </h4>
-                <p className="text-[12px] text-slate-600">
-                    Once the role is saved, SmartScreen prepares it instantly for AI-powered 
-                    candidate matching — helping you shortlist faster.
+                <p className="text-[13px] text-slate-600">
+                  Once the role is saved, SmartScreen prepares it instantly for
+                  AI-powered candidate matching — helping you shortlist faster.
                 </p>
-                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -368,16 +366,16 @@ const JobManagementPage: React.FC = () => {
       {/* FEATURE GRID */}
       <section className="border-b border-violet-100 bg-gradient-to-b from-[#fdf8ff] via-white to-[#f2f4ff] py-16 md:py-20">
         <div className="mx-auto max-w-5xl px-4 lg:px-0">
-          <h2 className="text-2xl font-semibold text-slate-900 md:text-3xl">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
             Everything you need to run jobs properly.
           </h2>
-          <p className="mt-3 max-w-2xl text-sm text-slate-600">
+          <p className="mt-3 max-w-2xl text-sm md:text-[15px] text-slate-600">
             SmartScreen is built for hiring, not generic project tracking. Job
             Management standardises how your team creates, reviews and tracks
             roles.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 title: "AI-powered JD parsing",
@@ -412,17 +410,18 @@ const JobManagementPage: React.FC = () => {
             ].map((item) => (
               <div
                 key={item.title}
-                className="group relative overflow-hidden rounded-3xl bg-white/90 p-[1px] shadow-soft ring-1 ring-violet-100/80 backdrop-blur"
+                className="group relative overflow-hidden rounded-3xl bg-white/90 p-[1px] shadow-soft ring-1 ring-violet-100/80 backdrop-blur transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/10 to-brand-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative h-full rounded-3xl bg-white/90 p-4">
-                  <div className="mb-2 inline-flex items-center rounded-full bg-violet-50 px-2 py-0.5 text-[10px] font-medium text-violet-700">
+                {/* subtle glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/12 to-brand-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative h-full rounded-3xl bg-white/95 p-5">
+                  <div className="mb-3 inline-flex items-center rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
                     {item.badge}
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-900">
+                  <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-[13px] text-slate-600">
+                  <p className="mt-2 text-[13px] md:text-sm leading-relaxed text-slate-600">
                     {item.desc}
                   </p>
                 </div>
@@ -431,6 +430,8 @@ const JobManagementPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent py-12 text-white">
@@ -463,8 +464,12 @@ const JobManagementPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Same early access form used on the homepage */}
+      <GetEarlyAccessSection />
     </div>
   );
 };
+
 
 export default JobManagementPage;

@@ -27,7 +27,11 @@ const JobManagementPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f4ecff] via-[#faf5ff] to-[#fdf8ff] text-slate-900">
       {/* HERO – dark cinematic band for Job Management */}
-      <section className="relative overflow-hidden border-b border-violet-900/40 bg-[radial-gradient(circle_at_top,_#7e22ce_0,_#050818_55%)] pb-16 pt-16 md:pb-20 md:pt-20">
+        <section
+            className="relative overflow-hidden border-b border-violet-900/40
+                        bg-[radial-gradient(circle_at_top,_#7e22ce_0,_#050818_55%)]
+                        pt-16 pb-16 md:pt-20 md:pb-20 md:min-h-[660px] lg:min-h-[720px]"
+            >
         {/* subtle side glow only (no top band) */}
         <div className="pointer-events-none absolute -right-[18%] bottom-[-20%] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.4),transparent_60%)] blur-3xl" />
 

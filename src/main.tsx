@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import JobManagementPage from "./pages/JobManagementPage";
+import CandidateManagementPage from "./pages/CandidateManagementPage";
 import Layout from "./Layout";
 import "./index.css";
 
@@ -21,6 +22,10 @@ ReactDOM.createRoot(
           <Route
             path="/features/job-management"
             element={<JobManagementPage />}
+          />
+          <Route
+            path="/features/candidate-intelligence"
+            element={<CandidateManagementPage />}
           />
         </Route>
       </Routes>

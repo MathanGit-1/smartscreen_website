@@ -93,7 +93,11 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
-                <li className="flex gap-3">
+                   {/* Job management → feature page */}
+                <li
+                  className="flex gap-3 cursor-pointer"
+                  onClick={() => navigateTo("/features/candidate-intelligence")}
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-50 text-[14px] text-sky-700">
                     👤
                   </div>

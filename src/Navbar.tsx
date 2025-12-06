@@ -154,12 +154,18 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <button className="font-medium text-gray-800 hover:text-brand-dark">
+          {/* 🔹 Use cases now navigates to /use-cases */}
+          <button
+            className="font-medium text-gray-800 hover:text-brand-dark"
+            onClick={() => navigateTo("/use-cases")}
+          >
             Use cases
           </button>
-          <button className="font-medium text-gray-800 hover:text-brand-dark">
+
+          {/* <button className="font-medium text-gray-800 hover:text-brand-dark">
             Pricing
-          </button>
+          </button> */}
+
           <button className="font-medium text-gray-800 hover:text-brand-dark">
             Resources
           </button>

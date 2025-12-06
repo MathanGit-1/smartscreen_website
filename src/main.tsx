@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import JobManagementPage from "./pages/JobManagementPage";
 import CandidateManagementPage from "./pages/CandidateManagementPage";
-import ApplicationsPage from "./pages/ApplicationsPage"; // 🔹 add this
-import AssistantPage from "./pages/AssistantPage"; // 🔹 add this
+import ApplicationsPage from "./pages/ApplicationsPage";
+import AssistantPage from "./pages/AssistantPage";
+import UseCasesPage from "./pages/UseCasesPage";
 import Layout from "./Layout";
 import "./index.css";
 
@@ -37,6 +38,10 @@ ReactDOM.createRoot(
           <Route
             path="/features/assistant"
             element={<AssistantPage />}   // 🔹 NEW
+          />
+          <Route
+            path="/use-cases"
+            element={<UseCasesPage />}   // 🔹 NEW
           />
         </Route>
       </Routes>

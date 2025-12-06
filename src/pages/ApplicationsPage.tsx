@@ -241,7 +241,7 @@ const ApplicationsPage: React.FC = () => {
         </div>
       </section>
 
-    {/* APPLICATIONS – ZIGZAG TIMELINE WITH DARK PANEL */}
+   {/* APPLICATIONS – ZIGZAG TIMELINE WITH DARK PANEL */}
     <section className="relative border-t border-violet-100 bg-gradient-to-b from-white via-[#faf5ff] to-[#f5f0ff] py-20">
     {/* Heading (outside panel) */}
     <div className="mx-auto max-w-5xl px-4 lg:px-0">
@@ -265,24 +265,24 @@ const ApplicationsPage: React.FC = () => {
         <div
         className="relative overflow-hidden rounded-[32px]
                     bg-gradient-to-b from-[#0b0d19] via-[#0f1124] to-[#0b0d19]
-                    border border-white/10 shadow-[0_24px_80px_rgba(15,23,42,0.55)]
+                    border border-white/10 shadow-[0_24px_80px_rgba(15,23,42,0.45)]
                     px-4 py-12 sm:px-8 md:px-10 md:py-16"
         >
-        {/* center + edge glows */}
+        {/* center + edge glows (softened) */}
         <div
             className="pointer-events-none absolute inset-0 mx-auto w-[70%]
-                    bg-[radial-gradient(circle_at_center,rgba(120,90,255,0.18),transparent_70%)]
-                    blur-3xl opacity-90"
+                    bg-[radial-gradient(circle_at_center,rgba(120,90,255,0.12),transparent_70%)]
+                    blur-3xl opacity-60"
         />
         <div
             className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[520px]
-                    -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.3),transparent_70%)]
-                    blur-3xl opacity-70"
+                    -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.22),transparent_70%)]
+                    blur-3xl opacity-60"
         />
         <div
             className="pointer-events-none absolute -bottom-24 left-1/2 h-64 w-[520px]
-                    -translate-x-1/2 bg-[radial-gradient(circle_at_bottom,rgba(244,114,182,0.24),transparent_70%)]
-                    blur-3xl opacity-70"
+                    -translate-x-1/2 bg-[radial-gradient(circle_at_bottom,rgba(244,114,182,0.18),transparent_70%)]
+                    blur-3xl opacity-60"
         />
 
         {/* TIMELINE CONTENT */}
@@ -291,17 +291,27 @@ const ApplicationsPage: React.FC = () => {
             <div className="space-y-8 md:hidden">
             {/* 1 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-brand-primary to-brand-accent text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(88,28,135,0.35)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-brand-primary to-brand-accent text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(88,28,135,0.22)]"
+                >
                 1
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-brand-primary to-brand-accent
-                                    shadow-[0_0_18px_rgba(120,48,255,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-brand-primary to-brand-accent
+                                shadow-[0_0_16px_rgba(120,48,255,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <rect x="3" y="4" width="18" height="14" rx="2" />
                         <path d="M9 9l4 6 1-3 3-1-8-2z" />
                     </svg>
@@ -324,18 +334,29 @@ const ApplicationsPage: React.FC = () => {
 
             {/* 2 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-emerald-500 to-teal-400 text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.30)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-emerald-500 to-teal-400 text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(16,185,129,0.22)]"
+                >
                 2
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-emerald-500 to-teal-400
-                                    shadow-[0_0_18px_rgba(16,185,129,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-teal-400
+                                shadow-[0_0_16px_rgba(16,185,129,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <circle cx="8" cy="9" r="3" />
+                        <circle cx="16" cy="9" r="3" />
                         <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
                         <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
                     </svg>
@@ -357,17 +378,27 @@ const ApplicationsPage: React.FC = () => {
 
             {/* 3 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-sky-500 to-indigo-500 text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(56,189,248,0.30)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-sky-500 to-indigo-500 text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(56,189,248,0.22)]"
+                >
                 3
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-sky-500 to-indigo-500
-                                    shadow-[0_0_18px_rgba(56,189,248,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-sky-500 to-indigo-500
+                                shadow-[0_0_16px_rgba(56,189,248,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <path d="M4 6h16v9H9l-4 4v-4H4z" />
                         <path d="M8 10h8" />
                     </svg>
@@ -389,17 +420,27 @@ const ApplicationsPage: React.FC = () => {
 
             {/* 4 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-fuchsia-500 to-rose-500 text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(236,72,153,0.30)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-fuchsia-500 to-rose-500 text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(236,72,153,0.22)]"
+                >
                 4
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-fuchsia-500 to-rose-500
-                                    shadow-[0_0_18px_rgba(236,72,153,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-fuchsia-500 to-rose-500
+                                shadow-[0_0_16px_rgba(236,72,153,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <path d="M7 4h8l4 4v12H7z" />
                         <path d="M15 4v4h4" />
                         <path d="M10 13h5M10 17h3" />
@@ -422,17 +463,27 @@ const ApplicationsPage: React.FC = () => {
 
             {/* 5 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-emerald-500 to-brand-primary text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.32)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-emerald-500 to-brand-primary text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(16,185,129,0.24)]"
+                >
                 5
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-emerald-500 to-brand-primary
-                                    shadow-[0_0_18px_rgba(16,185,129,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-brand-primary
+                                shadow-[0_0_16px_rgba(16,185,129,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <circle cx="12" cy="9" r="3.5" />
                         <path d="M8 4h8l-1 4" />
                         <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
@@ -455,17 +506,27 @@ const ApplicationsPage: React.FC = () => {
 
             {/* 6 */}
             <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                bg-gradient-to-br from-rose-500 to-slate-600 text-[11px]
-                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(248,113,113,0.30)]">
+                <div
+                className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-rose-500 to-slate-600 text-[11px]
+                            font-semibold tracking-[0.16em] text-white shadow-[0_10px_24px_rgba(248,113,113,0.22)]"
+                >
                 6
                 </div>
-                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.42)]">
                 <div className="flex items-start gap-3 text-slate-900">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-rose-500 to-slate-600
-                                    shadow-[0_0_18px_rgba(248,113,113,0.55)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-rose-500 to-slate-600
+                                shadow-[0_0_16px_rgba(248,113,113,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <circle cx="12" cy="12" r="7" />
                         <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
                     </svg>
@@ -488,17 +549,25 @@ const ApplicationsPage: React.FC = () => {
 
             {/* ---------- DESKTOP ZIGZAG ---------- */}
             <div className="relative mt-4 hidden md:grid md:[grid-template-columns:1.15fr_auto_1.15fr] md:gap-x-12 md:gap-y-20">
-            {/* vertical rail */}
-            <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-violet-300/70" />
+            {/* vertical rail (softened) */}
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-violet-300/50" />
 
             {/* Row 1 */}
             <div className="flex items-center justify-end">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-brand-primary to-brand-accent
-                                    shadow-[0_0_18px_rgba(120,48,255,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-brand-primary to-brand-accent
+                                shadow-[0_0_16px_rgba(120,48,255,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <rect x="3" y="4" width="18" height="14" rx="2" />
                         <path d="M9 9l4 6 1-3 3-1-8-2z" />
                     </svg>
@@ -511,7 +580,8 @@ const ApplicationsPage: React.FC = () => {
                         Applications land in one clean lane.
                     </h3>
                     <p className="mt-2 text-sm text-slate-700">
-                        Every new candidate is associated to the JD instantly — no more inbox hunting or spreadsheets.
+                        Every new candidate is associated to the JD instantly — no more inbox hunting or
+                        spreadsheets.
                     </p>
                     </div>
                 </div>
@@ -519,12 +589,14 @@ const ApplicationsPage: React.FC = () => {
             </div>
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-brand-primary to-brand-accent
-                                text-white font-semibold shadow-[0_0_25px_rgba(129,140,248,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-brand-primary to-brand-accent
+                            text-white font-semibold shadow-[0_0_22px_rgba(129,140,248,0.45)]"
+                >
                     1
                 </div>
-                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-violet-300/70" />
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-violet-300/55" />
                 </div>
             </div>
             <div />
@@ -533,22 +605,33 @@ const ApplicationsPage: React.FC = () => {
             <div />
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-emerald-500 to-teal-400
-                                text-white font-semibold shadow-[0_0_25px_rgba(16,185,129,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-emerald-500 to-teal-400
+                            text-white font-semibold shadow-[0_0_22px_rgba(16,185,129,0.45)]"
+                >
                     2
                 </div>
-                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/70" />
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/55" />
                 </div>
             </div>
             <div className="flex items-center justify-start">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-emerald-500 to-teal-400
-                                    shadow-[0_0_18px_rgba(16,185,129,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-teal-400
+                                shadow-[0_0_16px_rgba(16,185,129,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <circle cx="8" cy="9" r="3" />
+                        <circle cx="16" cy="9" r="3" />
                         <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
                         <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
                     </svg>
@@ -570,12 +653,20 @@ const ApplicationsPage: React.FC = () => {
 
             {/* Row 3 */}
             <div className="flex items-center justify-end">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-sky-500 to-indigo-500
-                                    shadow-[0_0_18px_rgba(56,189,248,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-sky-500 to-indigo-500
+                                shadow-[0_0_16px_rgba(56,189,248,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <path d="M4 6h16v9H9l-4 4v-4H4z" />
                         <path d="M8 10h8" />
                     </svg>
@@ -596,12 +687,14 @@ const ApplicationsPage: React.FC = () => {
             </div>
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-sky-500 to-indigo-500
-                                text-white font-semibold shadow-[0_0_25px_rgba(56,189,248,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-sky-500 to-indigo-500
+                            text-white font-semibold shadow-[0_0_22px_rgba(56,189,248,0.45)]"
+                >
                     3
                 </div>
-                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-sky-300/70" />
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-sky-300/55" />
                 </div>
             </div>
             <div />
@@ -610,21 +703,31 @@ const ApplicationsPage: React.FC = () => {
             <div />
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-fuchsia-500 to-rose-500
-                                text-white font-semibold shadow-[0_0_25px_rgba(236,72,153,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-fuchsia-500 to-rose-500
+                            text-white font-semibold shadow-[0_0_22px_rgba(236,72,153,0.45)]"
+                >
                     4
                 </div>
-                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-pink-300/70" />
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-pink-300/55" />
                 </div>
             </div>
             <div className="flex items-center justify-start">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-fuchsia-500 to-rose-500
-                                    shadow-[0_0_18px_rgba(236,72,153,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-fuchsia-500 to-rose-500
+                                shadow-[0_0_16px_rgba(236,72,153,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <path d="M7 4h8l4 4v12H7z" />
                         <path d="M15 4v4h4" />
                         <path d="M10 13h5M10 17h3" />
@@ -647,12 +750,20 @@ const ApplicationsPage: React.FC = () => {
 
             {/* Row 5 */}
             <div className="flex items-center justify-end">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-emerald-500 to-brand-primary
-                                    shadow-[0_0_18px_rgba(16,185,129,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-brand-primary
+                                shadow-[0_0_16px_rgba(16,185,129,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <circle cx="12" cy="9" r="3.5" />
                         <path d="M8 4h8l-1 4" />
                         <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
@@ -674,12 +785,14 @@ const ApplicationsPage: React.FC = () => {
             </div>
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-emerald-500 to-brand-primary
-                                text-white font-semibold shadow-[0_0_25px_rgba(16,185,129,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-emerald-500 to-brand-primary
+                            text-white font-semibold shadow-[0_0_22px_rgba(16,185,129,0.45)]"
+                >
                     5
                 </div>
-                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/70" />
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/55" />
                 </div>
             </div>
             <div />
@@ -688,21 +801,31 @@ const ApplicationsPage: React.FC = () => {
             <div />
             <div className="relative flex items-center justify-center">
                 <div className="relative">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full
-                                bg-gradient-to-br from-rose-500 to-slate-600
-                                text-white font-semibold shadow-[0_0_25px_rgba(248,113,113,0.8)]">
+                <div
+                    className="flex h-16 w-16 items-center justify-center rounded-full
+                            bg-gradient-to-br from-rose-500 to-slate-600
+                            text-white font-semibold shadow-[0_0_22px_rgba(248,113,113,0.45)]"
+                >
                     6
                 </div>
-                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-rose-300/70" />
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-rose-300/55" />
                 </div>
             </div>
             <div className="flex items-center justify-start">
-                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.55)]">
                 <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                                    bg-gradient-to-br from-rose-500 to-slate-600
-                                    shadow-[0_0_18px_rgba(248,113,113,0.65)] text-white">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-rose-500 to-slate-600
+                                shadow-[0_0_16px_rgba(248,113,113,0.4)] text-white"
+                    >
+                    <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
                         <circle cx="12" cy="12" r="7" />
                         <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
                     </svg>
@@ -722,142 +845,147 @@ const ApplicationsPage: React.FC = () => {
                 </div>
             </div>
             </div>
-
-            {/* Footer inside panel */}
-            <p className="mt-10 text-center text-[11px] text-slate-300">
-            Every move — Applied → In review → Interview → Offer → Hired (or Rejected / Withdrawn) — sits on one live applications timeline.
-            </p>
         </div>
         </div>
     </div>
     </section>
 
-      {/* STAGE-BASED WORKFLOW – UNIQUE LAYOUT */}
-      <section className="border-b border-violet-100 bg-gradient-to-b from-[#fdf8ff] via-white to-[#f2f4ff] py-16 md:py-20">
-        <div className="mx-auto max-w-5xl px-4 lg:px-0">
-          <div className="text-center">
-            <h3 className="text-[13px] font-semibold uppercase tracking-[0.2em] text-violet-500">
-              How Applications work in SmartScreen
-            </h3>
-            <p className="mt-2 text-sm text-slate-600 md:text-[15px]">
-              From a candidate showing interest to a signed offer — with every
-              touchpoint captured on the same board.
+{/* APPLICATIONS – STAGE-BASED WORKFLOW */}
+<section className="border-b border-violet-100 bg-gradient-to-b from-[#f7f2ff] via-white to-[#eef3ff] py-16 md:py-20">
+  <div className="mx-auto max-w-6xl px-4 lg:px-0">
+    {/* Heading */}
+    <div className="text-center">
+      <h3 className="text-[13px] font-semibold uppercase tracking-[0.2em] text-violet-500">
+        How Applications work in SmartScreen
+      </h3>
+      <p className="mt-2 text-sm text-slate-600 md:text-[15px]">
+        From a candidate showing interest to a signed offer — every stage and decision stays on the same board.
+      </p>
+    </div>
+
+    {/* Stage cards inside a soft panel so they feel larger */}
+    <div className="mt-10 rounded-[32px] bg-white/80 p-6 shadow-soft ring-1 ring-violet-100/80 backdrop-blur">
+      <div className="grid gap-5 md:grid-cols-4">
+        {[
+          {
+            step: "1",
+            chipColor: "bg-violet-600",
+            title: "New & In review",
+            body: "All newly applied or sourced candidates land in one place with basic info and fitment preview.",
+          },
+          {
+            step: "2",
+            chipColor: "bg-sky-500",
+            title: "Screened & shortlisted",
+            body: "Recruiters log screening outcomes, notes and ratings — so you can quickly see who moves ahead.",
+          },
+          {
+            step: "3",
+            chipColor: "bg-amber-500",
+            title: "Interviews & feedback",
+            body: "Interview rounds, feedback and decisions stay attached to the application instead of scattered.",
+          },
+          {
+            step: "4",
+            chipColor: "bg-emerald-500",
+            title: "Offer & closure",
+            body: "Offer details, joining dates and closure reasons are captured cleanly for future analytics.",
+          },
+        ].map(({ step, chipColor, title, body }) => (
+          <div
+            key={title}
+            className="flex flex-col rounded-2xl bg-white/95 p-5 text-sm shadow-sm ring-1 ring-violet-100/80 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg md:min-h-[190px]"
+          >
+            <div className="mb-3 flex items-center gap-2">
+              <span
+                className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold text-white ${chipColor}`}
+              >
+                {step}
+              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Stage {step}
+              </span>
+            </div>
+            <h4 className="mb-1 text-[15px] font-semibold text-slate-900">
+              {title}
+            </h4>
+            <p className="text-[13px] leading-relaxed text-slate-600">
+              {body}
             </p>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
-          {/* Horizontal stage cards (different from Job workflow + Candidate rail) */}
-          <div className="mt-8 grid gap-4 md:grid-cols-4">
-            {[
-              {
-                step: "Stage 1",
-                chipColor: "bg-violet-600",
-                title: "New & In review",
-                body: "All newly applied or sourced candidates land in one place with basic info and fitment preview.",
-              },
-              {
-                step: "Stage 2",
-                chipColor: "bg-sky-500",
-                title: "Screened & shortlisted",
-                body: "Recruiters log screening outcomes, notes and ratings — so you can quickly see who moves ahead.",
-              },
-              {
-                step: "Stage 3",
-                chipColor: "bg-amber-500",
-                title: "Interviews & feedback",
-                body: "Interview rounds, feedback and decisions stay attached to the application instead of scattered.",
-              },
-              {
-                step: "Stage 4",
-                chipColor: "bg-emerald-500",
-                title: "Offer & closure",
-                body: "Offer details, joining dates and closure reasons are captured cleanly for future analytics.",
-              },
-            ].map(({ step, chipColor, title, body }) => (
-              <div
-                key={title}
-                className="group flex flex-col rounded-3xl bg-white/95 p-4 text-sm shadow-soft ring-1 ring-violet-100/80 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div
-                  className={`mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold text-white ${chipColor}`}
-                >
-                  {step.split(" ")[1]}
-                </div>
-                <h4 className="mb-1 text-[14px] font-semibold text-slate-900">
-                  {title}
-                </h4>
-                <p className="text-[13px] text-slate-600">{body}</p>
-              </div>
-            ))}
+{/* APPLICATIONS – FEATURE GRID (PARITY WITH JOB MANAGEMENT) */}
+<section className="border-b border-violet-100 bg-gradient-to-b from-[#faf5ff] via-white to-[#f3f4ff] py-16 md:py-20">
+  <div className="mx-auto max-w-5xl px-4 lg:px-0">
+    <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+      Keep every application, stage and decision in one place.
+    </h2>
+    <p className="mt-3 max-w-2xl text-sm md:text-[15px] text-slate-600">
+      The Applications module brings structure to how candidates move through your hiring funnel —
+      and makes it easy to see what’s stuck, who’s waiting and where offers are slowing down.
+    </p>
+
+    <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {[
+        {
+          title: "Application stages board",
+          desc: "Visualise candidates by stage for each role and drag them as they move through the funnel.",
+          badge: "Pipeline view",
+        },
+        {
+          title: "AI fitment scores in each stage",
+          desc: "Let SmartScreen highlight the best-fit candidates so your team knows who to focus on first.",
+          badge: "Prioritisation",
+        },
+        {
+          title: "Centralised feedback & notes",
+          desc: "Interview feedback, recruiter notes and hiring manager comments stay with each application.",
+          badge: "Context",
+        },
+        {
+          title: "Stage SLAs & bottleneck visibility",
+          desc: "Spot where candidates are getting stuck — like long gaps between screening and interviews.",
+          badge: "Insights",
+        },
+        {
+          title: "Multi-role collaboration",
+          desc: "Recruiters, coordinators and hiring managers all work from the same source of truth.",
+          badge: "Teamwork",
+        },
+        {
+          title: "Closure & analytics-ready data",
+          desc: "Capture reasons for rejection or drop-off so future searches become smarter over time.",
+          badge: "Learning loop",
+        },
+      ].map((item) => (
+        <div
+          key={item.title}
+          className="group relative overflow-hidden rounded-3xl bg-white/90 p-[1px] shadow-soft ring-1 ring-violet-100/80 backdrop-blur transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/12 to-brand-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="relative h-full rounded-3xl bg-white/95 p-5">
+            <div className="mb-3 inline-flex items-center rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
+              {item.badge}
+            </div>
+            <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
+              {item.title}
+            </h3>
+            <p className="mt-2 text-[13px] md:text-sm leading-relaxed text-slate-600">
+              {item.desc}
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      {/* FEATURE GRID – APPLICATIONS */}
-      <section className="border-b border-violet-100 bg-gradient-to-b from-[#faf5ff] via-white to-[#f3f4ff] py-16 md:py-20">
-        <div className="mx-auto max-w-5xl px-4 lg:px-0">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
-            Keep every application, stage and decision in one place.
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm md:text-[15px] text-slate-600">
-            The Applications module brings structure to how candidates move
-            through your hiring funnel — and makes it easy to see what’s
-            stuck, who’s waiting and where offers are slowing down.
-          </p>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Kanban-style applications board",
-                desc: "Visualise candidates by stage for each role and drag them as they move through the funnel.",
-                badge: "Pipeline view",
-              },
-              {
-                title: "AI fitment scores in each stage",
-                desc: "Let SmartScreen highlight the best-fit candidates so your team knows who to focus on first.",
-                badge: "Prioritisation",
-              },
-              {
-                title: "Centralised feedback & notes",
-                desc: "Interview feedback, recruiter notes and hiring manager comments stay with each application.",
-                badge: "Context",
-              },
-              {
-                title: "Stage SLAs & bottleneck visibility",
-                desc: "Spot where candidates are getting stuck — like long gaps between screening and interviews.",
-                badge: "Insights",
-              },
-              {
-                title: "Multi-role collaboration",
-                desc: "Recruiters, coordinators and hiring managers all work from the same source of truth.",
-                badge: "Teamwork",
-              },
-              {
-                title: "Closure & analytics-ready data",
-                desc: "Capture reasons for rejection or drop-off so future searches become smarter over time.",
-                badge: "Learning loop",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="group relative overflow-hidden rounded-3xl bg-white/90 p-[1px] shadow-soft ring-1 ring-violet-100/80 backdrop-blur transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/12 to-brand-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="relative h-full rounded-3xl bg-white/95 p-5">
-                  <div className="mb-3 inline-flex items-center rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
-                    {item.badge}
-                  </div>
-                  <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-[13px] md:text-sm leading-relaxed text-slate-600">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-brand-primary via-brand-neon to-brand-accent py-12 text-white">

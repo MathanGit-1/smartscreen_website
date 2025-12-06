@@ -33,11 +33,12 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="relative z-20 border-b border-violet-100 bg-white/80 backdrop-blur-xl">
+    // made sticky + higher z-index
+    <header className="sticky top-0 z-40 border-b border-violet-100 bg-white/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex cursor-pointer items-center gap-2"
           onClick={() => navigateTo("/")}
         >
           <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-primary via-brand-neon to-brand-accent shadow-soft">
@@ -80,7 +81,7 @@ const Navbar: React.FC = () => {
               <ul className="space-y-3 text-[13px]">
                 {/* Job management → feature page */}
                 <li
-                  className="flex gap-3 cursor-pointer"
+                  className="flex cursor-pointer gap-3"
                   onClick={() => navigateTo("/features/job-management")}
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-violet-50 text-[14px] text-violet-700">
@@ -98,8 +99,10 @@ const Navbar: React.FC = () => {
 
                 {/* Candidate intelligence → feature page */}
                 <li
-                  className="flex gap-3 cursor-pointer"
-                  onClick={() => navigateTo("/features/candidate-intelligence")}
+                  className="flex cursor-pointer gap-3"
+                  onClick={() =>
+                    navigateTo("/features/candidate-intelligence")
+                  }
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-50 text-[14px] text-sky-700">
                     👤
@@ -115,7 +118,7 @@ const Navbar: React.FC = () => {
                 </li>
 
                 <li
-                  className="flex gap-3 cursor-pointer"
+                  className="flex cursor-pointer gap-3"
                   onClick={() => navigateTo("/features/applications")}
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-50 text-[14px] text-emerald-700">
@@ -132,7 +135,7 @@ const Navbar: React.FC = () => {
                 </li>
 
                 <li
-                  className="flex gap-3 cursor-pointer"
+                  className="flex cursor-pointer gap-3"
                   onClick={() => navigateTo("/features/assistant")}
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-pink-50 text-[14px] text-pink-700">

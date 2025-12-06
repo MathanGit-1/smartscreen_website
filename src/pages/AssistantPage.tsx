@@ -117,39 +117,96 @@ const AssistantPage: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT: ONLY the animated orb on hero panel (no card, no floating chips) */}
-            <motion.div
+          {/* RIGHT: animated assistant orb + floating user questions */}
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             className="md:w-[50%] flex items-center justify-center md:justify-end"
-            >
+          >
             <div className="relative h-[220px] w-[220px] md:h-[260px] md:w-[260px]">
-
-                {/* soft breathing halo */}
-                <motion.div
+              {/* soft breathing halo */}
+              <motion.div
                 className="assistant-blob-breathe"
                 animate={{ opacity: [0.15, 0.32, 0.15], scale: [1, 1.05, 1] }}
                 transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                  duration: 7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 }}
-                />
+              />
 
-                {/* main blurred blob */}
-                <motion.div
+              {/* main blurred blob */}
+              <motion.div
                 className="assistant-blob"
-                animate={{ opacity: [0.5, 0.7, 0.55], scale: [1, 1.03, 0.98, 1] }}
-                transition={{
-                    duration: 9,
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                animate={{
+                  opacity: [0.5, 0.7, 0.55],
+                  scale: [1, 1.03, 0.98, 1],
                 }}
-                />
-            </div>
-            </motion.div>
+                transition={{
+                  duration: 9,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
 
+              {/* floating chips */}
+              {/* LEFT chip – slightly above centre */}
+              <div
+                className="pointer-events-none absolute top-[26%] -left-14 z-10
+                           flex items-center gap-2 rounded-full bg-white/95
+                           px-3 py-1 text-[11px] shadow-lg ring-1 ring-slate-200/80"
+              >
+                <span
+                  className="flex h-5 w-5 items-center justify-center rounded-full
+                             bg-gradient-to-br from-sky-500 via-indigo-500 to-brand-primary
+                             text-[10px] text-white"
+                >
+                  💭
+                </span>
+                <span className="whitespace-nowrap text-slate-700">
+                  Show me all the open jobs?
+                </span>
+              </div>
+
+              {/* RIGHT chip – slightly below centre */}
+              <div
+                className="pointer-events-none absolute top-[60%] -right-16 z-10
+                           flex items-center gap-2 rounded-full bg-white/95
+                           px-3 py-1 text-[11px] shadow-lg ring-1 ring-slate-200/80"
+              >
+                <span
+                  className="flex h-5 w-5 items-center justify-center rounded-full
+                             bg-gradient-to-br from-sky-500 via-indigo-500 to-brand-primary
+                             text-[10px] text-white"
+                >
+                  💭
+                </span>
+                <span className="whitespace-nowrap text-slate-700">
+                  Show me Java jobs?
+                </span>
+              </div>
+
+              {/* BOTTOM chip – centred */}
+              <div
+                className="pointer-events-none absolute -bottom-7 left-1/2 z-10
+                           flex -translate-x-1/2 items-center gap-2 rounded-full
+                           bg-white/95 px-3 py-1 text-[11px] shadow-lg
+                           ring-1 ring-slate-200/80"
+              >
+                <span
+                  className="flex h-5 w-5 items-center justify-center rounded-full
+                             bg-gradient-to-br from-sky-500 via-indigo-500 to-brand-primary
+                             text-[10px] text-white"
+                >
+                  💭
+                </span>
+                <span className="whitespace-nowrap text-slate-700">
+                  How many open jobs available?
+                </span>
+              </div>
+            </div>
+          </motion.div>
 
         </div>
       </section>

@@ -36,7 +36,10 @@ const Navbar: React.FC = () => {
     <header className="relative z-20 border-b border-violet-100 bg-white/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => navigateTo("/")}
+        >
           <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-primary via-brand-neon to-brand-accent shadow-soft">
             <span className="text-lg font-semibold text-white">S</span>
           </div>
@@ -93,7 +96,7 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
-                   {/* Job management → feature page */}
+                {/* Candidate intelligence → feature page */}
                 <li
                   className="flex gap-3 cursor-pointer"
                   onClick={() => navigateTo("/features/candidate-intelligence")}
@@ -127,7 +130,6 @@ const Navbar: React.FC = () => {
                     </div>
                   </div>
                 </li>
-
 
                 <li
                   className="flex gap-3 cursor-pointer"

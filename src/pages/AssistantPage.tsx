@@ -1,5 +1,5 @@
 // src/pages/AssistantPage.tsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GetEarlyAccessSection from "../GetEarlyAccessSection";
 
@@ -14,6 +14,234 @@ const stagger = {
     transition: { staggerChildren: 0.14 },
   },
 };
+
+const AnimatedAssistantConsole: React.FC = () => {
+  const exchanges = [
+    {
+      question: "Show open Java developer roles in Chennai.",
+      answer:
+        "Here are 12 open Java roles in Chennai, sorted by priority and age.",
+    },
+    {
+      question: "Which JDs are awaiting hiring manager review?",
+      answer:
+        "5 JDs are pending manager review — 3 for Client A and 2 for Client C.",
+    },
+    {
+      question: "Best-fit candidates for Senior Java in Bangalore.",
+      answer:
+        "I found 18 candidates with 5+ years experience that match your Senior Java skills.",
+    },
+    {
+      question: "Where are we losing candidates in the funnel?",
+      answer:
+        "Most drop-offs are after the technical round for Java and Data roles.",
+    },
+  ];
+
+  const TYPING_SPEED = 35;
+  const PAUSE_AFTER_QUESTION = 650;
+  const PAUSE_AFTER_ANSWER = 1400;
+
+  type Phase = "typingQuestion" | "typingAnswer";
+
+  const [pairIndex, setPairIndex] = useState(0);
+  const [phase, setPhase] = useState<Phase>("typingQuestion");
+
+  const [typedInput, setTypedInput] = useState("");
+  const [typedAnswer, setTypedAnswer] = useState("");
+
+  type ChatMessage = { id: number; role: "user" | "assistant"; text: string };
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messageId, setMessageId] = useState(0);
+
+  useEffect(() => {
+    const current = exchanges[pairIndex];
+    let timeout: number | undefined;
+
+    if (phase === "typingQuestion") {
+      if (typedInput.length < current.question.length) {
+        timeout = window.setTimeout(() => {
+          setTypedInput(current.question.slice(0, typedInput.length + 1));
+        }, TYPING_SPEED);
+      } else {
+        timeout = window.setTimeout(() => {
+          setMessages((prev) => [
+            ...prev,
+            { id: messageId, role: "user", text: current.question },
+          ]);
+          setMessageId((id) => id + 1);
+          setTypedInput("");
+          setPhase("typingAnswer");
+        }, PAUSE_AFTER_QUESTION);
+      }
+    } else if (phase === "typingAnswer") {
+      if (typedAnswer.length < current.answer.length) {
+        timeout = window.setTimeout(() => {
+          setTypedAnswer(current.answer.slice(0, typedAnswer.length + 1));
+        }, TYPING_SPEED);
+      } else {
+        timeout = window.setTimeout(() => {
+          setMessages((prev) => [
+            ...prev,
+            { id: messageId, role: "assistant", text: current.answer },
+          ]);
+          setMessageId((id) => id + 1);
+          setTypedAnswer("");
+
+          setPairIndex((prevIndex) => {
+            const nextIndex = (prevIndex + 1) % exchanges.length;
+            if (nextIndex === 0) setMessages([]); // fresh loop
+            return nextIndex;
+          });
+
+          setPhase("typingQuestion");
+        }, PAUSE_AFTER_ANSWER);
+      }
+    }
+
+    return () => {
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, [phase, typedInput, typedAnswer, pairIndex, exchanges, messageId]);
+
+  const Caret = () => (
+    <span className="ml-[2px] inline-block h-[1.1em] w-[8px] translate-y-[2px] bg-slate-100/90 animate-pulse" />
+  );
+
+  return (
+    <div className="mx-auto mt-8 max-w-3xl text-left">
+      <div
+        className="relative flex h-[450px] md:h-[500px] flex-col overflow-hidden
+                   rounded-2xl border border-violet-500/40 bg-slate-950/95
+                   px-5 pt-4 pb-4 md:pt-5 md:pb-5
+                   shadow-xl shadow-violet-900/40 backdrop-blur"
+      >
+        {/* neon orb background layers */}
+        <div
+          className="pointer-events-none absolute -left-16 top-4 h-40 w-40 rounded-full
+                     bg-[radial-gradient(circle_at_center,_rgba(129,140,248,0.35),transparent_60%)]
+                     blur-3xl opacity-80"
+        />
+        <div
+          className="pointer-events-none absolute right-0 top-16 h-44 w-44 rounded-full
+                     bg-[radial-gradient(circle_at_center,_rgba(236,72,153,0.32),transparent_60%)]
+                     blur-[42px] opacity-80"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-12 left-1/2 h-48 w-56 -translate-x-1/2 rounded-full
+                     bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.28),transparent_65%)]
+                     blur-[46px] opacity-90"
+        />
+
+        {/* content wrapper to sit above orbs */}
+        <div className="relative z-10 flex h-full flex-col">
+          {/* header */}
+          <div className="mb-3 flex items-center justify-between text-[11px] font-medium uppercase tracking-[0.18em] text-slate-300/90">
+            <span className="inline-flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              SmartScreen assistant
+            </span>
+            <span className="hidden md:inline text-[10px] text-slate-400">
+              Powered by your SmartScreen data
+            </span>
+          </div>
+
+          {/* chat area */}
+          <div className="flex flex-1 flex-col justify-end space-y-2.5 text-[13px] md:text-sm">
+            {messages.map((msg) =>
+              msg.role === "user" ? (
+                <div key={msg.id} className="flex justify-end">
+                  <div className="flex max-w-[82%] flex-row-reverse items-start gap-2">
+                    <div className="mt-[2px] flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/90 text-[11px] font-semibold text-slate-200">
+                      U
+                    </div>
+                    <div className="rounded-2xl bg-slate-900/95 px-3 py-1.5 text-slate-50 shadow-sm ring-1 ring-slate-700/70">
+                      {msg.text}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div key={msg.id} className="flex justify-start">
+                  <div className="flex max-w-[82%] items-start gap-2">
+                    <div className="mt-[2px] flex h-6 w-6 items-center justify-center rounded-full bg-violet-600 text-[11px] font-semibold text-white">
+                      AI
+                    </div>
+                    <div className="rounded-2xl bg-violet-600/20 px-3 py-1.5 text-slate-100 ring-1 ring-violet-500/60">
+                      {msg.text}
+                    </div>
+                  </div>
+                </div>
+              )
+            )}
+
+            {/* live typing of assistant answer */}
+            {phase === "typingAnswer" && typedAnswer && (
+              <div className="flex justify-start">
+                <div className="flex max-w-[82%] items-start gap-2">
+                  <div className="mt-[2px] flex h-6 w-6 items-center justify-center rounded-full bg-violet-600 text-[11px] font-semibold text-white">
+                    AI
+                  </div>
+                  <div className="rounded-2xl bg-violet-600/20 px-3 py-1.5 text-slate-100 ring-1 ring-violet-500/60">
+                    <span className="text-slate-200">
+                      {typedAnswer}
+                      <Caret />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* input bar */}
+          <div className="mt-4 flex items-center gap-3 rounded-full border border-slate-700/80 bg-slate-950/95 px-4 py-2.5 text-[13px] text-slate-200">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-[16px] leading-none">
+              +
+            </span>
+            <div className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap">
+              {phase === "typingQuestion" ? (
+                <span className="text-slate-100">
+                  {typedInput}
+                  <Caret />
+                </span>
+              ) : (
+                <span className="text-slate-400">
+                  Ask anything about jobs, candidates or applications…
+                </span>
+              )}
+            </div>
+                {/* SEND ICON */}
+                <button
+                className="
+                    flex h-8 w-8 items-center justify-center rounded-full
+                    bg-gradient-to-br from-violet-500 to-fuchsia-600
+                    shadow-md shadow-violet-700/40 transition-all
+                    hover:scale-105 hover:shadow-lg hover:shadow-fuchsia-700/40
+                "
+                >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={2}
+                    stroke='white'
+                    className='h-4 w-4 -translate-x-[1px]'
+                >
+                    <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M5 12h14M12 5l7 7-7 7'
+                    />
+                </svg>
+                </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 
 const AssistantPage: React.FC = () => {
   const scrollToEarlyAccess = () => {
@@ -207,11 +435,10 @@ const AssistantPage: React.FC = () => {
               </div>
             </div>
           </motion.div>
-
         </div>
       </section>
 
-      {/* SECTION – WHAT CAN I ASK? (grouped by module) */}
+      {/* SECTION – WHAT CAN I ASK? (animated console + action categories) */}
       <section className="border-b border-violet-100 bg-white py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-0">
           <motion.div
@@ -226,23 +453,31 @@ const AssistantPage: React.FC = () => {
             >
               What the SmartScreen Assistant can answer
             </motion.h2>
+
             <motion.p
               variants={fadeUp}
               className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-slate-900"
             >
               One place to ask about jobs, candidates and applications.
             </motion.p>
+
             <motion.p
               variants={fadeUp}
               className="mt-2 max-w-2xl mx-auto text-sm md:text-[15px] text-slate-600"
             >
               Instead of jumping between boards and filters, your team can just
               ask questions — the assistant fetches live data from SmartScreen,
-              applies your rules, and get the response.
+              applies your rules, and returns clear answers.
             </motion.p>
+
+            {/* 🔹 animated chat console */}
+            <motion.div variants={fadeUp}>
+              <AnimatedAssistantConsole />
+            </motion.div>
           </motion.div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {/* Category cards – Jobs / Candidates / Applications */}
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
               {
                 label: "Jobs & demand",
@@ -259,7 +494,7 @@ const AssistantPage: React.FC = () => {
                 badge: "Candidates",
                 color: "from-emerald-500 to-teal-500",
                 examples: [
-                  "“Best-fit candidates for Senior Java in Chennai?”",
+                  "“Best-fit candidates for Senior Java in Chennai.”",
                   "“Candidates tagged ‘Product companies’ + ‘Notice ≤ 30 days’.”",
                   "“Who did we interview for the last Data Engineer role?”",
                 ],
@@ -277,23 +512,27 @@ const AssistantPage: React.FC = () => {
             ].map(({ label, badge, color, examples }) => (
               <div
                 key={label}
-                className="relative overflow-hidden rounded-3xl bg-white/90 p-[1px] shadow-soft ring-1 ring-violet-100/80 backdrop-blur"
+                className="relative overflow-hidden rounded-3xl bg-slate-950/5 p-[1px] shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-violet-100/80"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/10 to-brand-accent/0 opacity-0 transition-opacity duration-300 hover:opacity-100" />
-                <div className="relative h-full rounded-3xl bg-white/95 p-5">
+                {/* soft neon hover wash */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/12 to-brand-accent/0 opacity-0 transition-opacity duration-300 hover:opacity-100" />
+                <div className="relative h-full rounded-3xl bg-white/95 p-5 backdrop-blur">
                   <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
                     <span
                       className={`inline-flex h-2 w-8 rounded-full bg-gradient-to-r ${color}`}
                     />
                     <span>{badge}</span>
+                    <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   </div>
+
                   <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
                     {label}
                   </h3>
+
                   <ul className="mt-3 space-y-1.5 text-[13px] text-slate-600">
                     {examples.map((e) => (
                       <li key={e} className="flex items-start gap-2">
-                        <span className="mt-1 inline-block h-1 w-1 rounded-full bg-slate-400" />
+                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-slate-400" />
                         <span>{e}</span>
                       </li>
                     ))}

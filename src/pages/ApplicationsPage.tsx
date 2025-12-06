@@ -458,14 +458,14 @@ const ApplicationsPage: React.FC = () => {
       </div>
     </div>
 
-    {/* ---------- DESKTOP ZIGZAG (WIDER CARDS, LOCKED ROUND ICONS) ---------- */}
+    {/* ---------- DESKTOP ZIGZAG ---------- */}
     <div className="relative mt-16 hidden md:grid md:[grid-template-columns:1.15fr_auto_1.15fr] md:gap-x-12 md:gap-y-20">
       {/* vertical rail */}
       <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-violet-200" />
 
       {/* Row 1 */}
       <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 shadow-xl">
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
           <div className="flex items-center gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
                             bg-gradient-to-br from-brand-primary to-brand-accent
@@ -514,7 +514,7 @@ const ApplicationsPage: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-right shadow-xl">
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
           <div className="flex flex-row-reverse items-center gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
                             bg-gradient-to-br from-emerald-500 to-teal-400
@@ -542,7 +542,7 @@ const ApplicationsPage: React.FC = () => {
 
       {/* Row 3 */}
       <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 shadow-xl">
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
           <div className="flex items-center gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
                             bg-gradient-to-br from-sky-500 to-indigo-500
@@ -579,6 +579,7 @@ const ApplicationsPage: React.FC = () => {
       <div />
 
       {/* Row 4 */}
+      {/* Row 4 – OFFER (right side card) */}
       <div />
       <div className="relative flex items-center justify-center">
         <div className="relative">
@@ -591,18 +592,10 @@ const ApplicationsPage: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-right shadow-xl">
-          <div className="flex flex-row-reverse items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-fuchsia-500 to-rose-500
-                            shadow-[0_0_18px_rgba(236,72,153,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M7 4h8l4 4v12H7z" />
-                <path d="M15 4v4h4" />
-                <path d="M10 13h5M10 17h3" />
-              </svg>
-            </div>
-            <div>
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
+          <div className="flex items-center justify-between gap-4">
+            {/* text block */}
+            <div className="flex-1">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-600/80">
                 Stage 4 · Offer
               </p>
@@ -613,13 +606,31 @@ const ApplicationsPage: React.FC = () => {
                 Negotiations and approvals stay together.
               </p>
             </div>
+
+            {/* icon on the right */}
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                            bg-gradient-to-br from-fuchsia-500 to-rose-500
+                            shadow-[0_0_18px_rgba(236,72,153,0.45)] text-white">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M7 4h8l4 4v12H7z" />
+                <path d="M15 4v4h4" />
+                <path d="M10 13h5M10 17h3" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
 
+
       {/* Row 5 */}
       <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 shadow-xl">
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
           <div className="flex items-center gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
                             bg-gradient-to-br from-emerald-500 to-brand-primary
@@ -669,7 +680,7 @@ const ApplicationsPage: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-right shadow-xl">
+        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
           <div className="flex flex-row-reverse items-center gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
                             bg-gradient-to-br from-rose-500 to-slate-600

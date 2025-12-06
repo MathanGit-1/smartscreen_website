@@ -107,62 +107,10 @@ const ApplicationsPage: React.FC = () => {
         <div className="pointer-events-none absolute -left-[18%] bottom-[-20%] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.38),transparent_60%)] blur-3xl" />
         <div className="pointer-events-none absolute -right-[18%] top-[-18%] h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,_rgba(236,72,153,0.42),transparent_60%)] blur-3xl" />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center lg:px-0">
-          {/* LEFT: illustration – kanban applications board */}
+        <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-4 md:flex-row md:items-center md:justify-between md:gap-10 lg:gap-16 lg:px-0">
+          {/* LEFT: concise copy (moved here) */}
           <motion.div
-            className="md:w-[50%]"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="relative mx-auto max-w-md">
-              {/* glass frame */}
-              <div className="rounded-[28px] bg-white/8 p-[3px] shadow-soft ring-1 ring-violet-500/40 backdrop-blur">
-                <div className="relative overflow-hidden rounded-[24px] bg-slate-900/80">
-                  <img
-                    src={applicationsHeroImage}
-                    alt="SmartScreen applications pipeline illustration"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* floating chip – stage movement */}
-              <div className="pointer-events-none absolute -right-10 top-8 hidden w-44 rounded-2xl bg-white/95 p-3 text-[11px] shadow-lg ring-1 ring-violet-100/80 backdrop-blur lg:block">
-                <div className="mb-1 flex items-center gap-2">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-600 text-[10px] text-white">
-                    ⇄
-                  </span>
-                  <span className="font-semibold text-slate-900">
-                    Drag & move stages
-                  </span>
-                </div>
-                <p className="text-[10px] text-slate-600">
-                  Move candidates from New → Screened → Interview → Offer in
-                  one board.
-                </p>
-              </div>
-
-              {/* floating chip – fitment score */}
-              <div className="pointer-events-none absolute -left-10 bottom-6 hidden w-40 rounded-2xl bg-white/95 p-3 text-[11px] shadow-lg ring-1 ring-emerald-100/80 backdrop-blur lg:block">
-                <div className="mb-1 flex items-center gap-2">
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
-                    87
-                  </span>
-                  <span className="font-semibold text-slate-900">
-                    Fitment score
-                  </span>
-                </div>
-                <p className="text-[10px] text-slate-600">
-                  AI highlights which candidates to prioritise in each stage.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* RIGHT: concise copy */}
-          <motion.div
-            className="md:w-[50%]"
+            className="md:w-[50%] lg:w-[48%]"
             variants={stagger}
             initial="hidden"
             animate="visible"
@@ -238,8 +186,64 @@ const ApplicationsPage: React.FC = () => {
               </li>
             </motion.ul>
           </motion.div>
+
+          {/* RIGHT: illustration – kanban applications board (moved here) */}
+            <motion.div
+            className="md:w-[50%] lg:w-[52%] ml-auto lg:ml-20"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            >
+            <div className="relative mx-auto max-w-lg">
+              {/* glass frame */}
+              <div className="rounded-[28px] bg-white/8 p-[3px] shadow-soft ring-1 ring-violet-500/40 backdrop-blur">
+                <div className="relative h-full w-full overflow-hidden rounded-[24px] bg-slate-900/80 aspect-[16/9]">
+                  <img
+                    src={applicationsHeroImage}
+                    alt="SmartScreen applications pipeline illustration"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* floating chip – stage movement (touching right border of card) */}
+              <div className="pointer-events-none absolute top-4 left-full ml-1 hidden w-44 rounded-2xl bg-white/95 p-3 text-[11px] shadow-lg ring-1 ring-violet-100/80 backdrop-blur lg:block">
+                <div className="mb-1 flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-600 text-[10px] text-white">
+                    ⇄
+                  </span>
+                  <span className="font-semibold text-slate-900">
+                    Drag &amp; move stages
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate-600">
+                  Move candidates from New → Screened → Interview → Offer in
+                  one board.
+                </p>
+              </div>
+
+              {/* floating chip – fitment score (touching left border of card) */}
+              <div className="pointer-events-none absolute bottom-8 right-full mr-1 hidden w-40 rounded-2xl bg-white/95 p-3 text-[11px] shadow-lg ring-1 ring-emerald-100/80 backdrop-blur lg:block">
+                <div className="mb-1 flex items-center gap-2">
+                  <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
+                    87
+                  </span>
+                  <span className="font-semibold text-slate-900">
+                    Fitment score
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate-600">
+                  AI highlights which candidates to prioritise in each stage.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
+
+
+
+
 
    {/* APPLICATIONS – ZIGZAG TIMELINE WITH DARK PANEL */}
     <section className="relative border-t border-violet-100 bg-gradient-to-b from-white via-[#faf5ff] to-[#f5f0ff] py-20">

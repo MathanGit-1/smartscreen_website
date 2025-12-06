@@ -6,6 +6,7 @@ import App from "./App";
 import JobManagementPage from "./pages/JobManagementPage";
 import CandidateManagementPage from "./pages/CandidateManagementPage";
 import ApplicationsPage from "./pages/ApplicationsPage"; // 🔹 add this
+import AssistantPage from "./pages/AssistantPage"; // 🔹 add this
 import Layout from "./Layout";
 import "./index.css";
 
@@ -32,6 +33,10 @@ ReactDOM.createRoot(
           <Route
             path="/features/applications"
             element={<ApplicationsPage />}   // 🔹 NEW
+          />
+          <Route
+            path="/features/assistant"
+            element={<AssistantPage />}   // 🔹 NEW
           />
         </Route>
       </Routes>

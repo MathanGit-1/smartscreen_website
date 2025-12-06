@@ -128,7 +128,11 @@ const Navbar: React.FC = () => {
                   </div>
                 </li>
 
-                <li className="flex gap-3">
+
+                <li
+                  className="flex gap-3 cursor-pointer"
+                  onClick={() => navigateTo("/features/assistant")}
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-pink-50 text-[14px] text-pink-700">
                     🤖
                   </div>

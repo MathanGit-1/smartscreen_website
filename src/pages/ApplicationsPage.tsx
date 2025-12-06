@@ -863,7 +863,7 @@ const ApplicationsPage: React.FC = () => {
       </p>
     </div>
 
-    {/* Stage cards inside a soft panel so they feel larger */}
+    {/* Stage cards inside a soft panel */}
     <div className="mt-10 rounded-[32px] bg-white/80 p-6 shadow-soft ring-1 ring-violet-100/80 backdrop-blur">
       <div className="grid gap-5 md:grid-cols-4">
         {[
@@ -894,21 +894,27 @@ const ApplicationsPage: React.FC = () => {
         ].map(({ step, chipColor, title, body }) => (
           <div
             key={title}
-            className="flex flex-col rounded-2xl bg-white/95 p-5 text-sm shadow-sm ring-1 ring-violet-100/80 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg md:min-h-[190px]"
+            className="flex flex-col rounded-2xl bg-white/95 p-5 text-sm shadow-sm ring-1 ring-violet-100/80
+                       transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg md:min-h-[190px]"
           >
+            {/* Updated Stage Number */}
             <div className="mb-3 flex items-center gap-2">
               <span
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold text-white ${chipColor}`}
+                className={`inline-flex h-8 w-8 items-center justify-center rounded-full 
+                           text-[13px] font-bold text-white ${chipColor}`}
               >
                 {step}
               </span>
+
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                 Stage {step}
               </span>
             </div>
+
             <h4 className="mb-1 text-[15px] font-semibold text-slate-900">
               {title}
             </h4>
+
             <p className="text-[13px] leading-relaxed text-slate-600">
               {body}
             </p>
@@ -918,6 +924,7 @@ const ApplicationsPage: React.FC = () => {
     </div>
   </div>
 </section>
+
 
 {/* APPLICATIONS – FEATURE GRID (PARITY WITH JOB MANAGEMENT) */}
 <section className="border-b border-violet-100 bg-gradient-to-b from-[#faf5ff] via-white to-[#f3f4ff] py-16 md:py-20">

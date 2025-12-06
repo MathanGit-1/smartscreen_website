@@ -143,7 +143,7 @@ const AnimatedAssistantConsole: React.FC = () => {
               SmartScreen assistant
             </span>
             <span className="hidden md:inline text-[10px] text-slate-400">
-              Powered by your SmartScreen data
+              Powered by SmartScreen data
             </span>
           </div>
 
@@ -334,12 +334,12 @@ const AssistantPage: React.FC = () => {
               ].map((q) => (
                 <div
                   key={q}
-                  className="flex items-center gap-2 rounded-2xl bg-white/5 px-3 py-2 shadow-sm ring-1 ring-white/10 backdrop-blur-sm"
+                  className="flex items-center justify-between gap-2 rounded-2xl bg-white/5 px-3 py-2 shadow-sm ring-1 ring-white/10 backdrop-blur-sm"
                 >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-violet-500/90 text-[10px] text-white">
+                  <span className="flex-1 text-left">{q}</span>
+                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-violet-500/90 text-[10px] text-white">
                     ?
                   </span>
-                  <span>{q}</span>
                 </div>
               ))}
             </motion.div>
@@ -437,6 +437,7 @@ const AssistantPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
 
       {/* SECTION – WHAT CAN I ASK? (animated console + action categories) */}
       <section className="border-b border-violet-100 bg-white py-16 md:py-20">
@@ -578,9 +579,9 @@ const AssistantPage: React.FC = () => {
               variants={fadeUp}
               className="mt-2 text-sm md:text-[15px] text-slate-600"
             >
-              Under the hood, SmartScreen Assistant uses your own data, strict
-              permissions and tool-style actions — so answers stay relevant and
-              safe for hiring.
+              Every answer goes through the same simple loop — understand the
+              question, look up the right data, and reply in plain language your
+              team can act on.
             </motion.p>
           </motion.div>
 
@@ -591,53 +592,57 @@ const AssistantPage: React.FC = () => {
             className="mt-8 rounded-3xl bg-gradient-to-r from-violet-600/10 via-fuchsia-500/10 to-emerald-400/10 p-[1px] shadow-soft"
           >
             <div className="flex flex-col items-stretch gap-4 rounded-[22px] bg-white/95 px-5 py-5 text-[13px] text-slate-700 md:flex-row md:px-7 md:py-6">
+              {/* Step 1 */}
               <div className="flex flex-1 items-start gap-3">
-                <span className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-xs font-semibold text-white">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-600 text-[11px] font-semibold text-white">
                   1
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-violet-600">
-                    Understands the question
+                    Understands your question
                   </p>
                   <p className="mt-1">
-                    The assistant interprets the intent — like “open jobs in
-                    Chennai” or “offers this month” — and figures out which
-                    SmartScreen data it needs.
+                    Turns everyday questions — like “open jobs in Chennai” or
+                    “offers this month” — into a clear request the system can
+                    work with.
                   </p>
                 </div>
               </div>
 
               <div className="hidden h-px w-full bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 md:block md:h-auto md:w-px" />
 
+              {/* Step 2 */}
               <div className="flex flex-1 items-start gap-3">
-                <span className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-xs font-semibold text-white">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-500 text-[11px] font-semibold text-white">
                   2
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-600">
-                    Calls tools with permissions
+                    Looks up the right data
                   </p>
                   <p className="mt-1">
-                    It uses internal tools (like “list jobs”, “find candidates”
-                    or “get applications”) that honour your client, role and
-                    data-access rules.
+                    Checks your jobs, candidates and applications to find
+                    what&apos;s relevant for the question — without your team
+                    hunting through boards and filters.
                   </p>
                 </div>
               </div>
 
               <div className="hidden h-px w-full bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 md:block md:h-auto md:w-px" />
 
+              {/* Step 3 */}
               <div className="flex flex-1 items-start gap-3">
-                <span className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-white">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-semibold text-white">
                   3
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
-                    Returns clear, traceable answers
+                    Replies with clear next steps
                   </p>
                   <p className="mt-1">
-                    Results come back as conversational answers with links or
-                    counts your team can verify — not vague “AI guesses”.
+                    Summarises what it found into a short answer — with counts,
+                    highlights or follow-up suggestions — so hiring teams can
+                    make a decision quickly.
                   </p>
                 </div>
               </div>
@@ -645,6 +650,7 @@ const AssistantPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
 
       {/* SECTION – FEATURE GRID */}
       <section className="border-b border-violet-100 bg-gradient-to-b from-[#fdf8ff] via-white to-[#f2f4ff] py-16 md:py-20">

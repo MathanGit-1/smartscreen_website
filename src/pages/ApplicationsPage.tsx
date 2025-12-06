@@ -241,479 +241,496 @@ const ApplicationsPage: React.FC = () => {
         </div>
       </section>
 
-{/* APPLICATIONS – ZIGZAG TIMELINE */}
-<section className="relative border-t border-violet-100 bg-gradient-to-b from-[#f7f2ff] via-[#fbf6ff] to-[#fff7ff] py-16 md:py-24">
-  <div className="mx-auto max-w-5xl px-4 lg:px-0">
-    {/* Heading */}
-    <div className="text-center">
-      <p className="text-xs font-semibold tracking-[0.22em] text-brand-primary/80">
-        LIVE APPLICATIONS JOURNEY
-      </p>
-      <h2 className="mt-3 text-2xl md:text-[28px] font-semibold text-slate-900">
-        One clean timeline — from <span className="text-brand-primary">Applied</span> to{" "}
-        <span className="text-brand-accent">Hired</span>.
-      </h2>
-      <p className="mx-auto mt-3 max-w-2xl text-sm md:text-[15px] leading-relaxed text-slate-600">
-        Every application moves through the same, visible journey — so hiring teams always
-        know who's where, what happened last, and what needs to move next.
-      </p>
+    {/* APPLICATIONS – ZIGZAG TIMELINE WITH DARK PANEL */}
+    <section className="relative border-t border-violet-100 bg-gradient-to-b from-white via-[#faf5ff] to-[#f5f0ff] py-20">
+    {/* Heading (outside panel) */}
+    <div className="mx-auto max-w-5xl px-4 lg:px-0">
+        <div className="text-center">
+        <p className="text-xs font-semibold tracking-[0.22em] text-brand-primary/80">
+            LIVE APPLICATIONS JOURNEY
+        </p>
+        <h2 className="mt-3 text-2xl md:text-[28px] font-semibold text-slate-900">
+            One clean timeline — from <span className="text-brand-primary">Applied</span> to{" "}
+            <span className="text-brand-accent">Hired</span>.
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-sm md:text-[15px] leading-relaxed text-slate-600">
+            Every application moves through the same, visible journey — so hiring teams always
+            know who's where, what happened last, and what needs to move next.
+        </p>
+        </div>
     </div>
 
-    {/* ---------- MOBILE STACKED ---------- */}
-    <div className="mt-10 space-y-8 md:hidden">
-      {/* 1 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-brand-primary to-brand-accent text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(88,28,135,0.35)]">
-          1
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-brand-primary to-brand-accent
-                            shadow-[0_0_18px_rgba(120,48,255,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="14" rx="2" />
-                <path d="M9 9l4 6 1-3 3-1-8-2z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-primary/80">
-                Stage 1 · Applied
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Applications land in one clean lane.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Every new candidate is associated to the JD instantly — no more inbox
-                hunting or spreadsheets to see who applied where.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    {/* DARK VERTICAL PANEL */}
+    <div className="mx-auto mt-12 max-w-6xl px-4 lg:px-0">
+        <div
+        className="relative overflow-hidden rounded-[32px]
+                    bg-gradient-to-b from-[#0b0d19] via-[#0f1124] to-[#0b0d19]
+                    border border-white/10 shadow-[0_24px_80px_rgba(15,23,42,0.55)]
+                    px-4 py-12 sm:px-8 md:px-10 md:py-16"
+        >
+        {/* center + edge glows */}
+        <div
+            className="pointer-events-none absolute inset-0 mx-auto w-[70%]
+                    bg-[radial-gradient(circle_at_center,rgba(120,90,255,0.18),transparent_70%)]
+                    blur-3xl opacity-90"
+        />
+        <div
+            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[520px]
+                    -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.3),transparent_70%)]
+                    blur-3xl opacity-70"
+        />
+        <div
+            className="pointer-events-none absolute -bottom-24 left-1/2 h-64 w-[520px]
+                    -translate-x-1/2 bg-[radial-gradient(circle_at_bottom,rgba(244,114,182,0.24),transparent_70%)]
+                    blur-3xl opacity-70"
+        />
 
-      {/* 2 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-emerald-500 to-teal-400 text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.30)]">
-          2
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-emerald-500 to-teal-400
-                            shadow-[0_0_18px_rgba(16,185,129,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
-                <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
-                <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
-              </svg>
+        {/* TIMELINE CONTENT */}
+        <div className="relative z-10 mx-auto max-w-5xl">
+            {/* ---------- MOBILE STACKED ---------- */}
+            <div className="space-y-8 md:hidden">
+            {/* 1 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-brand-primary to-brand-accent text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(88,28,135,0.35)]">
+                1
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-brand-primary to-brand-accent
+                                    shadow-[0_0_18px_rgba(120,48,255,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="4" width="18" height="14" rx="2" />
+                        <path d="M9 9l4 6 1-3 3-1-8-2z" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-primary/80">
+                        Stage 1 · Applied
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Applications land in one clean lane.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Every new candidate is associated to the JD instantly — no more inbox
+                        hunting or spreadsheets to see who applied where.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
-                Stage 2 · In review
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Recruiter / hiring manager review in sync.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Notes, fitment score and owner stay visible on the same timeline.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 3 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-sky-500 to-indigo-500 text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(56,189,248,0.30)]">
-          3
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-sky-500 to-indigo-500
-                            shadow-[0_0_18px_rgba(56,189,248,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 6h16v9H9l-4 4v-4H4z" />
-                <path d="M8 10h8" />
-              </svg>
+            {/* 2 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-teal-400 text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.30)]">
+                2
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-emerald-500 to-teal-400
+                                    shadow-[0_0_18px_rgba(16,185,129,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
+                        <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
+                        <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
+                        Stage 2 · In review
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Recruiter / hiring manager review in sync.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Notes, fitment score and owner stay visible on the same timeline.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-600/80">
-                Stage 3 · Interview
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Panels, slots and feedback stay attached.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                No more scattered screenshots — every round stays in one place.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 4 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-fuchsia-500 to-rose-500 text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(236,72,153,0.30)]">
-          4
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-fuchsia-500 to-rose-500
-                            shadow-[0_0_18px_rgba(236,72,153,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M7 4h8l4 4v12H7z" />
-                <path d="M15 4v4h4" />
-                <path d="M10 13h5M10 17h3" />
-              </svg>
+            {/* 3 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-sky-500 to-indigo-500 text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(56,189,248,0.30)]">
+                3
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-sky-500 to-indigo-500
+                                    shadow-[0_0_18px_rgba(56,189,248,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M4 6h16v9H9l-4 4v-4H4z" />
+                        <path d="M8 10h8" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-600/80">
+                        Stage 3 · Interview
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Panels, slots and feedback stay attached.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        No more scattered screenshots — every round stays in one place.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-600/80">
-                Stage 4 · Offer
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Offer, CTC and terms in one track.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Negotiations and approvals stay together.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 5 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-emerald-500 to-brand-primary text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.32)]">
-          5
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-emerald-500 to-brand-primary
-                            shadow-[0_0_18px_rgba(16,185,129,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="9" r="3.5" />
-                <path d="M8 4h8l-1 4" />
-                <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
-              </svg>
+            {/* 4 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-fuchsia-500 to-rose-500 text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(236,72,153,0.30)]">
+                4
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-fuchsia-500 to-rose-500
+                                    shadow-[0_0_18px_rgba(236,72,153,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M7 4h8l4 4v12H7z" />
+                        <path d="M15 4v4h4" />
+                        <path d="M10 13h5M10 17h3" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-600/80">
+                        Stage 4 · Offer
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Offer, CTC and terms in one track.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Negotiations and approvals stay together.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
-                Stage 5 · Hired
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Timeline closes the loop.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Clean history ready for analytics and insights.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 6 */}
-      <div className="flex gap-4">
-        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                        bg-gradient-to-br from-rose-500 to-slate-600 text-[11px]
-                        font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(248,113,113,0.30)]">
-          6
-        </div>
-        <div className="flex-1 rounded-2xl bg-white/90 px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-rose-500 to-slate-600
-                            shadow-[0_0_18px_rgba(248,113,113,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="7" />
-                <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
-              </svg>
+            {/* 5 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-brand-primary text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(16,185,129,0.32)]">
+                5
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-emerald-500 to-brand-primary
+                                    shadow-[0_0_18px_rgba(16,185,129,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="9" r="3.5" />
+                        <path d="M8 4h8l-1 4" />
+                        <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
+                        Stage 5 · Hired
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Timeline closes the loop.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Clean history ready for analytics and insights.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-600/80">
-                Rejected / Withdrawn
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Decisions stay visible.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Reasons and context remain attached for future searches.
-              </p>
+
+            {/* 6 */}
+            <div className="flex gap-4">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                bg-gradient-to-br from-rose-500 to-slate-600 text-[11px]
+                                font-semibold tracking-[0.16em] text-white shadow-[0_10px_30px_rgba(248,113,113,0.30)]">
+                6
+                </div>
+                <div className="flex-1 rounded-2xl bg-white px-4 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.38)]">
+                <div className="flex items-start gap-3 text-slate-900">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-rose-500 to-slate-600
+                                    shadow-[0_0_18px_rgba(248,113,113,0.55)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="7" />
+                        <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-600/80">
+                        Rejected / Withdrawn
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Decisions stay visible.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Reasons and context remain attached for future searches.
+                    </p>
+                    </div>
+                </div>
+                </div>
             </div>
-          </div>
+            </div>
+
+            {/* ---------- DESKTOP ZIGZAG ---------- */}
+            <div className="relative mt-4 hidden md:grid md:[grid-template-columns:1.15fr_auto_1.15fr] md:gap-x-12 md:gap-y-20">
+            {/* vertical rail */}
+            <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-violet-300/70" />
+
+            {/* Row 1 */}
+            <div className="flex items-center justify-end">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-brand-primary to-brand-accent
+                                    shadow-[0_0_18px_rgba(120,48,255,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="4" width="18" height="14" rx="2" />
+                        <path d="M9 9l4 6 1-3 3-1-8-2z" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-primary/80">
+                        Stage 1 · Applied
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Applications land in one clean lane.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Every new candidate is associated to the JD instantly — no more inbox hunting or spreadsheets.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-brand-primary to-brand-accent
+                                text-white font-semibold shadow-[0_0_25px_rgba(129,140,248,0.8)]">
+                    1
+                </div>
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-violet-300/70" />
+                </div>
+            </div>
+            <div />
+
+            {/* Row 2 */}
+            <div />
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-teal-400
+                                text-white font-semibold shadow-[0_0_25px_rgba(16,185,129,0.8)]">
+                    2
+                </div>
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/70" />
+                </div>
+            </div>
+            <div className="flex items-center justify-start">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-emerald-500 to-teal-400
+                                    shadow-[0_0_18px_rgba(16,185,129,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
+                        <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
+                        <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
+                        Stage 2 · In review
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Recruiter / hiring manager review in sync.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Notes, fitment score and owner stay visible on the same timeline.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            {/* Row 3 */}
+            <div className="flex items-center justify-end">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-sky-500 to-indigo-500
+                                    shadow-[0_0_18px_rgba(56,189,248,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M4 6h16v9H9l-4 4v-4H4z" />
+                        <path d="M8 10h8" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-600/80">
+                        Stage 3 · Interview
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Panels, slots and feedback stay attached.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        No more scattered screenshots — every round stays in one place.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-sky-500 to-indigo-500
+                                text-white font-semibold shadow-[0_0_25px_rgba(56,189,248,0.8)]">
+                    3
+                </div>
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-sky-300/70" />
+                </div>
+            </div>
+            <div />
+
+            {/* Row 4 */}
+            <div />
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-fuchsia-500 to-rose-500
+                                text-white font-semibold shadow-[0_0_25px_rgba(236,72,153,0.8)]">
+                    4
+                </div>
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-pink-300/70" />
+                </div>
+            </div>
+            <div className="flex items-center justify-start">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-fuchsia-500 to-rose-500
+                                    shadow-[0_0_18px_rgba(236,72,153,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M7 4h8l4 4v12H7z" />
+                        <path d="M15 4v4h4" />
+                        <path d="M10 13h5M10 17h3" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-600/80">
+                        Stage 4 · Offer
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Offer, CTC and terms in one track.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Negotiations and approvals stay together.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            {/* Row 5 */}
+            <div className="flex items-center justify-end">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-emerald-500 to-brand-primary
+                                    shadow-[0_0_18px_rgba(16,185,129,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="9" r="3.5" />
+                        <path d="M8 4h8l-1 4" />
+                        <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
+                        Stage 5 · Hired
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Timeline closes the loop.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Clean history ready for analytics and insights.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-emerald-500 to-brand-primary
+                                text-white font-semibold shadow-[0_0_25px_rgba(16,185,129,0.8)]">
+                    5
+                </div>
+                <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-300/70" />
+                </div>
+            </div>
+            <div />
+
+            {/* Row 6 */}
+            <div />
+            <div className="relative flex items-center justify-center">
+                <div className="relative">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full
+                                bg-gradient-to-br from-rose-500 to-slate-600
+                                text-white font-semibold shadow-[0_0_25px_rgba(248,113,113,0.8)]">
+                    6
+                </div>
+                <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-rose-300/70" />
+                </div>
+            </div>
+            <div className="flex items-center justify-start">
+                <div className="w-full max-w-md rounded-2xl bg-white px-6 py-4 text-left shadow-[0_18px_60px_rgba(15,23,42,0.7)]">
+                <div className="flex flex-row-reverse items-center gap-4 text-slate-900">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
+                                    bg-gradient-to-br from-rose-500 to-slate-600
+                                    shadow-[0_0_18px_rgba(248,113,113,0.65)] text-white">
+                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="7" />
+                        <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
+                    </svg>
+                    </div>
+                    <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-600/80">
+                        Rejected / Withdrawn
+                    </p>
+                    <h3 className="mt-1 text-sm font-semibold">
+                        Decisions stay visible.
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">
+                        Reasons and context remain attached for future searches.
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            {/* Footer inside panel */}
+            <p className="mt-10 text-center text-[11px] text-slate-300">
+            Every move — Applied → In review → Interview → Offer → Hired (or Rejected / Withdrawn) — sits on one live applications timeline.
+            </p>
         </div>
-      </div>
+        </div>
     </div>
-
-    {/* ---------- DESKTOP ZIGZAG ---------- */}
-    <div className="relative mt-16 hidden md:grid md:[grid-template-columns:1.15fr_auto_1.15fr] md:gap-x-12 md:gap-y-20">
-      {/* vertical rail */}
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-violet-200" />
-
-      {/* Row 1 */}
-      <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-brand-primary to-brand-accent
-                            shadow-[0_0_18px_rgba(120,48,255,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="14" rx="2" />
-                <path d="M9 9l4 6 1-3 3-1-8-2z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-primary/80">
-                Stage 1 · Applied
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Applications land in one clean lane.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Every new candidate is associated to the JD instantly — no more inbox hunting or spreadsheets.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-brand-primary to-brand-accent
-                          text-white font-semibold shadow-xl">
-            1
-          </div>
-          <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-violet-200" />
-        </div>
-      </div>
-      <div />
-
-      {/* Row 2 */}
-      <div />
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-emerald-500 to-teal-400
-                          text-white font-semibold shadow-xl">
-            2
-          </div>
-          <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-200" />
-        </div>
-      </div>
-      <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex flex-row-reverse items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-emerald-500 to-teal-400
-                            shadow-[0_0_18px_rgba(16,185,129,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" />
-                <path d="M4 18c0-3 2-5 4-5s4 2 4 5" />
-                <path d="M12 18c0-3 2-5 4-5s4 2 4 5" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
-                Stage 2 · In review
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Recruiter / hiring manager review in sync.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Notes, fitment score and owner stay visible on the same timeline.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Row 3 */}
-      <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-sky-500 to-indigo-500
-                            shadow-[0_0_18px_rgba(56,189,248,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 6h16v9H9l-4 4v-4H4z" />
-                <path d="M8 10h8" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-600/80">
-                Stage 3 · Interview
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Panels, slots and feedback stay attached.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                No more scattered screenshots — every round stays in one place.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-sky-500 to-indigo-500
-                          text-white font-semibold shadow-xl">
-            3
-          </div>
-          <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-sky-200" />
-        </div>
-      </div>
-      <div />
-
-      {/* Row 4 */}
-      {/* Row 4 – OFFER (right side card) */}
-      <div />
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-fuchsia-500 to-rose-500
-                          text-white font-semibold shadow-xl">
-            4
-          </div>
-          <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-pink-200" />
-        </div>
-      </div>
-      <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex items-center justify-between gap-4">
-            {/* text block */}
-            <div className="flex-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pink-600/80">
-                Stage 4 · Offer
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Offer, CTC and terms in one track.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Negotiations and approvals stay together.
-              </p>
-            </div>
-
-            {/* icon on the right */}
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full
-                            bg-gradient-to-br from-fuchsia-500 to-rose-500
-                            shadow-[0_0_18px_rgba(236,72,153,0.45)] text-white">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M7 4h8l4 4v12H7z" />
-                <path d="M15 4v4h4" />
-                <path d="M10 13h5M10 17h3" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      {/* Row 5 */}
-      <div className="flex items-center justify-end">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-emerald-500 to-brand-primary
-                            shadow-[0_0_18px_rgba(16,185,129,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="9" r="3.5" />
-                <path d="M8 4h8l-1 4" />
-                <path d="M8.5 14L9 20l3-2 3 2 .5-6" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600/80">
-                Stage 5 · Hired
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Timeline closes the loop.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Clean history ready for analytics and insights.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-emerald-500 to-brand-primary
-                          text-white font-semibold shadow-xl">
-            5
-          </div>
-          <div className="absolute top-1/2 right-full w-12 -translate-y-1/2 border-t-2 border-dashed border-emerald-200" />
-        </div>
-      </div>
-      <div />
-
-      {/* Row 6 */}
-      <div />
-      <div className="relative flex items-center justify-center">
-        <div className="relative">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full
-                          bg-gradient-to-br from-rose-500 to-slate-600
-                          text-white font-semibold shadow-xl">
-            6
-          </div>
-          <div className="absolute top-1/2 left-full w-12 -translate-y-1/2 border-t-2 border-dashed border-rose-200" />
-        </div>
-      </div>
-      <div className="flex items-center justify-start">
-        <div className="w-full max-w-md rounded-2xl bg-white/95 px-6 py-4 text-left shadow-xl">
-          <div className="flex flex-row-reverse items-center gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full aspect-square
-                            bg-gradient-to-br from-rose-500 to-slate-600
-                            shadow-[0_0_18px_rgba(248,113,113,0.45)] text-white">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="7" />
-                <path d="M9.5 9.5l5 5M14.5 9.5l-5 5" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-600/80">
-                Rejected / Withdrawn
-              </p>
-              <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                Decisions stay visible.
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">
-                Reasons and context remain attached for future searches.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Footer */}
-    <p className="mt-12 text-center text-[11px] text-slate-500">
-      Every move — Applied → In review → Interview → Offer → Hired (or Rejected / Withdrawn) — sits on one live applications timeline.
-    </p>
-  </div>
-</section>
-
-
+    </section>
 
       {/* STAGE-BASED WORKFLOW – UNIQUE LAYOUT */}
       <section className="border-b border-violet-100 bg-gradient-to-b from-[#fdf8ff] via-white to-[#f2f4ff] py-16 md:py-20">

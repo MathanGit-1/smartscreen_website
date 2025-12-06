@@ -476,71 +476,86 @@ const AssistantPage: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Category cards – Jobs / Candidates / Applications */}
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                label: "Jobs & demand",
-                badge: "Jobs",
-                color: "from-violet-500 to-brand-primary",
-                examples: [
-                  "“Show open Product Manager roles in Bangalore.”",
-                  "“Which JDs are awaiting hiring manager review?”",
-                  "“Summarise all open roles for Client A.”",
-                ],
-              },
-              {
-                label: "Candidates & pipelines",
-                badge: "Candidates",
-                color: "from-emerald-500 to-teal-500",
-                examples: [
-                  "“Best-fit candidates for Senior Java in Chennai.”",
-                  "“Candidates tagged ‘Product companies’ + ‘Notice ≤ 30 days’.”",
-                  "“Who did we interview for the last Data Engineer role?”",
-                ],
-              },
-              {
-                label: "Applications & status",
-                badge: "Applications",
-                color: "from-sky-500 to-fuchsia-500",
-                examples: [
-                  "“Where are we losing candidates in the funnel?”",
-                  "“Show offers rolled out this month and their status.”",
-                  "“Which interviews don’t have feedback yet?”",
-                ],
-              },
-            ].map(({ label, badge, color, examples }) => (
-              <div
-                key={label}
-                className="relative overflow-hidden rounded-3xl bg-slate-950/5 p-[1px] shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-violet-100/80"
-              >
-                {/* soft neon hover wash */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/0 via-brand-neon/12 to-brand-accent/0 opacity-0 transition-opacity duration-300 hover:opacity-100" />
-                <div className="relative h-full rounded-3xl bg-white/95 p-5 backdrop-blur">
-                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
-                    <span
-                      className={`inline-flex h-2 w-8 rounded-full bg-gradient-to-r ${color}`}
-                    />
-                    <span>{badge}</span>
-                    <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  </div>
+{/* Popular questions by module – Jobs / Candidates / Applications */}
+<div className="mt-10">
+  <div className="text-center">
+    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-500/80">
+      Popular questions by module
+    </p>
+    <p className="mt-1 text-sm md:text-[15px] text-slate-600">
+      A few real prompts teams ask the assistant across Jobs, Candidates and Applications.
+    </p>
+  </div>
 
-                  <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
-                    {label}
-                  </h3>
+  <div className="mt-6 grid gap-5 md:grid-cols-3">
+    {[
+      {
+        label: "Jobs & demand",
+        badge: "Jobs",
+        color: "from-violet-500 to-brand-primary",
+        examples: [
+          "“Show open Product Manager roles in Bangalore.”",
+          "“Which JDs are awaiting hiring manager review?”",
+          "“Summarise all open roles for Client A.”",
+        ],
+      },
+      {
+        label: "Candidates & pipelines",
+        badge: "Candidates",
+        color: "from-emerald-500 to-teal-500",
+        examples: [
+          "“Best-fit candidates for Senior Java in Chennai.”",
+          "“Candidates tagged ‘Product companies’ + ‘Notice ≤ 30 days’.”",
+          "“Who did we interview for the last Data Engineer role?”",
+        ],
+      },
+      {
+        label: "Applications & status",
+        badge: "Applications",
+        color: "from-sky-500 to-fuchsia-500",
+        examples: [
+          "“Where are we losing candidates in the funnel?”",
+          "“Show offers rolled out this month and their status.”",
+          "“Which interviews don’t have feedback yet?”",
+        ],
+      },
+    ].map(({ label, badge, color, examples }) => (
+      <div
+        key={label}
+        className="relative flex h-full flex-col overflow-hidden rounded-3xl
+                   bg-white/95 p-5 shadow-[0_18px_55px_rgba(15,23,42,0.10)]
+                   ring-1 ring-violet-100/90 backdrop-blur"
+      >
+        {/* badge row */}
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-violet-50 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-700">
+          <span
+            className={`inline-flex h-2 w-8 rounded-full bg-gradient-to-r ${color}`}
+          />
+          <span>{badge}</span>
+          <span className="ml-1 inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        </div>
 
-                  <ul className="mt-3 space-y-1.5 text-[13px] text-slate-600">
-                    {examples.map((e) => (
-                      <li key={e} className="flex items-start gap-2">
-                        <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-slate-400" />
-                        <span>{e}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+        <h3 className="text-[15px] md:text-base font-semibold text-slate-900">
+          {label}
+        </h3>
+
+        {/* example prompts as chips */}
+        <ul className="mt-3 flex flex-col gap-1.5 text-[12px] md:text-[13px] text-slate-600">
+          {examples.map((e) => (
+            <li
+              key={e}
+              className="flex items-start gap-2 rounded-2xl bg-slate-50 px-3 py-1.5"
+            >
+              <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-slate-300" />
+              <span>{e}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </section>
 

@@ -145,65 +145,72 @@ const CandidateManagementPage: React.FC = () => {
                 </motion.div>
                 </div>
             </section>
-
-
 {/* VERTICAL STORY – FROM RESUME CHAOS TO TALENT GRAPH */}
-<section className="border-b border-violet-100 bg-gradient-to-b from-white via-[#faf5ff] to-[#f5f0ff] py-16 md:py-20">
-  <div className="mx-auto flex max-w-5xl flex-col gap-10 px-4 lg:px-0">
-    {/* Heading */}
-    <motion.div
-      variants={stagger}
-      initial="hidden"
-      animate="visible"
-      className="text-center"
-    >
-      <motion.h2
-        variants={fadeUp}
-        className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-500"
-      >
+<section className="relative border-b border-violet-100 bg-white py-24 md:py-28 lg:py-32">
+  {/* background image + soft glows */}
+  <div className="pointer-events-none absolute inset-0 -z-10">
+    {/* soft global glow */}
+    <div className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.22),transparent_65%)]" />
+    <div className="absolute inset-x-0 bottom-0 h-64 bg-[radial-gradient(circle_at_bottom,_rgba(79,70,229,0.18),transparent_65%)]" />
+    {/* candidate-intel network illustration (replace with your own file) */}
+    <div className="absolute inset-0 bg-[url('/images/candidate-intel-network.svg')] bg-top bg-no-repeat bg-[length:1100px_auto] opacity-35" />
+  </div>
+
+  <div className="mx-auto flex max-w-5xl flex-col gap-14 px-4 lg:px-0">
+    {/* -------------------------------- */}
+    {/*            HEADING BLOCK         */}
+    {/* -------------------------------- */}
+    <div className="relative mx-auto max-w-3xl text-center">
+      {/* pill label – darker chip */}
+      <div className="inline-flex items-center justify-center rounded-full border border-violet-700/70 bg-violet-700 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-50 shadow-sm shadow-violet-500/30">
+        Candidate Intelligence · Workflow
+      </div>
+
+      <h2 className="mt-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-violet-500">
         How SmartScreen sees every candidate
-      </motion.h2>
-      <motion.p
-        variants={fadeUp}
-        className="mt-3 text-[22px] font-semibold tracking-tight text-slate-900 md:text-[26px]"
-      >
+      </h2>
+
+      <p className="mt-3 text-[22px] md:text-[26px] font-semibold tracking-tight text-slate-900">
         Resumes become rich profiles, then reusable talent pools.
-      </motion.p>
-    </motion.div>
+      </p>
 
-    {/* Vertical flow – chips + cards */}
+      <p className="mt-2 text-[13px] md:text-sm text-slate-600">
+        From raw uploads to normalised, tagged and reusable candidate profiles — all in a single, searchable view.
+      </p>
+    </div>
+
+    {/* -------------------------------- */}
+    {/*         RAIL + STEPS BLOCK       */}
+    {/* -------------------------------- */}
     <div className="relative mx-auto max-w-4xl">
-      {/* background rail – centred under chip column (56px wide → centre at 28px) */}
-      <div className="pointer-events-none absolute top-4 bottom-6 left-[28px] w-px bg-gradient-to-b from-violet-400 via-cyan-400 to-emerald-400 opacity-90 md:left-[30px]" />
-      <div className="pointer-events-none absolute top-4 bottom-6 left-[26px] w-4 rounded-full bg-gradient-to-b from-violet-500/8 via-cyan-400/8 to-emerald-400/8 blur-xl md:left-[28px]" />
+      {/* rail line */}
+      <div
+        className="pointer-events-none absolute top-10 bottom-10 left-[28px] w-px
+                   bg-gradient-to-b from-violet-400 via-cyan-400 to-emerald-400 opacity-90
+                   md:left-[30px]"
+      />
 
-      {/* glowing movement along the rail */}
-        <motion.div
-        className="pointer-events-none absolute left-[28px] top-0 h-12 w-[6px] 
-                    rounded-full bg-white/90 blur-md shadow-[0_0_25px_8px_rgba(255,255,255,0.55)]"
-        animate={{ y: [0, 360] }}
-        transition={{
-            duration: 3.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-        }}
-        />
+      {/* rail glow */}
+      <div
+        className="pointer-events-none absolute top-10 bottom-10 left-[26px] w-4 rounded-full
+                   bg-gradient-to-b from-violet-500/10 via-cyan-400/10 to-emerald-400/10 blur-xl
+                   md:left-[28px]"
+      />
 
-
-      <div className="space-y-4 md:space-y-5">
+      {/* steps */}
+      <div className="space-y-14 md:space-y-16">
         {[
           {
             id: 1,
             chipBg: "from-brand-primary to-brand-accent",
             glow: "shadow-[0_0_28px_rgba(124,58,237,0.55)]",
             pillColor: "from-violet-500 to-pink-500",
-            eyebrow: "text-violet-500",
+            eyebrow: "text-violet-600",
             eyebrowLabel: "Step 1 · Capture",
             cardRing: "ring-violet-100/80",
-            title: "Drop resumes from any source.",
+            title: "Ingest resumes from every channel.",
             body:
-              "Bulk upload PDFs, DOCX or ZIP files from job boards, email threads or shared folders. SmartScreen keeps original files safe and starts parsing immediately.",
+              "Upload PDFs, DOCX or ZIP files from job boards, agencies, referrals or email threads. SmartScreen keeps originals safe and centralises all candidate data instantly.",
           },
           {
             id: 2,
@@ -213,9 +220,9 @@ const CandidateManagementPage: React.FC = () => {
             eyebrow: "text-cyan-600",
             eyebrowLabel: "Step 2 · Normalise",
             cardRing: "ring-cyan-100/80",
-            title: "AI builds clean, comparable profiles.",
+            title: "AI turns messy resumes into structured profiles.",
             body:
-              "Titles, companies, skills, locations and experience bands are normalised, so “Sr Java Dev”, “Senior Software Engineer (Java)” and “Backend Engineer – Java” all live on the same scale.",
+              "Titles, skills, experience bands, locations and companies are standardised — so variations like “Sr Java Dev”, “Senior Software Engineer (Java)” and “Backend Engineer — Java” all map to the same meaning.",
           },
           {
             id: 3,
@@ -223,11 +230,11 @@ const CandidateManagementPage: React.FC = () => {
             glow: "shadow-[0_0_28px_rgba(16,185,129,0.55)]",
             pillColor: "from-emerald-400 to-teal-500",
             eyebrow: "text-emerald-600",
-            eyebrowLabel: "Step 3 · Enrich & tag",
+            eyebrowLabel: "Step 3 · Enrich & Tag",
             cardRing: "ring-emerald-100/80",
-            title: "Tag by skills, location, seniority and fit.",
+            title: "AI enriches profiles with skills, tags and signals.",
             body:
-              "Auto-suggested skills and tags help you group candidates into pools — “Java · Chennai · 5–8 yrs”, “US Night Shift ready”, “Product companies only” and more.",
+              "Smart hints auto-suggest relevant skills, seniority, location, shift preferences and role-fit signals — helping you build reusable talent pools in seconds.",
           },
           {
             id: 4,
@@ -235,11 +242,11 @@ const CandidateManagementPage: React.FC = () => {
             glow: "shadow-[0_0_28px_rgba(245,158,11,0.55)]",
             pillColor: "from-amber-400 to-orange-500",
             eyebrow: "text-amber-600",
-            eyebrowLabel: "Step 4 · Reuse & shortlist",
+            eyebrowLabel: "Step 4 · Reuse & Shortlist",
             cardRing: "ring-amber-100/80",
-            title: "Search once, reuse on every new role.",
+            title: "Search once, reuse for every new role.",
             body:
-              "When a new JD arrives, SmartScreen surfaces matching candidates instantly — with tags, past interactions and fitment context, so you’re never starting a search from zero.",
+              "When a JD arrives, SmartScreen immediately surfaces matching candidates using tags, history and fitment signals — so you never restart a search from zero.",
           },
         ].map(
           (
@@ -258,10 +265,11 @@ const CandidateManagementPage: React.FC = () => {
           ) => (
             <div
               key={id}
-              className="grid grid-cols-[70px,minmax(0,1fr)] gap-12 md:grid-cols-[80px,minmax(0,1fr)] md:gap-14 items-center"
+              className="grid grid-cols-[70px,minmax(0,1fr)] items-center gap-12
+                         md:grid-cols-[80px,minmax(0,1fr)] md:gap-16"
             >
-              {/* LEFT – centred chip */}
-              <div className="relative flex w-[56px] justify-center pt-1 md:w-[60px]">
+              {/* LEFT – circles (keep colors) */}
+              <div className="relative flex w-[56px] items-center justify-center md:w-[60px]">
                 <div
                   className={`
                     flex h-9 w-9 items-center justify-center
@@ -274,16 +282,20 @@ const CandidateManagementPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* RIGHT – card */}
+              {/* RIGHT – cards */}
               <div
                 className={`
-                  rounded-3xl bg-white/95 p-4 shadow-soft
-                  ${cardRing} backdrop-blur-sm md:p-5
+                  flex min-h-[150px] flex-col justify-center
+                  rounded-3xl bg-gradient-to-br from-white to-slate-50
+                  p-5 md:p-6 shadow-soft ${cardRing}
+                  backdrop-blur-sm
+                  transition-transform transition-shadow duration-300
+                  hover:-translate-y-0.5 hover:shadow-lg
                 `}
               >
                 <div
                   className={`
-                    mb-1 flex items-center gap-2 text-[11px]
+                    mb-2 flex items-center gap-2 text-[11px]
                     font-semibold uppercase tracking-[0.18em] ${eyebrow}
                   `}
                 >
@@ -295,10 +307,14 @@ const CandidateManagementPage: React.FC = () => {
                   />
                   <span>{eyebrowLabel}</span>
                 </div>
-                <h3 className="text-[15px] font-semibold text-slate-900 md:text-[16px]">
+
+                <h3 className="text-[16px] md:text-[18px] font-semibold text-slate-900">
                   {title}
                 </h3>
-                <p className="mt-1 text-[13px] text-slate-600">{body}</p>
+
+                <p className="mt-2 text-[13px] md:text-[14px] leading-relaxed text-slate-600">
+                  {body}
+                </p>
               </div>
             </div>
           ),

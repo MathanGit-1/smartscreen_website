@@ -38,30 +38,28 @@ const CandidateManagementPage: React.FC = () => {
         {/* shared side glow (same family as Job Management) */}
         <div className="pointer-events-none absolute -left-[18%] bottom-[-20%] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.35),transparent_60%)] blur-3xl" />
 
-        {/* BACKGROUND MAGNIFY ICON — brighter + more glow */}
+        {/* BACKGROUND MAGNIFY ICON — slightly smaller */}
         <motion.img
-        aria-hidden="true"
-        src={candidateLensIcon}
-        className="
+          aria-hidden="true"
+          src={candidateLensIcon}
+          className="
             pointer-events-none absolute
-            top-[18%]
-            left-[12%]
-            h-[620px] w-[620px]
-            opacity-[0.32]               /* increased from 0.22 → more visible */
-            brightness-200               /* increased from 150 */
-            saturate-200                 /* richer colors */
+            top-[20%]
+            left-[10%]
+            h-[420px] w-[420px]           /* ⬅️ reduced from 620px */
+            lg:h-[480px] lg:w-[480px]     /* ⬅️ a bit larger only on big screens */
+            opacity-[0.32]
+            brightness-200
+            saturate-200
             drop-shadow-[0_0_45px_rgba(236,72,153,0.35)]
             drop-shadow-[0_0_55px_rgba(56,189,248,0.25)]
-            blur-[0px]                   /* removed blur so details appear clearer */
+            blur-[0px]
             mix-blend-screen
             select-none
-        "
-        animate={{ scale: [1, 1.04, 1] }}
-        transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse' }}
+          "
+          animate={{ scale: [1, 1.04, 1] }}
+          transition={{ duration: 14, repeat: Infinity, repeatType: "reverse" }}
         />
-
-
-
                 {/* CENTERED CONTENT */}
                 <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-4 text-center lg:px-0">
                 <motion.div

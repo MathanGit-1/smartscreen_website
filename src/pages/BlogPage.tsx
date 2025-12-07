@@ -1,3 +1,4 @@
+// src/pages/BlogPage.tsx
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -16,7 +17,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "future-of-hiring-ai-first-recruiter",
     title: "The Future of Hiring: Why AI Will Become Your First Recruiter",
-    subtitle: "AI is quietly becoming the most reliable teammate in every hiring team.",
+    subtitle:
+      "AI is quietly becoming the most reliable teammate in every hiring team.",
     date: "December 2025",
     readingTime: "7 min read",
     category: "AI in Hiring",
@@ -29,13 +31,14 @@ const BLOG_POSTS: BlogPost[] = [
       "The biggest advantage is not just speed but consistency. Two recruiters reading the same resume may interpret it differently. An AI model, on the other hand, evaluates skills, experience, seniority, and domain match in the same way every time.",
       "Modern hiring is no longer about collecting more resumes. It is about building a living talent graph where every candidate, skill, and interaction is structured and searchable. AI turns your database from a resume folder into a decision engine.",
       "AI will not replace recruiters. Instead, companies that use AI in hiring will start to outperform those that don’t. Recruiters who lean on AI can spend their time on conversations, storytelling, and judgment — the parts of hiring humans are uniquely good at.",
-      "In the next few years, AI will quietly become the operating system of hiring. Tools like SmartScreen are designed to support this future, acting as always-on co-pilots that keep your pipeline moving and your decisions consistent."
+      "In the next few years, AI will quietly become the operating system of hiring. Tools like SmartScreen are being built to support this future, acting as always-on co-pilots that keep your pipeline moving and your decisions consistent."
     ]
   },
   {
     slug: "why-job-descriptions-fail-and-how-ai-fixes-them",
     title: "Why Job Descriptions Fail (And How AI Can Fix Them)",
-    subtitle: "Your JD is your first pitch to candidates — and most teams are underestimating it.",
+    subtitle:
+      "Your JD is your first pitch to candidates — and most teams are underestimating it.",
     date: "December 2025",
     readingTime: "6 min read",
     category: "Job Descriptions",
@@ -54,7 +57,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "hidden-cost-of-slow-hiring",
     title: "The Hidden Cost of Slow Hiring (And How AI Speeds It Up)",
-    subtitle: "Delayed decisions don’t just lose candidates — they quietly hurt your business.",
+    subtitle:
+      "Delayed decisions don’t just lose candidates — they quietly hurt your business.",
     date: "November 2025",
     readingTime: "6 min read",
     category: "Hiring Speed",
@@ -111,7 +115,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "why-candidates-drop-off-and-how-ai-helps",
     title: "Why Candidates Drop Off (And How AI Reduces It)",
-    subtitle: "Silence in your pipeline is often a process problem, not a candidate problem.",
+    subtitle:
+      "Silence in your pipeline is often a process problem, not a candidate problem.",
     date: "October 2025",
     readingTime: "6 min read",
     category: "Candidate Experience",
@@ -142,7 +147,7 @@ const BLOG_POSTS: BlogPost[] = [
       "This allows teams to answer questions like: Who are our strongest past candidates for a new role? Which skills tend to correlate with successful hires? Where are the gaps in our pipeline for a particular job family?",
       "AI models can analyze patterns in your historical hiring data and surface insights that are hard to see manually. For example, you may discover that hires with a certain combination of skills and company types tend to ramp up faster.",
       "The practical impact is that your database stops being a graveyard of old applicants. It becomes a living asset you can tap into each time a new role opens.",
-      "Platforms like SmartScreen are built with this mindset. They don’t just store candidate information — they help teams understand it, reuse it, and act on it.",
+      "Platforms like SmartScreen are being built with this mindset. The goal is not just to store candidate information, but to help teams understand it, reuse it, and act on it.",
       "As more companies adopt this approach, talent intelligence will shift from being a ‘nice-to-have’ to a baseline expectation in modern hiring stacks."
     ]
   },
@@ -168,7 +173,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "candidate-feedback-most-overlooked-step",
     title: "The Most Overlooked Step in Hiring: Candidate Feedback",
-    subtitle: "How you close the loop says as much about your brand as your offer letter.",
+    subtitle:
+      "How you close the loop says as much about your brand as your offer letter.",
     date: "August 2025",
     readingTime: "6 min read",
     category: "Candidate Experience",
@@ -180,7 +186,7 @@ const BLOG_POSTS: BlogPost[] = [
       "AI can make it easier to deliver timely, thoughtful feedback at scale. It can help draft messages based on interview notes, suggest phrasing that is clear but respectful, and ensure no one is accidentally left without a response.",
       "Even a short, honest explanation is better than silence. Candidates appreciate knowing where they stood and what influenced the decision.",
       "Teams that build this discipline into their process stand out. They create a reputation for fairness and professionalism that can attract stronger candidates over time.",
-      "With the help of tools like SmartScreen, structured feedback can become a natural part of the workflow rather than an optional extra step.",
+      "With the help of tools like SmartScreen, structured feedback can, over time, become a natural part of the workflow rather than an optional extra step.",
       "In competitive markets, how you say ‘no’ can matter almost as much as how you say ‘yes’."
     ]
   },
@@ -211,7 +217,9 @@ const fadeUp = {
 };
 
 const BlogPage: React.FC = () => {
-  const [selectedSlug, setSelectedSlug] = useState<string>(BLOG_POSTS[0]?.slug);
+  const [selectedSlug, setSelectedSlug] = useState<string>(
+    BLOG_POSTS[0]?.slug
+  );
 
   const selectedPost = useMemo(
     () => BLOG_POSTS.find((p) => p.slug === selectedSlug) ?? BLOG_POSTS[0],
@@ -219,26 +227,33 @@ const BlogPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#faf5ff] to-[#f5f0ff] text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-[#f5f7ff] via-[#faf5ff] to-[#f5f0ff] text-slate-900">
       {/* HERO */}
-      <section className="border-b border-violet-100/80 bg-gradient-to-b from-white/90 via-[#faf5ff] to-[#f5f0ff]">
-        <div className="mx-auto max-w-6xl px-4 pb-10 pt-16 md:pb-14 md:pt-20 lg:px-0">
+      <section className="relative border-b border-indigo-100/70 bg-gradient-to-b from-white/90 via-[#f5f7ff] to-[#f5f0ff]">
+        {/* soft blue glow */}
+        <div className="pointer-events-none absolute -left-20 top-[-40px] h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.25),transparent_60%)] blur-3xl" />
+        <div className="pointer-events-none absolute right-[-40px] top-[60px] h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,_rgba(129,140,248,0.24),transparent_60%)] blur-3xl" />
+
+        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-16 md:pb-14 md:pt-20 lg:px-0">
           <motion.div
             className="max-w-3xl"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-violet-500">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-500">
               Resources · Blog
             </p>
             <h1 className="mt-3 text-2xl font-semibold leading-tight text-slate-900 md:text-[30px]">
               Hiring, AI, and talent systems —{" "}
-              <span className="text-violet-600">in plain language.</span>
+              <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-violet-500 bg-clip-text text-transparent">
+                in plain language.
+              </span>
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-[15px]">
               Short, practical reads on how modern recruiting teams use AI,
-              structure, and better workflows to hire faster — without adding
+              structure, and better workflows to hire faster — and how
+              SmartScreen is being built to support that shift without adding
               more chaos.
             </p>
           </motion.div>
@@ -247,92 +262,100 @@ const BlogPage: React.FC = () => {
 
       {/* CONTENT */}
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-14 lg:px-0">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.75fr)] items-start">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.75fr)]">
           {/* LEFT: Post list */}
-          <motion.aside
-            className="space-y-4 rounded-3xl border border-violet-100 bg-white/80 p-4 shadow-sm backdrop-blur md:p-5"
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35 }}
+            className="relative"
           >
-            <div className="flex items-center justify-between">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                All posts
-              </h2>
-              <span className="rounded-full bg-violet-50 px-2.5 py-1 text-[11px] font-medium text-violet-700">
-                {BLOG_POSTS.length} articles
-              </span>
-            </div>
+            {/* subtle gradient frame */}
+            <div className="absolute inset-0 -z-10 rounded-[26px] bg-gradient-to-br from-sky-500/10 via-indigo-500/8 to-violet-500/10 blur-xl" />
+            <aside className="space-y-4 rounded-3xl border border-indigo-100 bg-white/90 p-4 shadow-sm shadow-indigo-100/70 backdrop-blur md:p-5">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                  All posts
+                </h2>
+                <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-medium text-indigo-700">
+                  {BLOG_POSTS.length} articles
+                </span>
+              </div>
 
-            <div className="mt-2 space-y-2">
-              {BLOG_POSTS.map((post) => {
-                const isActive = post.slug === selectedSlug;
-                return (
-                  <button
-                    key={post.slug}
-                    type="button"
-                    onClick={() => setSelectedSlug(post.slug)}
-                    className={`group w-full rounded-2xl border px-3.5 py-3 text-left transition-all ${
-                      isActive
-                        ? "border-violet-400 bg-violet-50/80 shadow-sm"
-                        : "border-violet-100/70 bg-white/80 hover:border-violet-300 hover:bg-violet-50/70"
-                    }`}
-                  >
-                    <p className="text-[11px] font-medium text-violet-600">
-                      {post.category}
-                    </p>
-                    <p className="mt-1 text-[13px] font-semibold text-slate-900 group-hover:text-violet-800">
-                      {post.title}
-                    </p>
-                    <p className="mt-1 line-clamp-2 text-[12px] text-slate-600">
-                      {post.excerpt}
-                    </p>
-                    <div className="mt-2 flex items-center gap-2 text-[11px] text-slate-500">
-                      <span>{post.date}</span>
-                      <span className="h-1 w-1 rounded-full bg-slate-300" />
-                      <span>{post.readingTime}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </motion.aside>
+              <div className="mt-2 space-y-2">
+                {BLOG_POSTS.map((post) => {
+                  const isActive = post.slug === selectedSlug;
+                  return (
+                    <button
+                      key={post.slug}
+                      type="button"
+                      onClick={() => setSelectedSlug(post.slug)}
+                      className={`group w-full rounded-2xl border px-3.5 py-3 text-left transition-all ${
+                        isActive
+                          ? "border-indigo-400 bg-indigo-50/90 shadow-sm shadow-indigo-100"
+                          : "border-indigo-100/80 bg-white/90 hover:border-indigo-300 hover:bg-indigo-50/70"
+                      }`}
+                    >
+                      <p className="text-[11px] font-medium text-indigo-600">
+                        {post.category}
+                      </p>
+                      <p className="mt-1 text-[13px] font-semibold text-slate-900 group-hover:text-indigo-800">
+                        {post.title}
+                      </p>
+                      <p className="mt-1 line-clamp-2 text-[12px] text-slate-600">
+                        {post.excerpt}
+                      </p>
+                      <div className="mt-2 flex items-center gap-2 text-[11px] text-slate-500">
+                        <span>{post.date}</span>
+                        <span className="h-1 w-1 rounded-full bg-slate-300" />
+                        <span>{post.readingTime}</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </aside>
+          </motion.div>
 
           {/* RIGHT: Selected article */}
           <AnimatePresence mode="wait">
-            <motion.article
+            <motion.div
               key={selectedPost.slug}
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-violet-100 bg-white/90 p-5 shadow-soft-lg backdrop-blur md:p-7"
+              className="relative"
             >
-              <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
-                <span className="rounded-full bg-violet-50 px-2 py-1 font-medium text-violet-700">
-                  {selectedPost.category}
-                </span>
-                <span>{selectedPost.date}</span>
-                <span className="h-1 w-1 rounded-full bg-slate-300" />
-                <span>{selectedPost.readingTime}</span>
-              </div>
+              {/* glow frame behind article */}
+              <div className="pointer-events-none absolute inset-0 -z-10 rounded-[30px] bg-gradient-to-br from-indigo-500/10 via-sky-500/8 to-violet-500/10 blur-xl" />
+              <article className="rounded-3xl border border-indigo-100 bg-white/95 p-5 shadow-soft-lg shadow-slate-200/70 backdrop-blur md:p-7">
+                <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                  <span className="rounded-full bg-indigo-50 px-2 py-1 font-medium text-indigo-700">
+                    {selectedPost.category}
+                  </span>
+                  <span>{selectedPost.date}</span>
+                  <span className="h-1 w-1 rounded-full bg-slate-300" />
+                  <span>{selectedPost.readingTime}</span>
+                </div>
 
-              <h2 className="mt-3 text-xl font-semibold leading-snug text-slate-900 md:text-[24px]">
-                {selectedPost.title}
-              </h2>
-              {selectedPost.subtitle && (
-                <p className="mt-2 text-sm text-slate-600 md:text-[15px]">
-                  {selectedPost.subtitle}
-                </p>
-              )}
+                <h2 className="mt-3 text-xl font-semibold leading-snug text-slate-900 md:text-[24px]">
+                  {selectedPost.title}
+                </h2>
+                {selectedPost.subtitle && (
+                  <p className="mt-2 text-sm text-slate-600 md:text-[15px]">
+                    {selectedPost.subtitle}
+                  </p>
+                )}
 
-              <div className="mt-6 space-y-4 text-[13px] leading-relaxed text-slate-700 md:text-[14px]">
-                {selectedPost.content.map((para, idx) => (
-                  <p key={idx}>{para}</p>
-                ))}
-              </div>
-            </motion.article>
+                <div className="mt-6 space-y-4 text-[13px] leading-relaxed text-slate-700 md:text-[14px]">
+                  {selectedPost.content.map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
+              </article>
+            </motion.div>
           </AnimatePresence>
         </div>
       </section>

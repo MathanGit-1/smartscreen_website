@@ -219,71 +219,11 @@ const Navbar: React.FC = () => {
 
                 <li
                   className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/guides")}
-                >
-                  <span className="font-medium text-brand-dark">
-                    Guides & playbooks
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    Deep dives on modern hiring systems.
-                  </span>
-                </li>
-
-                <li
-                  className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/templates")}
-                >
-                  <span className="font-medium text-brand-dark">
-                    Templates library
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    JD, email, and interview templates, ready to use.
-                  </span>
-                </li>
-
-                <li
-                  className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/help-center")}
-                >
-                  <span className="font-medium text-brand-dark">
-                    Help center / docs
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    How SmartScreen works, step by step.
-                  </span>
-                </li>
-
-                <li
-                  className="flex cursor-pointer flex-col gap-0.5"
                   onClick={() => navigateTo("/resources/faq")}
                 >
                   <span className="font-medium text-brand-dark">FAQ</span>
                   <span className="text-[11px] text-slate-600">
                     Common questions about product, data & security.
-                  </span>
-                </li>
-
-                <li
-                  className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/changelog")}
-                >
-                  <span className="font-medium text-brand-dark">
-                    Changelog / What&apos;s new
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    See what we&apos;ve been shipping recently.
-                  </span>
-                </li>
-
-                <li
-                  className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/case-studies")}
-                >
-                  <span className="font-medium text-brand-dark">
-                    Case studies
-                  </span>
-                  <span className="text-[11px] text-slate-600">
-                    How teams use SmartScreen in real hiring workflows.
                   </span>
                 </li>
               </ul>

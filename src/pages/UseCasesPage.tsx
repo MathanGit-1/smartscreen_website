@@ -37,7 +37,7 @@ const useCases: UseCase[] = [
   {
     badge: "HR Managers",
     tone: "Keep hiring under control",
-    headline: "From chasing updates to one live hiring workspace.",
+    headline: "One live workspace for every role and its candidates.",
     problemPoints: [
       "Status scattered across Excel, email, and WhatsApp.",
       "Hard to see where each role is stuck.",
@@ -46,14 +46,14 @@ const useCases: UseCase[] = [
     solutionPoints: [
       "Single workspace to see every open job and its shortlisted candidates.",
       "Stage-wise view of each candidate for every role, so you know who’s pending where.",
-      "Clear fitment scores and statuses that cut down ‘what’s the latest?’ follow-ups.",
+      "Clear fitment scores and statuses that cut down “what’s the latest?” follow-ups.",
     ],
     visual: "hr-control",
   },
   {
     badge: "Tech Recruiters",
     tone: "Shortlist real skills, not just keywords",
-    headline: "From keyword search to skill-verified shortlists.",
+    headline: "From resume chaos to ranked, skill-verified shortlists.",
     problemPoints: [
       "Hundreds of similar-looking resumes per tech role.",
       "Risk of missing strong candidates hidden in the pile.",
@@ -69,7 +69,7 @@ const useCases: UseCase[] = [
   {
     badge: "Non-Tech / Business Recruiters",
     tone: "Make intuition repeatable",
-    headline: "From gut feeling to consistent shortlists.",
+    headline: "From guesswork to clear, responsibility-based matches.",
     problemPoints: [
       "Overlap of roles like HRBP, Operations, and Generalist.",
       "Hard to explain why one profile is better than another.",
@@ -84,8 +84,8 @@ const useCases: UseCase[] = [
   },
   {
     badge: "TA Heads & Founders",
-    tone: "See hiring like a live control room",
-    headline: "From micro-managing every role to one clear view.",
+    tone: "See hiring like a control room",
+    headline: "All jobs, all stages, all candidates — one shared view.",
     problemPoints: [
       "No single snapshot of all live roles and pipelines.",
       "Difficult to measure recruiter performance fairly.",
@@ -101,7 +101,7 @@ const useCases: UseCase[] = [
   {
     badge: "Staffing / Agency Teams",
     tone: "Reuse talent across clients",
-    headline: "From scattered candidate pools to reusable talent graph.",
+    headline: "From scattered candidate pools to one reusable talent space.",
     problemPoints: [
       "Same candidate fits multiple clients but data is scattered.",
       "Hard to track submissions, feedback, and TAT per client.",
@@ -110,7 +110,7 @@ const useCases: UseCase[] = [
     solutionPoints: [
       "Central candidate pool across all your client accounts.",
       "Tagging by client, role, seniority, and outcome.",
-      "Easily resurface ‘almost selected’ candidates when a similar role opens.",
+      "Easily resurface “almost selected” candidates when a similar role opens.",
     ],
     visual: "agency-graph",
   },
@@ -324,7 +324,8 @@ const UseCaseVisual: React.FC<UseCaseVisualProps> = ({ variant }) => {
 
             {/* right: mini trend chart */}
             <div className="flex flex-col justify-between rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2.5 text-[10px]">
-              <p className="mb-1 text-[10px] font-semibold text-slate-800">
+              <p className="mb-1 text-[10px] font-semibold text-slate-8
+00">
                 Weekly pipeline health
               </p>
               <div className="mt-1 flex h-14 items-end gap-1.5">
@@ -358,7 +359,8 @@ const UseCaseVisual: React.FC<UseCaseVisualProps> = ({ variant }) => {
                   key={client}
                   className="rounded-lg border border-slate-100 bg-white px-2 py-2 shadow-sm"
                 >
-                  <p className="truncate text-[10px] font-medium text-slate-800">
+                  <p className="truncate text-[10px] font-medium text-slate-8
+00">
                     {client}
                   </p>
                   <p className="text-[9px] text-slate-500">{roles} roles</p>
@@ -436,9 +438,10 @@ const UseCasesPage: React.FC = () => {
               variants={fadeUp}
               className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-violet-200"
             >
-              Whether you're running hiring end-to-end or just owning one slice,
-              SmartScreen fits into your workflow and makes it faster, clearer,
-              and easier to manage.
+              Each scenario below maps directly to SmartScreen modules like Job
+              Management, Candidate Intelligence, Applications, and our AI
+              Assistant — so visitors can see exactly how it fits into their
+              day-to-day hiring.
             </motion.p>
 
             {/* buttons */}
@@ -486,8 +489,9 @@ const UseCasesPage: React.FC = () => {
               </h2>
             </div>
             <p className="max-w-md text-xs text-slate-600 md:text-[13px]">
-              Each of these use cases is already covered by your existing
-              features — this page simply connects the dots for visitors.
+              Each of these examples connects directly to a SmartScreen module
+              — Job Management, Candidate Intelligence, Applications, or Agency
+              mode — so visitors can recognise their own workflow instantly.
             </p>
           </div>
 
@@ -555,7 +559,8 @@ const UseCasesPage: React.FC = () => {
                       <div className="mt-5 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
                         <span className="inline-flex items-center gap-1 rounded-full bg-slate-50 px-2.5 py-1">
                           <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
-                          Built from your existing features — no extra setup.
+                          Built from existing SmartScreen features — no extra
+                          setup.
                         </span>
                       </div>
                     </motion.div>

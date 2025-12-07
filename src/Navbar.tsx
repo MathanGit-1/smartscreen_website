@@ -3,22 +3,44 @@ import React, { useRef, useState } from "react";
 
 const Navbar: React.FC = () => {
   const [isProductOpen, setIsProductOpen] = useState(false);
-  const hoverTimeout = useRef<number | null>(null);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
+  const productHoverTimeout = useRef<number | null>(null);
+  const resourcesHoverTimeout = useRef<number | null>(null);
+
+  // FEATURES DROPDOWN HANDLERS
   const handleProductEnter = () => {
-    if (hoverTimeout.current) {
-      window.clearTimeout(hoverTimeout.current);
-      hoverTimeout.current = null;
+    if (productHoverTimeout.current) {
+      window.clearTimeout(productHoverTimeout.current);
+      productHoverTimeout.current = null;
     }
     setIsProductOpen(true);
   };
 
   const handleProductLeave = () => {
-    if (hoverTimeout.current) {
-      window.clearTimeout(hoverTimeout.current);
+    if (productHoverTimeout.current) {
+      window.clearTimeout(productHoverTimeout.current);
     }
-    hoverTimeout.current = window.setTimeout(() => {
+    productHoverTimeout.current = window.setTimeout(() => {
       setIsProductOpen(false);
+    }, 120);
+  };
+
+  // RESOURCES DROPDOWN HANDLERS
+  const handleResourcesEnter = () => {
+    if (resourcesHoverTimeout.current) {
+      window.clearTimeout(resourcesHoverTimeout.current);
+      resourcesHoverTimeout.current = null;
+    }
+    setIsResourcesOpen(true);
+  };
+
+  const handleResourcesLeave = () => {
+    if (resourcesHoverTimeout.current) {
+      window.clearTimeout(resourcesHoverTimeout.current);
+    }
+    resourcesHoverTimeout.current = window.setTimeout(() => {
+      setIsResourcesOpen(false);
     }, 120);
   };
 
@@ -33,7 +55,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    // made sticky + higher z-index
+    // sticky + higher z-index
     <header className="sticky top-0 z-40 border-b border-violet-100 bg-white/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
@@ -154,7 +176,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* 🔹 Use cases now navigates to /use-cases */}
+          {/* Use cases → /use-cases */}
           <button
             className="font-medium text-gray-800 hover:text-brand-dark"
             onClick={() => navigateTo("/use-cases")}
@@ -162,13 +184,111 @@ const Navbar: React.FC = () => {
             Use cases
           </button>
 
-          {/* <button className="font-medium text-gray-800 hover:text-brand-dark">
-            Pricing
-          </button> */}
+          {/* Resources dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={handleResourcesEnter}
+            onMouseLeave={handleResourcesLeave}
+          >
+            <button className="flex items-center gap-1 font-medium text-gray-800 hover:text-brand-dark">
+              Resources
+              <span className="text-[10px] text-slate-600">▾</span>
+            </button>
 
-          <button className="font-medium text-gray-800 hover:text-brand-dark">
-            Resources
-          </button>
+            <div
+              className={`absolute left-0 top-full mt-2 w-72 rounded-2xl border border-violet-100 bg-white/95 p-4 shadow-lg transition-all ${
+                isResourcesOpen
+                  ? "pointer-events-auto translate-y-0 opacity-100"
+                  : "pointer-events-none translate-y-2 opacity-0"
+              }`}
+            >
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-600">
+                Learn & explore
+              </div>
+
+              <ul className="space-y-3 text-[13px]">
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/blog")}
+                >
+                  <span className="font-medium text-brand-dark">Blog</span>
+                  <span className="text-[11px] text-slate-600">
+                    Short, practical reads on hiring, AI & workflows.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/guides")}
+                >
+                  <span className="font-medium text-brand-dark">
+                    Guides & playbooks
+                  </span>
+                  <span className="text-[11px] text-slate-600">
+                    Deep dives on modern hiring systems.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/templates")}
+                >
+                  <span className="font-medium text-brand-dark">
+                    Templates library
+                  </span>
+                  <span className="text-[11px] text-slate-600">
+                    JD, email, and interview templates, ready to use.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/help-center")}
+                >
+                  <span className="font-medium text-brand-dark">
+                    Help center / docs
+                  </span>
+                  <span className="text-[11px] text-slate-600">
+                    How SmartScreen works, step by step.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/faq")}
+                >
+                  <span className="font-medium text-brand-dark">FAQ</span>
+                  <span className="text-[11px] text-slate-600">
+                    Common questions about product, data & security.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/changelog")}
+                >
+                  <span className="font-medium text-brand-dark">
+                    Changelog / What&apos;s new
+                  </span>
+                  <span className="text-[11px] text-slate-600">
+                    See what we&apos;ve been shipping recently.
+                  </span>
+                </li>
+
+                <li
+                  className="flex cursor-pointer flex-col gap-0.5"
+                  onClick={() => navigateTo("/resources/case-studies")}
+                >
+                  <span className="font-medium text-brand-dark">
+                    Case studies
+                  </span>
+                  <span className="text-[11px] text-slate-600">
+                    How teams use SmartScreen in real hiring workflows.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
 
         {/* Right actions */}

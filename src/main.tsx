@@ -8,6 +8,7 @@ import CandidateManagementPage from "./pages/CandidateManagementPage";
 import ApplicationsPage from "./pages/ApplicationsPage";
 import AssistantPage from "./pages/AssistantPage";
 import UseCasesPage from "./pages/UseCasesPage";
+import BlogPage from "./pages/BlogPage";
 import Layout from "./Layout";
 import "./index.css";
 
@@ -33,16 +34,20 @@ ReactDOM.createRoot(
           />
           <Route
             path="/features/applications"
-            element={<ApplicationsPage />}   // 🔹 NEW
+            element={<ApplicationsPage />}
           />
           <Route
             path="/features/assistant"
-            element={<AssistantPage />}   // 🔹 NEW
-          />
-          <Route
-            path="/use-cases"
-            element={<UseCasesPage />}   // 🔹 NEW
-          />
+            element={<AssistantPage />}
+              />
+              <Route
+                path="/use-cases"
+                element={<UseCasesPage />}
+              />
+              <Route
+                path="/blog"
+                element={<BlogPage />}
+              />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -9,6 +9,7 @@ import ApplicationsPage from "./pages/ApplicationsPage";
 import AssistantPage from "./pages/AssistantPage";
 import UseCasesPage from "./pages/UseCasesPage";
 import BlogPage from "./pages/BlogPage";
+import FaqPage from "./pages/FaqPage";
 import Layout from "./Layout";
 import "./index.css";
 
@@ -47,6 +48,10 @@ ReactDOM.createRoot(
               <Route
                 path="/blog"
                 element={<BlogPage />}
+              />
+              <Route
+                path="/faq"
+                element={<FaqPage />}
               />
         </Route>
       </Routes>

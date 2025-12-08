@@ -154,7 +154,8 @@ const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-startups-hire-without-hr-team",
     title: "How Startups Can Build Hiring Systems Without an HR Team",
-    subtitle: "You don’t need a full HR department to run a serious hiring process.",
+    subtitle:
+      "You don’t need a full HR department to run a serious hiring process.",
     date: "September 2025",
     readingTime: "6 min read",
     category: "Startups",
@@ -227,30 +228,34 @@ const BlogPage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f7ff] via-[#faf5ff] to-[#f5f0ff] text-slate-900">
-      {/* HERO */}
-      <section className="relative border-b border-indigo-100/70 bg-gradient-to-b from-white/90 via-[#f5f7ff] to-[#f5f0ff]">
-        {/* soft blue glow */}
-        <div className="pointer-events-none absolute -left-20 top-[-40px] h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.25),transparent_60%)] blur-3xl" />
-        <div className="pointer-events-none absolute right-[-40px] top-[60px] h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,_rgba(129,140,248,0.24),transparent_60%)] blur-3xl" />
+    <div className="min-h-screen bg-gradient-to-b from-[#faf5ff] via-white to-[#f5f0ff] text-slate-900">
+      {/* HERO – same background & size family as UseCases / FAQ */}
+      <section
+        className="relative overflow-hidden border-b border-violet-900/40
+        bg-[radial-gradient(circle_at_top_left,_#4c1d95_0%,_#1e1b4b_45%,_#0f172a_90%)]
+        text-white"
+      >
+        {/* purple glow left */}
+        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(168,85,247,0.35),transparent_70%)] blur-3xl" />
+        {/* blue glow right */}
+        <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.32),transparent_70%)] blur-3xl" />
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-16 md:pb-14 md:pt-20 lg:px-0">
+        <div className="mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center">
           <motion.div
-            className="max-w-3xl"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-500">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-200">
               Resources · Blog
             </p>
-            <h1 className="mt-3 text-2xl font-semibold leading-tight text-slate-900 md:text-[30px]">
+            <h1 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-[30px]">
               Hiring, AI, and talent systems —{" "}
-              <span className="bg-gradient-to-r from-sky-500 via-indigo-500 to-violet-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-indigo-300 to-violet-300 bg-clip-text text-transparent">
                 in plain language.
               </span>
             </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-[15px]">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-violet-200 md:text-[15px]">
               Short, practical reads on how modern recruiting teams use AI,
               structure, and better workflows to hire faster — and how
               SmartScreen is being built to support that shift without adding

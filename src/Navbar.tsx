@@ -219,7 +219,7 @@ const Navbar: React.FC = () => {
 
                 <li
                   className="flex cursor-pointer flex-col gap-0.5"
-                  onClick={() => navigateTo("/resources/faq")}
+                  onClick={() => navigateTo("/faq")}
                 >
                   <span className="font-medium text-brand-dark">FAQ</span>
                   <span className="text-[11px] text-slate-600">

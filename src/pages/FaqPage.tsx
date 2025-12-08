@@ -179,46 +179,48 @@ const FaqPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#faf5ff] via-white to-[#f5f0ff] text-slate-900">
       {/* HERO – same background & size as UseCasesPage */}
-      <section
-        className="relative overflow-hidden border-b border-violet-900/40
-        bg-[radial-gradient(circle_at_top_left,_#4c1d95_0%,_#1e1b4b_45%,_#0f172a_90%)]
-        text-white"
+<section
+  className="relative overflow-hidden border-b border-violet-900/40
+  bg-[radial-gradient(circle_at_top_left,_#134e4a_0%,_#1e1b4b_45%,_#0f172a_90%)]
+  text-white"
+>
+  {/* teal glow left */}
+  <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 
+    rounded-full bg-[radial-gradient(circle,_rgba(45,212,191,0.40),transparent_70%)] blur-3xl" />
+
+  {/* violet glow right */}
+  <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 
+    rounded-full bg-[radial-gradient(circle,_rgba(168,85,247,0.32),transparent_70%)] blur-3xl" />
+
+  <div className="mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center">
+    <motion.div initial="hidden" animate="visible" variants={stagger}>
+      <motion.p
+        variants={fadeUp}
+        className="text-[11px] font-semibold uppercase tracking-[0.24em] text-teal-200"
       >
-        {/* purple glow left */}
-        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(168,85,247,0.35),transparent_70%)] blur-3xl" />
-        {/* blue glow right */}
-        <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.32),transparent_70%)] blur-3xl" />
+        Resources · FAQ
+      </motion.p>
 
-        <div className="mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.p
-              variants={fadeUp}
-              className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-200"
-            >
-              Resources · FAQ
-            </motion.p>
+      <motion.h1
+        variants={fadeUp}
+        className="mt-4 text-[32px] font-semibold leading-tight text-white md:text-[38px]"
+      >
+        Answers to common questions about{" "}
+        <span className="bg-gradient-to-r from-teal-300 via-violet-300 to-sky-300 bg-clip-text text-transparent">
+          SmartScreen.
+        </span>
+      </motion.h1>
 
-            <motion.h1
-              variants={fadeUp}
-              className="mt-4 text-[32px] font-semibold leading-tight text-white md:text-[38px]"
-            >
-              Answers to common questions about{" "}
-              <span className="bg-gradient-to-r from-fuchsia-300 via-violet-300 to-sky-300 bg-clip-text text-transparent">
-                SmartScreen.
-              </span>
-            </motion.h1>
+      <motion.p
+        variants={fadeUp}
+        className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-teal-100"
+      >
+        Everything you need to know about how SmartScreen fits into your hiring stack.
+      </motion.p>
+    </motion.div>
+  </div>
+</section>
 
-            <motion.p
-              variants={fadeUp}
-              className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-violet-200"
-            >
-              This FAQ focuses on how SmartScreen fits into your existing hiring
-              stack today: what it does, what it doesn&apos;t do yet, and how we
-              handle AI, data, and early access.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* SINGLE-COLUMN FAQ */}
       <section className="mx-auto max-w-4xl px-4 py-12 md:py-16 lg:px-0">

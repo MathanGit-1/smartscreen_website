@@ -2,6 +2,16 @@
 import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
+
 type BlogPost = {
   slug: string;
   title: string;
@@ -11,6 +21,12 @@ type BlogPost = {
   category: string;
   excerpt: string;
   content: string[];
+};
+
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0 }
 };
 
 const BLOG_POSTS: BlogPost[] = [
@@ -212,11 +228,6 @@ const BLOG_POSTS: BlogPost[] = [
   }
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 }
-};
-
 const BlogPage: React.FC = () => {
   const [selectedSlug, setSelectedSlug] = useState<string>(
     BLOG_POSTS[0]?.slug
@@ -230,40 +241,49 @@ const BlogPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#faf5ff] via-white to-[#f5f0ff] text-slate-900">
       {/* HERO – same background & size family as UseCases / FAQ */}
-      <section
-        className="relative overflow-hidden border-b border-violet-900/40
-        bg-[radial-gradient(circle_at_top_left,_#4c1d95_0%,_#1e1b4b_45%,_#0f172a_90%)]
-        text-white"
-      >
-        {/* purple glow left */}
-        <div className="pointer-events-none absolute -left-40 top-10 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,_rgba(168,85,247,0.35),transparent_70%)] blur-3xl" />
-        {/* blue glow right */}
-        <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.32),transparent_70%)] blur-3xl" />
+<section
+  className="relative overflow-hidden border-b border-indigo-900/40
+  bg-[radial-gradient(circle_at_top_left,_#1e3a8a_0%,_#1e1b4b_45%,_#0f172a_90%)]
+  text-white"
+>
+  {/* blue glow left */}
+  <div className="pointer-events-none absolute -left-36 top-10 h-80 w-80 
+    rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.40),transparent_70%)] blur-3xl" />
 
-        <div className="mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-indigo-200">
-              Resources · Blog
-            </p>
-            <h1 className="mt-3 text-2xl font-semibold leading-tight text-white md:text-[30px]">
-              Hiring, AI, and talent systems —{" "}
-              <span className="bg-gradient-to-r from-sky-400 via-indigo-300 to-violet-300 bg-clip-text text-transparent">
-                in plain language.
-              </span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-violet-200 md:text-[15px]">
-              Short, practical reads on how modern recruiting teams use AI,
-              structure, and better workflows to hire faster — and how
-              SmartScreen is being built to support that shift without adding
-              more chaos.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+  {/* purple glow right */}
+  <div className="pointer-events-none absolute -right-36 bottom-0 h-96 w-96 
+    rounded-full bg-[radial-gradient(circle,_rgba(139,92,246,0.32),transparent_70%)] blur-3xl" />
+
+  <div className="mx-auto flex min-h-[500px] max-w-4xl flex-col items-center justify-center px-4 py-16 text-center">
+    <motion.div initial="hidden" animate="visible" variants={stagger}>
+      <motion.p
+        variants={fadeUp}
+        className="text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-200"
+      >
+        Resources · Blog
+      </motion.p>
+
+      <motion.h1
+        variants={fadeUp}
+        className="mt-4 text-[32px] font-semibold leading-tight text-white md:text-[38px]"
+      >
+        Hiring, AI, and talent systems —
+        <span className="bg-gradient-to-r from-sky-300 via-indigo-300 to-violet-300 bg-clip-text text-transparent">
+          in plain language.
+        </span>
+      </motion.h1>
+
+      <motion.p
+        variants={fadeUp}
+        className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-blue-100"
+      >
+        Short, practical reads on how modern recruiting teams use AI, structure,
+        and better workflows to hire faster—without the chaos.
+      </motion.p>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* CONTENT */}
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-14 lg:px-0">
